@@ -1,9 +1,9 @@
-# Grattan Institute — AEMC Electricity Pricing Review
+# AEMC Electricity Pricing Review
 ## Distributional analysis of rooftop solar and the renter gap
 
-Analysis and interactive visualisations supporting Grattan Institute's submission to the AEMC Electricity Pricing Review (June 2026).
+Analysis and interactive visualisations in response to the AEMC Electricity Pricing Review (June 2026).
 
-**Core argument:** The AEMC's distributional premise — that solar owners are wealthy and subsidised by poorer non-solar households — is not supported by postcode-level data. The access gap is a tenure gap, not an income gap.
+**Core argument:** The AEMC’s distributional premise is that households able to invest in solar, batteries and other CER can reduce their contribution to shared network costs, while households less able to invest, which including renters, apartment-dwellers and lower-income or lower-wealth households, may pay more. My analysis tests this premise using postcode-level solar uptake data.
 
 ---
 
