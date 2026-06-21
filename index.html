@@ -3,255 +3,664 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Who actually has solar? The income story the AEMC's pricing review missed | Grattan Institute</title>
+<title>Who actually has solar? | Grattan Institute</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
+  /* ── Reset ───────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Georgia', serif; background: #fafaf8; color: #1a1a1a; line-height: 1.6; }
-  header { background: #141322; color: #fff; padding: 2.5rem 2rem 2rem; }
-  header .kicker { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #e04a17; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.8rem; }
-  h1 { font-size: 1.9rem; font-weight: normal; letter-spacing: -0.01em; line-height: 1.2; margin-bottom: 0.7rem; }
-  header .deck { font-family: 'Arial', sans-serif; font-size: 0.95rem; color: #c1c1c1; line-height: 1.6; max-width: 800px; }
-  .container { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
-  h2 { font-size: 1.3rem; font-weight: normal; color: #141322; margin: 3rem 0 0.4rem; border-bottom: 2px solid #141322; padding-bottom: 0.35rem; }
-  h3 { font-size: 1rem; font-weight: bold; color: #141322; margin: 1.4rem 0 0.3rem; font-family: 'Arial', sans-serif; }
-  p { font-size: 0.92rem; line-height: 1.75; margin: 0.65rem 0; font-family: 'Arial', sans-serif; color: #2a2a2a; }
-  .caption { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #757575; margin: 0.2rem 0 0.8rem; line-height: 1.5; }
-  .chart-wrap { background: #fff; border: 1px solid #dde0e8; border-radius: 6px; padding: 1.2rem 1.2rem 1rem; margin: 1rem 0; }
+
+  /* ── Base ────────────────────────────────────────── */
+  body {
+    font-family: 'Georgia', serif;
+    background: #f9f8f6;
+    color: #1a1a1a;
+    line-height: 1.65;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
+  header {
+    background: #1c1c2b;
+    color: #fff;
+    padding: 3rem 2rem 2.5rem;
+    border-bottom: 4px solid #EF7900;
+  }
+  header .kicker {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.75rem;
+    color: #EF7900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: normal;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.9rem;
+    max-width: 800px;
+  }
+  header .deck {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #c8c8d8;
+    line-height: 1.65;
+    max-width: 720px;
+  }
+
+  /* ── Layout ──────────────────────────────────────── */
+  .outer {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+  @media (max-width: 700px) { .outer { padding: 0 1.25rem; } }
+
+  .container {
+    padding: 3rem 0 6rem;
+  }
+
+  /* ── Typography ──────────────────────────────────── */
+  h2 {
+    font-size: 1.35rem;
+    font-weight: normal;
+    color: #1c1c2b;
+    margin: 3.5rem 0 0.5rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid #EF7900;
+  }
+  h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #1c1c2b;
+    margin: 1.6rem 0 0.3rem;
+  }
+  p {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.93rem;
+    line-height: 1.78;
+    margin: 0.7rem 0;
+    color: #2d2d2d;
+    max-width: 72ch;
+  }
+  .caption {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.75rem;
+    color: #888;
+    margin: 0.15rem 0 0.9rem;
+    line-height: 1.5;
+    max-width: 72ch;
+  }
+  em { font-style: italic; }
+  strong { font-weight: bold; }
+
+  /* ── Finding boxes ───────────────────────────────── */
+  .finding {
+    background: #fff8f2;
+    border-left: 4px solid #EF7900;
+    padding: 1rem 1.4rem;
+    margin: 1.5rem 0;
+    border-radius: 0 6px 6px 0;
+    max-width: 780px;
+  }
+  .finding p { margin: 0; max-width: 100%; color: #1c1c2b; }
+
+  /* ── Charts ──────────────────────────────────────── */
+  .chart-wrap {
+    background: #fff;
+    border: 1px solid #e4e0d8;
+    border-radius: 8px;
+    padding: 1.4rem 1.4rem 1.1rem;
+    margin: 0.8rem 0 1.2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
   .chart-wrap canvas { display: block; }
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
-  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } h1 { font-size: 1.4rem; } }
-  .finding { background: #f0f4ff; border-left: 4px solid #141322; padding: 0.9rem 1.2rem; margin: 1.2rem 0; border-radius: 0 4px 4px 0; }
-  .finding p { margin: 0; font-size: 0.9rem; }
-  .finding strong { color: #141322; }
-  .cameo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; margin: 1.2rem 0; }
-  @media (max-width: 600px) { .cameo-grid { grid-template-columns: 1fr; } }
-  .cameo { background: #fff; border: 1px solid #dde0e8; border-radius: 6px; padding: 1rem 1.1rem; }
-  .cameo .delta { font-family: 'Arial', sans-serif; font-size: 1.2rem; font-weight: bold; margin-bottom: 0.2rem; }
+
+  /* ── Two-column grid ─────────────────────────────── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    margin: 1rem 0;
+  }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+
+  /* ── Cameo cards ─────────────────────────────────── */
+  .cameo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.3rem 0;
+    max-width: 780px;
+  }
+  @media (max-width: 560px) { .cameo-grid { grid-template-columns: 1fr; } }
+  .cameo {
+    background: #fff;
+    border: 1px solid #e4e0d8;
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  .cameo .delta {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+  }
   .cameo .delta.better { color: #185a2e; }
-  .cameo .delta.worse { color: #b02621; }
-  .cameo .delta.neutral { color: #ba5c0f; }
-  .cameo .name { font-family: 'Arial', sans-serif; font-size: 0.9rem; font-weight: bold; color: #141322; margin-bottom: 0.25rem; }
-  .cameo .desc { font-family: 'Arial', sans-serif; font-size: 0.82rem; color: #555; line-height: 1.5; }
-  .tab-row { display: flex; gap: 0.5rem; margin: 0.8rem 0 0.5rem; flex-wrap: wrap; }
-  .tab-btn { font-family: 'Arial', sans-serif; font-size: 0.82rem; padding: 0.3rem 0.85rem; border: 1px solid #141322; border-radius: 20px; background: #fff; color: #141322; cursor: pointer; transition: 0.15s; }
-  .tab-btn.active { background: #141322; color: #fff; }
-  .tab-btn:hover:not(.active) { background: #f0f4ff; }
-  #map { height: 480px; border-radius: 6px; border: 1px solid #dde0e8; margin: 1rem 0; }
-  .map-legend { background: #fff; border: 1px solid #dde0e8; border-radius: 4px; padding: 0.6rem 0.8rem; font-family: 'Arial', sans-serif; font-size: 0.75rem; line-height: 1.8; }
-  .legend-swatch { display: inline-block; width: 14px; height: 14px; border-radius: 2px; vertical-align: middle; margin-right: 4px; border: 1px solid rgba(0,0,0,0.1); }
-  .policy-ask { background: #141322; color: #fff; padding: 1.5rem 1.8rem; border-radius: 6px; margin: 2.5rem 0 1.5rem; }
-  .policy-ask strong { display: block; font-family: 'Arial', sans-serif; font-size: 0.85rem; letter-spacing: 0.05em; text-transform: uppercase; color: #e04a17; margin-bottom: 0.5rem; }
-  .policy-ask p { color: #c1c1c1; font-size: 0.9rem; margin: 0; line-height: 1.7; }
-  .nav-link { display: inline-block; margin-top: 1.5rem; font-family: 'Arial', sans-serif; font-size: 0.85rem; color: #1a6b3c; text-decoration: none; border: 1px solid #1a6b3c; border-radius: 4px; padding: 0.4rem 0.9rem; }
-  .nav-link:hover { background: #1a6b3c; color: #fff; }
-  .footnotes { font-family: 'Arial', sans-serif; font-size: 0.77rem; color: #777; border-top: 1px solid #ddd; margin-top: 3rem; padding-top: 1rem; line-height: 1.65; }
-  .footnotes p { font-size: 0.77rem; color: #777; }
-  .footnotes strong { color: #555; }
+  .cameo .delta.worse  { color: #A1253E; }
+  .cameo .delta.neutral { color: #D4582A; }
+  .cameo .name {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.88rem;
+    font-weight: bold;
+    color: #1c1c2b;
+    margin-bottom: 0.3rem;
+  }
+  .cameo .desc {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.81rem;
+    color: #555;
+    line-height: 1.55;
+  }
+
+  /* ── Tab buttons ─────────────────────────────────── */
+  .tab-row {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0.9rem 0 0.4rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.81rem;
+    padding: 0.28rem 0.85rem;
+    border: 1.5px solid #EF7900;
+    border-radius: 20px;
+    background: #fff;
+    color: #EF7900;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .tab-btn.active { background: #EF7900; color: #fff; }
+  .tab-btn:hover:not(.active) { background: #fff8f2; }
+
+  /* ── Map ─────────────────────────────────────────── */
+  #map {
+    height: 500px;
+    border-radius: 8px;
+    border: 1px solid #e4e0d8;
+    margin: 0.8rem 0 1.2rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .map-legend {
+    background: #fff;
+    border: 1px solid #e4e0d8;
+    border-radius: 6px;
+    padding: 0.7rem 1rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.74rem;
+    line-height: 1.9;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  .legend-swatch {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 5px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* ── Policy ask ──────────────────────────────────── */
+  .policy-ask {
+    background: #1c1c2b;
+    color: #fff;
+    padding: 1.8rem 2rem;
+    border-radius: 8px;
+    margin: 3rem 0 1.5rem;
+    max-width: 780px;
+    border-left: 4px solid #EF7900;
+  }
+  .policy-ask .label {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #EF7900;
+    margin-bottom: 0.6rem;
+  }
+  .policy-ask p {
+    color: #c8c8d8;
+    font-size: 0.91rem;
+    line-height: 1.75;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* ── Nav link ────────────────────────────────────── */
+  .nav-link {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.85rem;
+    color: #EF7900;
+    text-decoration: none;
+    border: 1.5px solid #EF7900;
+    border-radius: 4px;
+    padding: 0.45rem 1rem;
+    transition: 0.15s;
+  }
+  .nav-link:hover { background: #EF7900; color: #fff; }
+
+  /* ── Footnotes ───────────────────────────────────── */
+  .footnotes {
+    border-top: 1px solid #ddd;
+    margin-top: 3.5rem;
+    padding-top: 1.2rem;
+  }
+  .footnotes p {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.75rem;
+    color: #888;
+    line-height: 1.65;
+    max-width: 72ch;
+  }
+  .footnotes strong { color: #666; }
+
+  /* ── Key stat strip ──────────────────────────────── */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1.8rem 0;
+    max-width: 780px;
+  }
+  @media (max-width: 560px) { .stat-strip { grid-template-columns: 1fr; } }
+  .stat-box {
+    background: #fff;
+    border: 1px solid #e4e0d8;
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    text-align: center;
+  }
+  .stat-box .big-num {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #EF7900;
+    line-height: 1.1;
+  }
+  .stat-box .stat-label {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.78rem;
+    color: #666;
+    margin-top: 0.3rem;
+    line-height: 1.4;
+  }
 </style>
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════════════════════
+     HEADER — edit the title and deck text below
+     ═══════════════════════════════════════════════════════════ -->
 <header>
-  <div class="kicker">Grattan Institute &middot; Energy &amp; Climate</div>
-  <h1>Who actually has solar? The income story the AEMC&rsquo;s pricing review missed</h1>
-  <p class="deck">The AEMC’s distributional premise is that households able to invest in solar, batteries and other CER can reduce their contribution to shared network costs, while households less able to invest, including renters, apartment-dwellers and lower-income or lower-wealth households, may pay more. New postcode-level analysis of 15 years of installation data challenges the distributional premise behind the AEMC&rsquo;s June 2026 Pricing Review.</p>
+  <div class="outer">
+    <div class="kicker">Grattan Institute &middot; Energy &amp; Climate</div>
+
+    <!-- EDIT: Page title -->
+    <h1>Who actually has solar? The income story the AEMC&rsquo;s pricing review missed</h1>
+
+    <!-- EDIT: Standfirst / deck paragraph -->
+    <p class="deck">Australia&rsquo;s rooftop solar revolution is concentrated in lower-income postcodes, not wealthier ones. New postcode-level analysis of 15 years of installation data challenges the distributional premise behind the AEMC&rsquo;s June 2026 Pricing Review.</p>
+  </div>
 </header>
 
+<div class="outer">
 <div class="container">
 
-  <div class="finding" style="margin-top:1.5rem;">
-    <p><strong>The bottom income decile (median ~$48k/year) has higher solar penetration than the top decile (~$133k/year) &mdash; and that pattern has held for 15 years.</strong></p>
+<!-- ═══════════════════════════════════════════════════════════
+     KEY STATS STRIP
+     ═══════════════════════════════════════════════════════════ -->
+<div class="stat-strip" style="margin-top:2.5rem;">
+  <!-- EDIT: Change numbers/labels in the three stat boxes -->
+  <div class="stat-box">
+    <div class="big-num">47%</div>
+    <div class="stat-label">Solar penetration in the lowest-income decile, 2025</div>
   </div>
-
-  <p>The AEMC&rsquo;s rationale for raising shared network access charges is that consumers who can&rsquo;t access solar &mdash; renters, apartment dwellers, and low-income households &mdash; are increasingly bearing network costs that solar owners avoid. The AEMC does not claim solar owners are uniformly wealthy. Its argument is about who is <em>excluded</em> from solar. But the reform&rsquo;s instrument, which is shifting costs from per-kWh charges to a fixed access charge, does not distinguish between the non-solar groups it aims to protect. This postcode-level data tests whether the underlying income geography supports the reform&rsquo;s logic.</p>
-
-  <h2>Solar adoption over time, by household income decile</h2>
-  <p class="caption">Weighted average share of houses with rooftop solar, by postcode income decile (1 = lowest income, 10 = highest). CER installation data, ABS Census 2021 income, APVI estimated dwelling counts.</p>
-  <div class="chart-wrap">
-    <canvas id="chartTimeSeries" height="320"></canvas>
+  <div class="stat-box">
+    <div class="big-num">40%</div>
+    <div class="stat-label">Solar penetration in the highest-income decile, 2025</div>
   </div>
-
-  <div class="finding">
-    <p><strong>Lower-income postcodes adopted solar earlier, faster, and at higher rates. This pattern has held for 15 years.</strong><br>
-    By 2025, the lowest-income decile had nearly 47% of houses with solar, compared to 40% for the highest-income decile. The gap is slowly closing as wealthier urban postcodes catch up &mdash; but we are mid-convergence, not post-convergence.</p>
+  <div class="stat-box">
+    <div class="big-num">15 yrs</div>
+    <div class="stat-label">Lower-income postcodes have led on solar adoption</div>
   </div>
-
-  <h2>Controlling for dwelling type: income barely predicts solar adoption at all</h2>
-  <p class="caption">% of postcodes classified as detached house, flat/apartment, and renter-occupied, by income decile. ABS Census 2021, Table G36 (dwelling structure) and G37 (tenure type).</p>
-  <p>A genuine question about the main finding here: is the inverse income-solar gradient simply an artefact of <em>dwelling type</em>? Wealthy inner-city postcodes have far more apartments than lower-income suburban and regional postcodes, and apartments cannot practically install rooftop solar. If that&rsquo;s driving the pattern, then the story isn&rsquo;t really about income at all.</p>
-  <p>The data confirms this as a partial explanation, however it <strong>strengthens, not weakens, the argument against the AEMC&rsquo;s premise</strong>.</p>
-
-  <div class="two-col">
-    <div>
-      <h3>Dwelling type by income decile</h3>
-      <p class="caption">Apartments concentrate in D9&ndash;D10</p>
-      <div class="chart-wrap">
-        <canvas id="chartDwelling" height="260"></canvas>
-      </div>
-    </div>
-    <div>
-      <h3>Solar penetration by income decile</h3>
-      <p class="caption">All postcodes vs house-only postcodes</p>
-      <div class="chart-wrap">
-        <canvas id="chartSolarDwelling" height="260"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="finding">
-    <p><strong>Among detached houses &mdash; the only dwelling type where solar is practically installable &mdash; income barely predicts solar adoption.</strong><br>
-    In postcodes where more than 70% of dwellings are detached houses, solar penetration ranges from 43% (D3) to 51% (D9): a gap of less than 8 percentage points across the entire income spectrum. The inverse gradient in the full dataset reflects apartment concentration in wealthy inner-city areas, not a wealth barrier to solar.</p>
-  </div>
-
-  <div class="finding">
-    <p><strong>Tenure, not income, is the real structural barrier: renters at all income levels lack solar.</strong><br>
-    House-dominated postcodes with high renting (&gt;30% renters) have 40% average solar penetration. Comparable postcodes with low renting (&lt;20%) have 48% &mdash; a 7 percentage point gap. In D2 postcodes (median ~$57k/yr), high-renter areas have 27% solar vs 46% in low-renter areas: a 19 percentage point gap at a $145/year income difference. The AEMC groups renters, apartment-dwellers, and low-income owner-occupiers together as &ldquo;non-solar households who can&rsquo;t access CER.&rdquo; The data says these are three separate problems requiring three separate policy responses.</p>
-  </div>
-
-  <h2>Solar vs battery penetration today, by income decile</h2>
-  <p class="caption">Solar = cumulative installs 2001&ndash;2026 as % of estimated dwellings. Battery = installs Jul 2025&ndash;May 2026 as % of dwellings (batteries only became SRES-eligible in July 2025).</p>
-  <div class="two-col">
-    <div>
-      <h3>Solar penetration</h3>
-      <div class="chart-wrap">
-        <canvas id="chartSolarDecile" height="240"></canvas>
-      </div>
-    </div>
-    <div>
-      <h3>Battery penetration</h3>
-      <div class="chart-wrap">
-        <canvas id="chartBatteryDecile" height="240"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="finding">
-    <p><strong>Battery ownership rises modestly with income &mdash; but the gap is smaller than for solar, and the AEMC&rsquo;s reform erodes returns for solar investors regardless of income.</strong><br>
-    Higher shared network access charges raise the unavoidable standing cost every household pays, compressing the savings that rooftop solar delivers. Households that installed solar to escape grid costs &mdash; disproportionately in lower-income postcodes &mdash; face a direct erosion of that investment.</p>
-  </div>
-
-  <h2>What the AEMC&rsquo;s own modelling shows and what it obscures</h2>
-  <p class="caption">Source: AEMC, <em>Smarter, cleaner, cheaper energy: What network tariff reform means for consumers</em>, 23 April 2026 (distributional impact analysis).</p>
-  <p>The AEMC&rsquo;s April 2026 distributional analysis explicitly acknowledges that reform will affect households differently. It models six &ldquo;cameos&rdquo; &mdash; representative households &mdash; under a 10-year transition to 80% shared network access charges. The results reveal a fault line that has nothing to do with whether you have solar: <strong>it&rsquo;s about how much electricity you use</strong>.</p>
-
-  <div class="cameo-grid">
-    <div class="cameo">
-      <div class="delta better">&darr; $220&ndash;$740/yr</div>
-      <div class="name">Manouri &amp; Sean</div>
-      <div class="desc">4-person renting family, no solar, high consumption (11.6 MWh/yr). <strong>Better off under reform</strong> (lower variable charges outweigh higher fixed charges).</div>
-    </div>
-    <div class="cameo">
-      <div class="delta neutral">&uarr; $40&ndash;$120/yr</div>
-      <div class="name">Simon &amp; Belinda</div>
-      <div class="desc">3-person household, solar + battery + EV, high consumption. <strong>Broadly stable</strong> (still imports enough to benefit from lower usage rates).</div>
-    </div>
-    <div class="cameo">
-      <div class="delta worse">&uarr; $10&ndash;$80/yr</div>
-      <div class="name">Margaret</div>
-      <div class="desc">Single renter, older apartment, low consumption (4.0 MWh/yr), no CER. <strong>Worse off under reform</strong> (access charge increase outweighs usage savings). AEMC identifies consumer protections as mandatory but unspecified.</div>
-    </div>
-    <div class="cameo">
-      <div class="delta better">&darr; $200&ndash;$600/yr</div>
-      <div class="name">Liam &amp; Priya</div>
-      <div class="desc">3-person household, fully electrified (no gas), high consumption. <strong>Better off</strong> (reform lowers variable charges as electricity use rises).</div>
-    </div>
-  </div>
-
-  <div class="finding">
-    <p><strong>The AEMC&rsquo;s &ldquo;fairness&rdquo; argument is really an argument about consumption, not income.</strong><br>
-    Under reform, high-consumption households (large families, electrified homes) save hundreds of dollars a year. Low-consumption households &mdash; including many elderly renters and single-person households &mdash; pay more, and the AEMC concedes they need targeted protection. But those &ldquo;protections&rdquo; are not part of the current rule-change proposal.</p>
-  </div>
-
-  <h2>The AEMC&rsquo;s own impact numbers: winners and losers by household type</h2>
-  <p class="caption">Estimated annual bill change (FY40 vs no-reform baseline) under an 80% shared network access charge scenario. Source: AEMC, <em>What network tariff reform means for consumers</em>, April 2026. Values show mid-point of low&ndash;high range across different networks.</p>
-  <div class="chart-wrap">
-    <canvas id="chartBillImpact" height="220"></canvas>
-  </div>
-
-  <h2>The cross-subsidy the AEMC diagnosed, and what the data actually shows</h2>
-  <p>The AEMC&rsquo;s core equity argument is that solar owners avoid network charges, shifting costs onto consumers unable to access consumer energy resources (CER) &mdash; a category the AEMC explicitly names as renters, apartment dwellers, and low-income households. The AEMC is not claiming solar owners are a wealthy elite; it is arguing that the people structurally excluded from solar are disproportionately disadvantaged. Our postcode data tests whether the instrument chosen to fix this &mdash; raising shared network access charges &mdash; actually tracks the population it&rsquo;s meant to protect.</p>
-  <p>The AEMC is right that solar owners avoid some shared network costs. But the reform assumes the solar-owning group skews wealthy and the non-solar group skews poor. That income geography doesn&rsquo;t hold at postcode scale. The lowest-income postcodes have had <em>higher</em> solar penetration than the highest-income postcodes for over a decade. The AEMC&rsquo;s own April 2026 analysis modelled 25,000 households across 10 distribution networks, but did not cross-tabulate solar ownership against postcode income. This analysis does.</p>
-  <p><strong>What this means for the policy:</strong> shifting costs from per-kWh charges to a shared access charge doesn&rsquo;t distinguish between (a) wealthy inner-city non-solar apartment dwellers and (b) lower-income solar-owning suburban households. If the cross-subsidy runs substantially in both directions, raising access charges doesn&rsquo;t fix the equity problem &mdash; instead it imposes new costs on lower-income households who already invested in solar to manage their bills.</p>
-
-  <h2>Solar penetration by federal electorate</h2>
-  <p class="caption">Weighted average share of houses with solar, by electorate. Sorted highest to lowest. Source: APVI postcode penetration data &times; AEC electoral boundaries. Data current to 2026.</p>
-
-  <div class="finding">
-    <p><strong>The highest-solar electorates are in regional and suburban Australia, not the wealthy inner cities. The pattern holds at every scale.</strong><br>
-    Hinkler (Bundaberg, Qld; median household income ~$56k/yr) has 67% of houses with solar. Wentworth (Eastern Suburbs, NSW; median ~$152k/yr) has 18%. Sydney electorate: 11%.</p>
-  </div>
-
-  <div class="finding">
-    <p><strong>The communities most exposed to reform are also the ones where energy cost anxiety is most politically salient.</strong><br>
-    The top One Nation electorates by vote share &mdash; Hinkler (13.3%), Flynn (14.2%), Wright (16.3%), Capricornia (15.6%) &mdash; average 50%+ solar penetration. The lowest One Nation electorates (Bradfield, Wentworth, Warringah) are the lowest-solar, highest-income seats.</p>
-  </div>
-
-  <h3>Scatter: solar penetration vs median household income</h3>
-  <div class="tab-row" id="scatterTabs">
-    <button class="tab-btn" id="btnMarginals" onclick="toggleMarginals(this)">&#9675; Highlight marginals</button>
-  </div>
-  <div class="chart-wrap">
-    <canvas id="chartScatter" height="360"></canvas>
-  </div>
-
-  <h3>Electorates ranked by solar penetration</h3>
-  <div class="tab-row" id="rankTabs">
-    <button class="tab-btn active" onclick="showElectorates('top20', this)">Top 20</button>
-    <button class="tab-btn" onclick="showElectorates('bottom20', this)">Bottom 20</button>
-    <button class="tab-btn" onclick="showElectorates('marginals', this)">Marginal seats</button>
-  </div>
-  <div class="chart-wrap">
-    <canvas id="chartElectorates" height="380"></canvas>
-  </div>
-
-  <h2>Solar adoption by state: where the reform hits hardest</h2>
-  <p class="caption">Weighted average solar penetration by state, 2026. Source: APVI postcode data, ABS 2021 Census. Note: WA&rsquo;s SWIS network is outside AEMC jurisdiction; QLD operates a Uniform Tariff Policy; SA has a Country Energy Equalisation Mechanism.</p>
-  <div class="chart-wrap">
-    <canvas id="chartState" height="240"></canvas>
-  </div>
-  <p><strong>SA</strong> leads on solar (53%) despite lower median incomes ($71.5k), consistent with our main finding. <strong>QLD</strong> (52%) is subject to a Uniform Tariff Policy. <strong>WA</strong> (49%) is largely outside AEMC jurisdiction. <strong>VIC</strong> (31%) and <strong>TAS</strong> (24%) have the lowest solar rates.</p>
-
-  <div class="finding">
-    <p><strong>The states with the most solar are the states with the most to lose.</strong><br>
-    SA and QLD, where solar penetration exceeds 50%, are the states where raising shared network access charges would most directly erode returns for the households that invested in rooftop solar. In both states, the solar-adopting households tend to be in lower-to-middle income postcodes, not wealthy urban ones.</p>
-  </div>
-
-  <h2>Solar penetration across Australia, by postcode</h2>
-  <p class="caption">Share of houses with rooftop solar. Darker = higher penetration. Sources: CER, APVI, ABS. Data current to May 2026.</p>
-  <div class="tab-row" id="mapTabs">
-    <button class="tab-btn active" onclick="setMapMode('solar', this)">Solar penetration</button>
-    <button class="tab-btn" onclick="setMapMode('income', this)">Median income</button>
-    <button class="tab-btn" onclick="setMapMode('battery', this)">Battery penetration</button>
-  </div>
-  <div id="map"></div>
-  <p class="caption">Click a postcode for details. Loading may take a moment as the map covers 2,400+ postcodes.</p>
-
-  <h2>What this means for the AEMC&rsquo;s review</h2>
-  <p>The AEMC&rsquo;s June 2026 final report proposes a 10-year transition to tariff structures with up to 80% of network costs recovered through shared network access charges. The AEMC is right that the status quo has a distributional problem: as solar uptake grows, network costs are spread across a smaller volumetric base, and the households least able to reduce consumption &mdash; renters, apartment dwellers, low-income owner-occupiers &mdash; pay an increasing share. Inaction is not cost-free. But the instrument chosen to fix it matters.</p>
-  <p>This analysis challenges the income geography that underlies the reform&rsquo;s logic. The data shows lower-income postcodes have <em>more</em> solar, not less &mdash; they adopted it earlier, faster, and at higher rates across 15 years. The reform&rsquo;s instrument &mdash; raising the unavoidable access charge &mdash; does not distinguish between lower-income solar owners (who face eroded returns), wealthy non-solar apartment dwellers (who may benefit), and renters of all incomes (who face higher access charges with no ability to respond by getting solar either way).</p>
-  <p>The AEMC&rsquo;s own distributional modelling acknowledges that the reform helps high-consumption non-CER households while potentially harming low-consumption non-CER households and that consumer protections are a &ldquo;critical design feature&rdquo; and &ldquo;necessary precursor&rdquo; to any rule change. Those protections have not yet been specified. Before any rule change proceeds, the distributional modelling should be disaggregated by both CER ownership <em>and</em> household income &mdash; not just consumption. The two are not the same thing.</p>
-
-  <div class="policy-ask">
-    <strong>The policy ask</strong>
-    <p>The AEMC should publish disaggregated distributional analysis crossing postcode income with solar ownership &mdash; not just consumption quintiles &mdash; before any rule change on shared network access charges proceeds. The data exists. Using it would show whether the equity case for reform holds at the household level, or whether the reform redistributes costs from wealthy non-solar apartment-dwellers to lower-income solar-owning suburban households, and allow consumer protections to be designed around the actual population at risk, not a proxy.</p>
-  </div>
-
-  <a href="solutions.html" class="nav-link">What could work instead &rarr; Three alternative solutions modelled with data</a>
-
-  <div class="footnotes">
-    <p><strong>Notes and sources</strong></p>
-    <p style="margin-top:0.5rem;">Solar installation data: Clean Energy Regulator, <em>Small-scale installation postcode data</em>, accessed June 2026. Battery data covers July 2025&ndash;May 2026 only (batteries became SRES-eligible 1 July 2025). Penetration rates = cumulative installs &divide; estimated dwellings (APVI methodology using ABS 2021 Census dwelling counts, adjusted quarterly). Income data: ABS 2021 Census, Table G02, Postal Area geography. Income deciles calculated on postcodes with &gt;100 estimated houses and valid income data. All dollar figures are 2021 Census dollars (weekly household income). Map geometries simplified from ABS Postal Area boundaries (GDA2020), July 2021&ndash;June 2026 edition. AEMC cameo bill impact figures: AEMC, <em>Smarter, cleaner, cheaper energy: What network tariff reform means for consumers</em>, 23 April 2026, pp. 22&ndash;26 (comparing FY40 bill outcomes under 80% shared network access charge scenario vs no reform; excludes dynamic pricing benefits). The AEMC final report (18 June 2026) clarifies that access charges need not be uniform &mdash; they may vary by connection type and historical consumption. The AEMC estimates network tariff reform delivers $6 billion in cumulative savings over 15 years (present value), or ~$40&ndash;80 per customer per year by 2040.</p>
-    <p style="margin-top:0.6rem;"><strong>Caveats:</strong> CER data excludes systems without registered STCs and does not deduct decommissioned systems. ABS income data is from 2021. Battery data covers only 11 months. Rural/remote postcodes (decile 1) include very high solar penetration areas that may not represent urban lower-income households &mdash; the postcode-level finding is strongest for deciles 2&ndash;6. This analysis does not control for dwelling type (house vs apartment). Apartments are harder to install solar on and tend to concentrate in higher-income inner-urban postcodes (deciles 8&ndash;10), which partly explains the inverse income gradient. Controlling for dwelling type strengthens, not weakens, the finding.</p>
-  </div>
-
 </div>
 
-<script>
-// ─── DATA ────────────────────────────────────────────────────────────────────
+<!-- EDIT: Lead finding box -->
+<div class="finding" style="margin-top:0.5rem;">
+  <p><strong>The bottom income decile (median ~$48k/year) has higher solar penetration than the top decile (~$133k/year) &mdash; and that pattern has held for 15 years.</strong></p>
+</div>
 
+<!-- EDIT: Body text paragraphs — change wording freely below -->
+<p>The AEMC&rsquo;s rationale for raising shared network access charges is that consumers who can&rsquo;t access solar &mdash; renters, apartment dwellers, and low-income households &mdash; are increasingly bearing network costs that solar owners avoid. The AEMC does not claim solar owners are uniformly wealthy. Its argument is about who is <em>excluded</em> from solar. But the reform&rsquo;s instrument &mdash; shifting costs from per-kWh charges to a fixed access charge &mdash; does not distinguish between the non-solar groups it aims to protect. This postcode-level data tests whether the underlying income geography supports the reform&rsquo;s logic.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — Solar adoption over time
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Solar adoption over time, by household income decile</h2>
+
+<!-- EDIT: Chart caption -->
+<p class="caption">Weighted average share of houses with rooftop solar, by postcode income decile (1 = lowest income, 10 = highest). CER installation data, ABS Census 2021 income, APVI estimated dwelling counts.</p>
+
+<div class="chart-wrap">
+  <canvas id="chartTimeSeries" height="300"></canvas>
+</div>
+
+<!-- EDIT: Finding box below chart 1 -->
+<div class="finding">
+  <p><strong>Lower-income postcodes adopted solar earlier, faster, and at higher rates. This pattern has held for 15 years.</strong><br>
+  By 2025, the lowest-income decile had nearly 47% of houses with solar, compared to 40% for the highest-income decile. The gap is slowly closing as wealthier urban postcodes catch up &mdash; but we are mid-convergence, not post-convergence.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — Dwelling type controls
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Controlling for dwelling type: income barely predicts solar adoption at all</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">% of postcodes classified as detached house, flat/apartment, and renter-occupied, by income decile. ABS Census 2021, Table G36 (dwelling structure) and G37 (tenure type).</p>
+
+<!-- EDIT: Body text -->
+<p>A genuine question about the main finding here: is the inverse income-solar gradient simply an artefact of <em>dwelling type</em>? Wealthy inner-city postcodes have far more apartments than lower-income suburban and regional postcodes, and apartments cannot practically install rooftop solar. If that&rsquo;s driving the pattern, then the story isn&rsquo;t really about income at all.</p>
+<p>The data confirms this as a partial explanation, however it <strong>strengthens, not weakens, the argument against the AEMC&rsquo;s premise</strong>.</p>
+
+<div class="two-col">
+  <div>
+    <h3>Dwelling type by income decile</h3>
+    <p class="caption">Apartments concentrate in D9&ndash;D10</p>
+    <div class="chart-wrap"><canvas id="chartDwelling" height="260"></canvas></div>
+  </div>
+  <div>
+    <h3>Solar penetration by income decile</h3>
+    <p class="caption">All postcodes vs house-only postcodes</p>
+    <div class="chart-wrap"><canvas id="chartSolarDwelling" height="260"></canvas></div>
+  </div>
+</div>
+
+<!-- EDIT: Finding boxes for section 2 -->
+<div class="finding">
+  <p><strong>Among detached houses &mdash; the only dwelling type where solar is practically installable &mdash; income barely predicts solar adoption.</strong><br>
+  In postcodes where more than 70% of dwellings are detached houses, solar penetration ranges from 43% (D3) to 51% (D9): a gap of less than 8 percentage points across the entire income spectrum. The inverse gradient in the full dataset reflects apartment concentration in wealthy inner-city areas, not a wealth barrier to solar.</p>
+</div>
+
+<div class="finding">
+  <p><strong>Tenure, not income, is the real structural barrier: renters at all income levels lack solar.</strong><br>
+  House-dominated postcodes with high renting (&gt;30% renters) have 40% average solar penetration. Comparable postcodes with low renting (&lt;20%) have 48% &mdash; a 7 percentage point gap. In D2 postcodes (median ~$57k/yr), high-renter areas have 27% solar vs 46% in low-renter areas: a 19 percentage point gap at a $145/year income difference. The AEMC groups renters, apartment-dwellers, and low-income owner-occupiers together as &ldquo;non-solar households who can&rsquo;t access CER.&rdquo; The data says these are three separate problems requiring three separate policy responses.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 3 — Solar vs battery
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Solar vs battery penetration today, by income decile</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">Solar = cumulative installs 2001&ndash;2026 as % of estimated dwellings. Battery = installs Jul 2025&ndash;May 2026 as % of dwellings (batteries only became SRES-eligible in July 2025).</p>
+
+<div class="two-col">
+  <div>
+    <h3>Solar penetration</h3>
+    <div class="chart-wrap"><canvas id="chartSolarDecile" height="240"></canvas></div>
+  </div>
+  <div>
+    <h3>Battery penetration</h3>
+    <div class="chart-wrap"><canvas id="chartBatteryDecile" height="240"></canvas></div>
+  </div>
+</div>
+
+<!-- EDIT: Finding box for section 3 -->
+<div class="finding">
+  <p><strong>Battery ownership rises modestly with income &mdash; but the gap is smaller than for solar, and the AEMC&rsquo;s reform erodes returns for solar investors regardless of income.</strong><br>
+  Higher shared network access charges raise the unavoidable standing cost every household pays, compressing the savings that rooftop solar delivers. Households that installed solar to escape grid costs &mdash; disproportionately in lower-income postcodes &mdash; face a direct erosion of that investment.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 4 — AEMC modelling
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>What the AEMC&rsquo;s own modelling shows and what it obscures</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">Source: AEMC, <em>Smarter, cleaner, cheaper energy: What network tariff reform means for consumers</em>, 23 April 2026 (distributional impact analysis).</p>
+
+<!-- EDIT: Body text -->
+<p>The AEMC&rsquo;s April 2026 distributional analysis explicitly acknowledges that reform will affect households differently. It models six &ldquo;cameos&rdquo; &mdash; representative households &mdash; under a 10-year transition to 80% shared network access charges. The results reveal a fault line that has nothing to do with whether you have solar: <strong>it&rsquo;s about how much electricity you use</strong>.</p>
+
+<!-- EDIT: Cameo cards — change names, numbers, and descriptions -->
+<div class="cameo-grid">
+  <div class="cameo">
+    <div class="delta better">&darr; $220&ndash;$740/yr</div>
+    <div class="name">Manouri &amp; Sean</div>
+    <div class="desc">4-person renting family, no solar, high consumption (11.6 MWh/yr). <strong>Better off under reform</strong> (lower variable charges outweigh higher fixed charges).</div>
+  </div>
+  <div class="cameo">
+    <div class="delta neutral">&uarr; $40&ndash;$120/yr</div>
+    <div class="name">Simon &amp; Belinda</div>
+    <div class="desc">3-person household, solar + battery + EV, high consumption. <strong>Broadly stable</strong> (still imports enough to benefit from lower usage rates).</div>
+  </div>
+  <div class="cameo">
+    <div class="delta worse">&uarr; $10&ndash;$80/yr</div>
+    <div class="name">Margaret</div>
+    <div class="desc">Single renter, older apartment, low consumption (4.0 MWh/yr), no CER. <strong>Worse off under reform</strong> (access charge increase outweighs usage savings). AEMC identifies consumer protections as mandatory but unspecified.</div>
+  </div>
+  <div class="cameo">
+    <div class="delta better">&darr; $200&ndash;$600/yr</div>
+    <div class="name">Liam &amp; Priya</div>
+    <div class="desc">3-person household, fully electrified (no gas), high consumption. <strong>Better off</strong> (reform lowers variable charges as electricity use rises).</div>
+  </div>
+</div>
+
+<!-- EDIT: Finding box section 4 -->
+<div class="finding">
+  <p><strong>The AEMC&rsquo;s &ldquo;fairness&rdquo; argument is really an argument about consumption, not income.</strong><br>
+  High-consumption households (large families, electrified homes) save hundreds of dollars a year. Low-consumption households &mdash; including many elderly renters and single-person households &mdash; pay more, and the AEMC concedes they need targeted protection. But those &ldquo;protections&rdquo; are not part of the current rule-change proposal.</p>
+</div>
+
+<!-- EDIT: Section heading for bill impact chart -->
+<h2>The AEMC&rsquo;s own impact numbers: winners and losers by household type</h2>
+
+<!-- EDIT: Chart caption -->
+<p class="caption">Estimated annual bill change (FY40 vs no-reform baseline) under an 80% shared network access charge scenario. Source: AEMC, <em>What network tariff reform means for consumers</em>, April 2026. Values are mid-point of the low&ndash;high range across networks.</p>
+
+<div class="chart-wrap">
+  <canvas id="chartBillImpact" height="200"></canvas>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 5 — Cross-subsidy
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>The cross-subsidy the AEMC diagnosed, and what the data actually shows</h2>
+
+<!-- EDIT: Body paragraphs — edit wording freely -->
+<p>The AEMC&rsquo;s core equity argument is that solar owners avoid network charges, shifting costs onto consumers unable to access consumer energy resources (CER) &mdash; a category the AEMC explicitly names as renters, apartment dwellers, and low-income households. The AEMC is not claiming solar owners are a wealthy elite; it is arguing that the people structurally excluded from solar are disproportionately disadvantaged. Our postcode data tests whether the instrument chosen to fix this &mdash; raising shared network access charges &mdash; actually tracks the population it&rsquo;s meant to protect.</p>
+<p>The AEMC is right that solar owners avoid some shared network costs. But the reform assumes the solar-owning group skews wealthy and the non-solar group skews poor. That income geography doesn&rsquo;t hold at postcode scale. The lowest-income postcodes have had <em>higher</em> solar penetration than the highest-income postcodes for over a decade. The AEMC&rsquo;s own April 2026 analysis modelled 25,000 households across 10 distribution networks, but did not cross-tabulate solar ownership against postcode income. This analysis does.</p>
+<p><strong>What this means for the policy:</strong> shifting costs from per-kWh charges to a shared access charge doesn&rsquo;t distinguish between (a) wealthy inner-city non-solar apartment dwellers and (b) lower-income solar-owning suburban households. If the cross-subsidy runs substantially in both directions, raising access charges doesn&rsquo;t fix the equity problem &mdash; it imposes new costs on lower-income households who already invested in solar to manage their bills.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 6 — Electoral geography
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Solar penetration by federal electorate</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">Weighted average share of houses with solar, by electorate. Source: APVI postcode penetration data &times; AEC electoral boundaries. Data current to 2026.</p>
+
+<!-- EDIT: Finding boxes -->
+<div class="finding">
+  <p><strong>The highest-solar electorates are in regional and suburban Australia, not the wealthy inner cities. The pattern holds at every scale.</strong><br>
+  Hinkler (Bundaberg, Qld; median household income ~$56k/yr) has 67% of houses with solar. Wentworth (Eastern Suburbs, NSW; median ~$152k/yr) has 18%. Sydney electorate: 11%. The assumption that shifting costs away from per-kWh charges protects disadvantaged non-solar households is directly contradicted by the electoral geography of solar adoption.</p>
+</div>
+
+<div class="finding">
+  <p><strong>The communities most exposed to reform are also the ones where energy cost anxiety is most politically salient.</strong><br>
+  The top One Nation electorates by vote share &mdash; Hinkler (13.3%), Flynn (14.2%), Wright (16.3%), Capricornia (15.6%) &mdash; average 50%+ solar penetration. The lowest One Nation electorates (Bradfield, Wentworth, Warringah) are the lowest-solar, highest-income seats. The reform the AEMC frames as helping &ldquo;low-income non-solar households&rdquo; would fall hardest on communities already expressing discontent with energy costs through their vote.</p>
+</div>
+
+<h3>Scatter: solar penetration vs median household income, by electorate</h3>
+<div class="tab-row" id="scatterTabs">
+  <button class="tab-btn" id="btnMarginals" onclick="toggleMarginals(this)">&#9675; Highlight marginal seats</button>
+</div>
+<div class="chart-wrap">
+  <canvas id="chartScatter" height="360"></canvas>
+</div>
+
+<h3>Electorates ranked by solar penetration</h3>
+<div class="tab-row" id="rankTabs">
+  <button class="tab-btn active" onclick="showElectorates('top20', this)">Top 20</button>
+  <button class="tab-btn" onclick="showElectorates('bottom20', this)">Bottom 20</button>
+  <button class="tab-btn" onclick="showElectorates('marginals', this)">Marginal seats</button>
+</div>
+<div class="chart-wrap">
+  <canvas id="chartElectorates" height="380"></canvas>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 7 — State breakdown
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Solar adoption by state: where the reform hits hardest</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">Weighted average solar penetration by state, 2026. Source: APVI postcode data, ABS 2021 Census. Note: WA&rsquo;s SWIS network is outside AEMC jurisdiction; QLD operates a Uniform Tariff Policy; SA has a Country Energy Equalisation Mechanism.</p>
+
+<div class="chart-wrap">
+  <canvas id="chartState" height="220"></canvas>
+</div>
+
+<!-- EDIT: State body text -->
+<p><strong>SA</strong> leads on solar (53%) despite lower median incomes ($71.5k), consistent with our main finding. <strong>QLD</strong> (52%) is subject to a Uniform Tariff Policy. <strong>WA</strong> (49%) is largely outside AEMC jurisdiction. <strong>VIC</strong> (31%) and <strong>TAS</strong> (24%) have the lowest solar rates, partly reflecting climate and built environment.</p>
+
+<div class="finding">
+  <p><strong>The states with the most solar are the states with the most to lose.</strong><br>
+  SA and QLD, where solar penetration exceeds 50%, are the states where raising shared network access charges would most directly erode returns for the households that invested in rooftop solar. In both states, the solar-adopting households tend to be in lower-to-middle income postcodes, not wealthy urban ones.</p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 8 — Postcode map
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>Solar penetration across Australia, by postcode</h2>
+
+<!-- EDIT: Caption -->
+<p class="caption">Share of houses with rooftop solar. Darker = higher penetration. Sources: CER, APVI, ABS. Data current to May 2026.</p>
+
+<div class="tab-row" id="mapTabs">
+  <button class="tab-btn active" onclick="setMapMode('solar', this)">Solar penetration</button>
+  <button class="tab-btn" onclick="setMapMode('income', this)">Median income</button>
+  <button class="tab-btn" onclick="setMapMode('battery', this)">Battery penetration</button>
+</div>
+<div id="map"></div>
+<p class="caption">Click a postcode for details. The map loads when you scroll to it &mdash; it covers 2,400+ postcodes.</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 9 — Conclusion
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- EDIT: Section heading -->
+<h2>What this means for the AEMC&rsquo;s review</h2>
+
+<!-- EDIT: Conclusion paragraphs -->
+<p>The AEMC&rsquo;s June 2026 final report proposes a 10-year transition to tariff structures with up to 80% of network costs recovered through shared network access charges. The AEMC is right that the status quo has a distributional problem: as solar uptake grows, network costs are spread across a smaller volumetric base, and the households least able to reduce consumption &mdash; renters, apartment dwellers, low-income owner-occupiers &mdash; pay an increasing share. Inaction is not cost-free. But the instrument chosen to fix it matters.</p>
+<p>This analysis challenges the income geography that underlies the reform&rsquo;s logic. The data shows lower-income postcodes have <em>more</em> solar, not less &mdash; they adopted it earlier, faster, and at higher rates across 15 years. The reform&rsquo;s instrument &mdash; raising the unavoidable access charge &mdash; does not distinguish between lower-income solar owners (who face eroded returns), wealthy non-solar apartment dwellers (who may benefit), and renters of all incomes (who face higher access charges with no ability to respond by getting solar either way).</p>
+<p>The AEMC&rsquo;s own distributional modelling acknowledges that the reform helps high-consumption non-CER households while potentially harming low-consumption non-CER households and that consumer protections are a &ldquo;critical design feature&rdquo; and &ldquo;necessary precursor&rdquo; to any rule change. Those protections have not yet been specified. Before any rule change proceeds, the distributional modelling should be disaggregated by both CER ownership <em>and</em> household income &mdash; not just consumption. The two are not the same thing.</p>
+
+<!-- EDIT: Policy ask box -->
+<div class="policy-ask">
+  <div class="label">The policy ask</div>
+  <p>The AEMC should publish disaggregated distributional analysis crossing postcode income with solar ownership &mdash; not just consumption quintiles &mdash; before any rule change on shared network access charges proceeds. The data exists. Using it would show whether the equity case for reform holds at the household level, or whether the reform redistributes costs from wealthy non-solar apartment-dwellers to lower-income solar-owning suburban households, and allow consumer protections to be designed around the actual population at risk, not a proxy.</p>
+</div>
+
+<a href="solutions.html" class="nav-link">What could work instead &rarr; Three alternative solutions modelled with data</a>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTNOTES — edit freely
+     ═══════════════════════════════════════════════════════════ -->
+<div class="footnotes">
+  <p><strong>Notes and sources</strong></p>
+  <p style="margin-top:0.5rem;">Solar installation data: Clean Energy Regulator, <em>Small-scale installation postcode data</em>, accessed June 2026. Battery data covers July 2025&ndash;May 2026 only (batteries became SRES-eligible 1 July 2025). Penetration rates = cumulative installs &divide; estimated dwellings (APVI methodology using ABS 2021 Census dwelling counts). Income data: ABS 2021 Census, Table G02, Postal Area geography. Income deciles calculated on postcodes with &gt;100 estimated houses and valid income data. All dollar figures are 2021 Census dollars. AEMC cameo bill impact figures: AEMC, <em>Smarter, cleaner, cheaper energy: What network tariff reform means for consumers</em>, 23 April 2026, pp. 22&ndash;26. The AEMC final report (18 June 2026) clarifies that access charges may vary by connection type and historical consumption. The AEMC estimates network tariff reform delivers $6 billion in cumulative savings over 15 years (present value).</p>
+  <p style="margin-top:0.6rem;"><strong>Caveats:</strong> CER data excludes systems without registered STCs and does not deduct decommissioned systems. ABS income data is from 2021. Battery data covers only 11 months. Rural/remote postcodes (decile 1) include very high solar penetration areas that may not represent urban lower-income households &mdash; the finding is strongest for deciles 2&ndash;6. This analysis does not control for dwelling type; apartments concentrate in higher-income postcodes (deciles 8&ndash;10), which partly explains the inverse income gradient. Controlling for dwelling type strengthens, not weakens, the finding.</p>
+</div>
+
+</div><!-- /container -->
+</div><!-- /outer -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     DATA & CHARTS — do not edit below this line
+     ═══════════════════════════════════════════════════════════ -->
+<script>
+// ─── GRATTAN COLOUR PALETTE ───────────────────────────────────────────────────
+const G = {
+  orange:    '#EF7900',
+  darkorange:'#D4582A',
+  red:       '#A1253E',
+  darkred:   '#611633',
+  plum:      '#3E0E39',
+  gold:      '#F5B50C',
+  blue:      '#6A99C4',
+  darkblue:  '#4371A1',
+  lightgrey: '#c8c8c8',
+  darkgrey:  '#6d6d6d',
+};
+
+// 10 decile colours: warm (low income) → cool (high income)
+const DECILE_COLORS = [
+  G.orange, G.gold, G.darkorange, G.red, G.darkred,
+  G.plum, G.darkblue, G.blue, G.lightgrey, G.darkgrey
+];
+
+// ─── CHART.JS GLOBAL DEFAULTS ────────────────────────────────────────────────
+Chart.defaults.font.family = 'Arial, sans-serif';
+Chart.defaults.font.size = 11;
+Chart.defaults.color = '#444';
+Chart.defaults.plugins.tooltip.backgroundColor = '#1c1c2b';
+Chart.defaults.plugins.tooltip.titleColor = '#EF7900';
+Chart.defaults.plugins.tooltip.bodyColor = '#e0e0e0';
+Chart.defaults.plugins.tooltip.padding = 10;
+Chart.defaults.plugins.tooltip.cornerRadius = 6;
+Chart.defaults.plugins.tooltip.displayColors = true;
+Chart.defaults.plugins.legend.labels.usePointStyle = true;
+Chart.defaults.plugins.legend.labels.boxWidth = 8;
+Chart.defaults.plugins.legend.labels.padding = 10;
+
+// ─── DATA ────────────────────────────────────────────────────────────────────
 const DECILE_TIME = {"1":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0363,0.0845,0.1281,0.1559,0.177,0.1936,0.2094,0.2288,0.2543,0.2826,0.317,0.3518,0.3824,0.4137,0.4427,0.4677,0.4783]},"2":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0264,0.0648,0.1036,0.1286,0.1503,0.1666,0.1818,0.201,0.2258,0.2549,0.2904,0.3244,0.3536,0.3856,0.4169,0.4419,0.452]},"3":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0258,0.0679,0.1076,0.133,0.1531,0.1683,0.1827,0.2023,0.2265,0.2558,0.2918,0.3272,0.3569,0.3883,0.418,0.4423,0.4522]},"4":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0277,0.0677,0.1054,0.1281,0.1467,0.1617,0.1758,0.1943,0.2178,0.2457,0.2823,0.3177,0.3482,0.3793,0.4108,0.4355,0.4461]},"5":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0268,0.0666,0.1059,0.129,0.1477,0.1623,0.1761,0.1943,0.2179,0.2472,0.2847,0.3218,0.3529,0.3863,0.4177,0.4444,0.4562]},"6":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0254,0.0649,0.0991,0.119,0.1369,0.1508,0.1641,0.1823,0.2053,0.2343,0.2718,0.3106,0.3424,0.3761,0.4086,0.4355,0.4477]},"7":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0303,0.0714,0.1133,0.1366,0.1572,0.1723,0.1869,0.2059,0.2298,0.2606,0.3004,0.3405,0.374,0.4092,0.4437,0.4727,0.4865]},"8":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0261,0.0589,0.0936,0.1122,0.1309,0.146,0.1593,0.176,0.1984,0.2288,0.2681,0.3107,0.3425,0.3762,0.4098,0.4394,0.4529]},"9":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0268,0.0601,0.0911,0.1085,0.1265,0.141,0.1547,0.1732,0.1969,0.2272,0.2676,0.3093,0.345,0.3821,0.4174,0.4488,0.4642]},"10":{"years":[2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"penetration":[0.0273,0.0553,0.077,0.0901,0.1039,0.1156,0.1265,0.1416,0.1614,0.1875,0.2261,0.2658,0.3027,0.3425,0.3767,0.4049,0.4205]}};
 
 const DWELLING = {"dwell_data":[{"income_decile":1,"pct_house":65.5,"pct_apt":2.4,"pct_renter":23.7},{"income_decile":2,"pct_house":73.4,"pct_apt":2.6,"pct_renter":26.8},{"income_decile":3,"pct_house":73.2,"pct_apt":4.0,"pct_renter":27.8},{"income_decile":4,"pct_house":70.7,"pct_apt":5.2,"pct_renter":31.2},{"income_decile":5,"pct_house":72.3,"pct_apt":5.9,"pct_renter":30.4},{"income_decile":6,"pct_house":70.9,"pct_apt":7.6,"pct_renter":30.5},{"income_decile":7,"pct_house":71.5,"pct_apt":7.2,"pct_renter":27.8},{"income_decile":8,"pct_house":73.5,"pct_apt":7.7,"pct_renter":27.9},{"income_decile":9,"pct_house":67.6,"pct_apt":13.1,"pct_renter":27.8},{"income_decile":10,"pct_house":65.7,"pct_apt":13.9,"pct_renter":26.5}],"solar_full":{"1":44.3,"2":42.0,"3":42.3,"4":41.2,"5":42.4,"6":41.6,"7":44.5,"8":41.5,"9":41.3,"10":37.5},"solar_house":{"1":44.6,"2":43.8,"3":42.7,"4":43.5,"5":44.7,"6":43.7,"7":47.8,"8":45.9,"9":50.6,"10":48.0}};
@@ -262,38 +671,35 @@ const STATES = [{"state":"SA","solar_pct":53.1,"battery_pct":5.9,"median_income"
 
 const ELECTORATES = [{"electorate":"Fisher","solar_pct":67.3,"income_annual":83413,"avg_decile":5.7},{"electorate":"Hinkler","solar_pct":67.1,"income_annual":55707,"avg_decile":1.8},{"electorate":"Brand","solar_pct":66.1,"income_annual":92764,"avg_decile":7.0},{"electorate":"Bowman","solar_pct":65.5,"income_annual":92602,"avg_decile":6.9},{"electorate":"Pearce","solar_pct":63.8,"income_annual":105852,"avg_decile":8.3},{"electorate":"Richmond","solar_pct":63.5,"income_annual":73903,"avg_decile":4.5},{"electorate":"Fairfax","solar_pct":62.7,"income_annual":84445,"avg_decile":5.9},{"electorate":"Makin","solar_pct":62.1,"income_annual":79926,"avg_decile":5.4},{"electorate":"Canning","solar_pct":61.6,"income_annual":79509,"avg_decile":5.0},{"electorate":"Moore","solar_pct":60.5,"income_annual":112326,"avg_decile":9.0},{"electorate":"Tangney","solar_pct":58.7,"income_annual":110746,"avg_decile":8.7},{"electorate":"Ryan","solar_pct":58.5,"income_annual":136458,"avg_decile":9.5},{"electorate":"Bullwinkel","solar_pct":57.9,"income_annual":87017,"avg_decile":6.2},{"electorate":"Forde","solar_pct":57.0,"income_annual":86040,"avg_decile":5.9},{"electorate":"Capricornia","solar_pct":56.2,"income_annual":68945,"avg_decile":3.2},{"electorate":"Bonner","solar_pct":55.7,"income_annual":111500,"avg_decile":8.6},{"electorate":"Wright","solar_pct":55.1,"income_annual":72184,"avg_decile":4.1},{"electorate":"Sturt","solar_pct":52.9,"income_annual":88762,"avg_decile":6.5},{"electorate":"Flynn","solar_pct":52.3,"income_annual":76384,"avg_decile":4.8},{"electorate":"Dickson","solar_pct":52.0,"income_annual":107391,"avg_decile":8.2},{"electorate":"Boothby","solar_pct":51.1,"income_annual":85864,"avg_decile":6.2},{"electorate":"Petrie","solar_pct":51.6,"income_annual":82300,"avg_decile":5.6},{"electorate":"Cowper","solar_pct":51.6,"income_annual":61853,"avg_decile":2.8},{"electorate":"Forrest","solar_pct":47.2,"income_annual":82175,"avg_decile":5.6},{"electorate":"Longman","solar_pct":47.4,"income_annual":76468,"avg_decile":4.8},{"electorate":"Leichhardt","solar_pct":44.7,"income_annual":79102,"avg_decile":5.6},{"electorate":"Paterson","solar_pct":44.1,"income_annual":83467,"avg_decile":5.7},{"electorate":"Hunter","solar_pct":43.7,"income_annual":83395,"avg_decile":5.7},{"electorate":"Bruce","solar_pct":41.4,"income_annual":99523,"avg_decile":7.6},{"electorate":"Werriwa","solar_pct":40.9,"income_annual":99825,"avg_decile":7.6},{"electorate":"Blair","solar_pct":39.4,"income_annual":81020,"avg_decile":5.7},{"electorate":"Gilmore","solar_pct":39.1,"income_annual":67854,"avg_decile":3.4},{"electorate":"McEwen","solar_pct":38.4,"income_annual":111084,"avg_decile":8.8},{"electorate":"Hughes","solar_pct":37.8,"income_annual":119904,"avg_decile":8.9},{"electorate":"Aston","solar_pct":32.9,"income_annual":97621,"avg_decile":7.5},{"electorate":"Monash","solar_pct":34.6,"income_annual":67184,"avg_decile":3.7},{"electorate":"Robertson","solar_pct":34.0,"income_annual":84867,"avg_decile":6.2},{"electorate":"Casey","solar_pct":31.7,"income_annual":99355,"avg_decile":7.6},{"electorate":"Bradfield","solar_pct":31.2,"income_annual":155727,"avg_decile":9.9},{"electorate":"Wannon","solar_pct":27.3,"income_annual":72735,"avg_decile":4.4},{"electorate":"Chisholm","solar_pct":28.2,"income_annual":106170,"avg_decile":8.3},{"electorate":"Parramatta","solar_pct":28.9,"income_annual":103671,"avg_decile":8.1},{"electorate":"Banks","solar_pct":28.9,"income_annual":101992,"avg_decile":7.9},{"electorate":"Bennelong","solar_pct":27.6,"income_annual":121211,"avg_decile":9.1},{"electorate":"Deakin","solar_pct":26.8,"income_annual":100783,"avg_decile":7.7},{"electorate":"Reid","solar_pct":24.6,"income_annual":118343,"avg_decile":9.2},{"electorate":"Bass","solar_pct":24.8,"income_annual":67637,"avg_decile":3.9},{"electorate":"Menzies","solar_pct":24.2,"income_annual":100303,"avg_decile":7.6},{"electorate":"Durack","solar_pct":23.0,"income_annual":102027,"avg_decile":6.5},{"electorate":"Lyons","solar_pct":23.6,"income_annual":63069,"avg_decile":3.1},{"electorate":"Lingiari","solar_pct":23.1,"income_annual":94884,"avg_decile":6.7},{"electorate":"Melbourne","solar_pct":12.1,"income_annual":106676,"avg_decile":8.3},{"electorate":"Wentworth","solar_pct":18.0,"income_annual":152000,"avg_decile":9.8},{"electorate":"Sydney","solar_pct":11.4,"income_annual":130168,"avg_decile":9.2}];
 
-const MARGINALS = new Set(["Menzies","Deakin","Sturt","Moore","Bass","Aston","Banks","Bradfield","Hughes","Dickson","Longman","Bonner","Leichhardt","Forde","Petrie","Melbourne","Ryan","Cowper","Bennelong","Gilmore","Robertson","Paterson","Tangney","Bullwinkel","Blair","Bruce","Werriwa","Parramatta","Chisholm","McEwen","Reid","Lingiari","Lyons","Dickson","Longman","Bowman"]);
+const MARGINALS = new Set(["Menzies","Deakin","Sturt","Moore","Bass","Aston","Banks","Bradfield","Hughes","Dickson","Longman","Bonner","Leichhardt","Forde","Petrie","Melbourne","Ryan","Cowper","Bennelong","Gilmore","Robertson","Paterson","Tangney","Bullwinkel","Blair","Bruce","Werriwa","Parramatta","Chisholm","McEwen","Reid","Lingiari","Lyons","Bowman"]);
 
-// ─── COLORS ──────────────────────────────────────────────────────────────────
-
-const DECILE_COLORS = ['#c0392b','#e67e22','#f39c12','#d4b800','#27ae60','#1abc9c','#2980b9','#3498db','#8e44ad','#2c3e50'];
-
+// ─── COLOUR HELPERS ───────────────────────────────────────────────────────────
 function solarColor(pct) {
   if (pct == null) return '#eee';
   const t = Math.min(pct / 70, 1);
-  const r = Math.round(240 + (26 - 240) * t);
-  const g = Math.round(247 + (107 - 247) * t);
-  const b = Math.round(242 + (60 - 242) * t);
-  return `rgb(${r},${g},${b})`;
+  // white → Grattan orange → dark red
+  if (t < 0.5) {
+    const u = t * 2;
+    return `rgb(${Math.round(255+(239-255)*u)},${Math.round(255+(121-255)*u)},${Math.round(255+(0-255)*u)})`;
+  } else {
+    const u = (t - 0.5) * 2;
+    return `rgb(${Math.round(239+(97-239)*u)},${Math.round(121+(37-121)*u)},${Math.round(0+(42-0)*u)})`;
+  }
 }
 
 function incomeColor(weekly) {
   if (weekly == null) return '#eee';
   const t = Math.min(Math.max((weekly - 500) / 2000, 0), 1);
-  const r = Math.round(240 + (80 - 240) * t);
-  const g = Math.round(230 + (50 - 230) * t);
-  const b = Math.round(200 + (30 - 200) * t);
-  return `rgb(${r},${g},${b})`;
+  return `rgb(${Math.round(240+(67-240)*t)},${Math.round(235+(105-235)*t)},${Math.round(220+(196-220)*t)})`;
 }
 
 function batteryColor(pct) {
   if (pct == null || pct === 0) return '#f5f5ff';
   const t = Math.min(pct / 5, 1);
-  const r = Math.round(245 + (25 - 245) * t);
-  const g = Math.round(245 + (90 - 245) * t);
-  const b = Math.round(255 + (180 - 255) * t);
-  return `rgb(${r},${g},${b})`;
+  return `rgb(${Math.round(245+(67-245)*t)},${Math.round(248+(153-248)*t)},${Math.round(255+(196-255)*t)})`;
 }
+
+const GRID_COLOR = '#f0ece4';
 
 // ─── CHART 1: TIME SERIES ────────────────────────────────────────────────────
 (function() {
@@ -306,9 +712,10 @@ function batteryColor(pct) {
       data: v.penetration.map(p => +(p * 100).toFixed(1)),
       borderColor: DECILE_COLORS[di - 1],
       backgroundColor: 'transparent',
-      borderWidth: isEdge ? 2.5 : 1.2,
-      pointRadius: isEdge ? 2 : 0,
-      tension: 0.35,
+      borderWidth: isEdge ? 2.8 : 1.4,
+      pointRadius: isEdge ? 3 : 0,
+      pointHoverRadius: 5,
+      tension: 0.4,
     };
   });
   new Chart(document.getElementById('chartTimeSeries'), {
@@ -316,14 +723,18 @@ function batteryColor(pct) {
     data: { labels, datasets },
     options: {
       responsive: true,
+      animation: { duration: 1200, easing: 'easeInOutQuart' },
       interaction: { mode: 'index', intersect: false },
       plugins: {
-        legend: { display: true, position: 'right', labels: { boxWidth: 10, font: { family: 'Arial', size: 11 }, padding: 5 } },
+        legend: { display: true, position: 'right', labels: { padding: 8, font: { size: 11 } } },
         tooltip: { callbacks: { label: ctx => ` D${ctx.datasetIndex+1}: ${ctx.parsed.y}%` } }
       },
       scales: {
-        x: { ticks: { font: { family: 'Arial', size: 11 } }, grid: { color: '#f0f0f0' } },
-        y: { min: 0, max: 55, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 11 } }, grid: { color: '#f0f0f0' }, title: { display: true, text: 'Solar penetration (%)', font: { family: 'Arial', size: 11 } } }
+        x: { grid: { color: GRID_COLOR }, ticks: { maxTicksLimit: 9 } },
+        y: { min: 0, max: 55, grid: { color: GRID_COLOR },
+          ticks: { callback: v => v + '%' },
+          title: { display: true, text: 'Solar penetration (%)', font: { size: 11 } }
+        }
       }
     }
   });
@@ -337,17 +748,18 @@ function batteryColor(pct) {
     data: {
       labels,
       datasets: [
-        { label: 'Detached house', data: DWELLING.dwell_data.map(d => d.pct_house), backgroundColor: '#1a6b3c', stack: 'a' },
-        { label: 'Flat/apartment', data: DWELLING.dwell_data.map(d => d.pct_apt), backgroundColor: '#c87010', stack: 'a' },
-        { label: 'Renter-occupied', data: DWELLING.dwell_data.map(d => d.pct_renter), backgroundColor: '#8eabd4', stack: 'b' },
+        { label: 'Detached house', data: DWELLING.dwell_data.map(d => d.pct_house), backgroundColor: G.orange + 'cc', stack: 'a' },
+        { label: 'Flat / apartment', data: DWELLING.dwell_data.map(d => d.pct_apt), backgroundColor: G.darkblue + 'cc', stack: 'a' },
+        { label: 'Renter-occupied', data: DWELLING.dwell_data.map(d => d.pct_renter), backgroundColor: G.darkgrey + '99', stack: 'b' },
       ]
     },
     options: {
       responsive: true,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Arial', size: 10 }, padding: 6 } } },
+      animation: { duration: 900 },
+      plugins: { legend: { position: 'bottom', labels: { padding: 12 } } },
       scales: {
-        x: { ticks: { font: { family: 'Arial', size: 10 } } },
-        y: { max: 100, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' } }
+        x: { grid: { display: false } },
+        y: { max: 100, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' } }
       }
     }
   });
@@ -361,16 +773,17 @@ function batteryColor(pct) {
     data: {
       labels,
       datasets: [
-        { label: 'All postcodes', data: Object.values(DWELLING.solar_full), backgroundColor: 'rgba(26,107,60,0.45)', borderColor: '#1a6b3c', borderWidth: 1 },
-        { label: 'House-dominated (>70%)', data: Object.values(DWELLING.solar_house), backgroundColor: 'rgba(26,107,60,0.85)', borderColor: '#1a6b3c', borderWidth: 1 },
+        { label: 'All postcodes', data: Object.values(DWELLING.solar_full), backgroundColor: G.orange + '55', borderColor: G.orange, borderWidth: 1.5 },
+        { label: 'House-dominated (>70%)', data: Object.values(DWELLING.solar_house), backgroundColor: G.orange + 'cc', borderColor: G.orange, borderWidth: 1.5 },
       ]
     },
     options: {
       responsive: true,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Arial', size: 10 }, padding: 6 } } },
+      animation: { duration: 900 },
+      plugins: { legend: { position: 'bottom', labels: { padding: 12 } } },
       scales: {
-        x: { ticks: { font: { family: 'Arial', size: 10 } } },
-        y: { min: 35, max: 55, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' } }
+        x: { grid: { display: false } },
+        y: { min: 35, max: 55, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' } }
       }
     }
   });
@@ -382,20 +795,26 @@ function batteryColor(pct) {
   const colors = DECILE_COLORS;
   new Chart(document.getElementById('chartSolarDecile'), {
     type: 'bar',
-    data: { labels, datasets: [{ label: 'Solar %', data: Object.values(SOLAR_BATTERY).map(v => v.solar_pct), backgroundColor: colors, borderWidth: 0 }] },
+    data: { labels, datasets: [{ label: 'Solar %', data: Object.values(SOLAR_BATTERY).map(v => v.solar_pct), backgroundColor: colors, borderWidth: 0, borderRadius: 3 }] },
     options: {
-      responsive: true,
+      responsive: true, animation: { duration: 900 },
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}%` } } },
-      scales: { x: { ticks: { font: { family: 'Arial', size: 10 } } }, y: { min: 30, max: 50, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' }, title: { display: true, text: 'Solar penetration', font: { family: 'Arial', size: 10 } } } }
+      scales: {
+        x: { grid: { display: false } },
+        y: { min: 30, max: 50, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Solar penetration' } }
+      }
     }
   });
   new Chart(document.getElementById('chartBatteryDecile'), {
     type: 'bar',
-    data: { labels, datasets: [{ label: 'Battery %', data: Object.values(SOLAR_BATTERY).map(v => v.battery_pct), backgroundColor: colors, borderWidth: 0 }] },
+    data: { labels, datasets: [{ label: 'Battery %', data: Object.values(SOLAR_BATTERY).map(v => v.battery_pct), backgroundColor: colors, borderWidth: 0, borderRadius: 3 }] },
     options: {
-      responsive: true,
+      responsive: true, animation: { duration: 900 },
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}%` } } },
-      scales: { x: { ticks: { font: { family: 'Arial', size: 10 } } }, y: { min: 0, max: 6, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' }, title: { display: true, text: 'Battery penetration', font: { family: 'Arial', size: 10 } } } }
+      scales: {
+        x: { grid: { display: false } },
+        y: { min: 0, max: 6, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Battery penetration' } }
+      }
     }
   });
 })();
@@ -405,16 +824,15 @@ function batteryColor(pct) {
   new Chart(document.getElementById('chartBillImpact'), {
     type: 'bar',
     data: {
-      labels: ['Manouri & Sean  (renter, no solar, 11.6 MWh/yr)','Liam & Priya  (electrified, high use)','Simon & Belinda  (solar + battery + EV)','Margaret  (renter, apartment, 4.0 MWh/yr)'],
-      datasets: [{ label: 'Annual bill change (midpoint)', data: [-480,-400,80,45], backgroundColor: ['#185a2e','#185a2e','#ba5c0f','#b02621'], borderWidth: 0 }]
+      labels: ['Manouri & Sean  (renter, no solar, 11.6 MWh/yr)', 'Liam & Priya  (electrified, high use)', 'Simon & Belinda  (solar + battery + EV)', 'Margaret  (renter, apartment, low use)'],
+      datasets: [{ label: 'Annual bill change (midpoint)', data: [-480,-400,80,45], backgroundColor: [G.darkred, G.darkred, G.darkorange, G.red], borderWidth: 0, borderRadius: 4 }]
     },
     options: {
-      indexAxis: 'y',
-      responsive: true,
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x > 0 ? '+' : ''}$${ctx.parsed.x}/yr (midpoint estimate)` } } },
+      indexAxis: 'y', responsive: true, animation: { duration: 900 },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x > 0 ? '+' : ''}$${ctx.parsed.x}/yr (midpoint)` } } },
       scales: {
-        x: { ticks: { callback: v => `$${v}`, font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' }, title: { display: true, text: 'Annual bill change vs no-reform baseline (FY40)', font: { family: 'Arial', size: 10 } } },
-        y: { ticks: { font: { family: 'Arial', size: 10 } } }
+        x: { grid: { color: GRID_COLOR }, ticks: { callback: v => `$${v}` }, title: { display: true, text: 'Annual bill change vs no-reform baseline (FY40)' } },
+        y: { grid: { display: false } }
       }
     }
   });
@@ -430,27 +848,25 @@ function buildScatter() {
     return {
       label: `D${d}`,
       data: pts.map(e => ({ x: e.income_annual / 1000, y: e.solar_pct, label: e.electorate, isMarginal: MARGINALS.has(e.electorate) })),
-      backgroundColor: pts.map(e => showMarginals && MARGINALS.has(e.electorate) ? '#e04a17' : DECILE_COLORS[i] + 'cc'),
-      pointRadius: pts.map(e => showMarginals && MARGINALS.has(e.electorate) ? 7 : 5),
-      pointBorderColor: pts.map(e => showMarginals && MARGINALS.has(e.electorate) ? '#fff' : 'transparent'),
-      pointBorderWidth: 1.5,
+      backgroundColor: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? G.orange : DECILE_COLORS[i] + 'cc'),
+      pointRadius: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? 8 : 5),
+      pointBorderColor: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? '#fff' : 'transparent'),
+      pointBorderWidth: 2,
     };
   });
-
   if (scatterChart) { scatterChart.data.datasets = datasets; scatterChart.update(); return; }
-
   scatterChart = new Chart(document.getElementById('chartScatter'), {
     type: 'scatter',
     data: { datasets },
     options: {
-      responsive: true,
+      responsive: true, animation: { duration: 700 },
       plugins: {
-        legend: { display: true, position: 'right', labels: { boxWidth: 10, font: { family: 'Arial', size: 10 }, padding: 4 } },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.raw.label}: ${ctx.raw.y}% solar, $${Math.round(ctx.raw.x)}k income${ctx.raw.isMarginal ? ' ◎' : ''}` } }
+        legend: { display: true, position: 'right' },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.raw.label}: ${ctx.raw.y}% solar, $${Math.round(ctx.raw.x)}k${ctx.raw.isMarginal ? ' ◎ marginal' : ''}` } }
       },
       scales: {
-        x: { title: { display: true, text: 'Median household income ($000s/yr)', font: { family: 'Arial', size: 11 } }, ticks: { callback: v => `$${v}k`, font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' } },
-        y: { title: { display: true, text: 'Solar penetration (%)', font: { family: 'Arial', size: 11 } }, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' } }
+        x: { grid: { color: GRID_COLOR }, ticks: { callback: v => `$${v}k` }, title: { display: true, text: 'Median household income ($000s/yr)' } },
+        y: { grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Solar penetration (%)' } }
       }
     }
   });
@@ -459,10 +875,9 @@ function buildScatter() {
 function toggleMarginals(btn) {
   showMarginals = !showMarginals;
   btn.classList.toggle('active', showMarginals);
-  btn.textContent = showMarginals ? '◎ Showing marginals' : '◎ Highlight marginals';
+  btn.textContent = showMarginals ? '◎ Showing marginals' : '◎ Highlight marginal seats';
   buildScatter();
 }
-
 buildScatter();
 
 // ─── CHART 8: ELECTORATES BAR ────────────────────────────────────────────────
@@ -472,11 +887,10 @@ const sortedAll = [...ELECTORATES].sort((a, b) => b.solar_pct - a.solar_pct);
 function showElectorates(mode, btn) {
   document.getElementById('rankTabs').querySelectorAll('button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   let items;
   if (mode === 'top20') items = sortedAll.slice(0, 20);
   else if (mode === 'bottom20') items = [...sortedAll].reverse().slice(0, 20);
-  else items = ELECTORATES.filter(e => MARGINALS.has(e.electorate)).sort((a, b) => b.solar_pct - a.solar_pct);
+  else items = ELECTORATES.filter(e => MARGINALS.has(e.electorate)).sort((a,b) => b.solar_pct - a.solar_pct);
 
   const labels = items.map(e => e.electorate);
   const vals = items.map(e => e.solar_pct);
@@ -489,22 +903,19 @@ function showElectorates(mode, btn) {
     electorateChart.update();
     return;
   }
-
   electorateChart = new Chart(document.getElementById('chartElectorates'), {
     type: 'bar',
-    data: { labels, datasets: [{ label: 'Solar %', data: vals, backgroundColor: colors, borderWidth: 0 }] },
+    data: { labels, datasets: [{ label: 'Solar %', data: vals, backgroundColor: colors, borderWidth: 0, borderRadius: 3 }] },
     options: {
-      indexAxis: 'y',
-      responsive: true,
+      indexAxis: 'y', responsive: true, animation: { duration: 700 },
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x}% solar` } } },
       scales: {
-        x: { min: 0, max: 75, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' } },
-        y: { ticks: { font: { family: 'Arial', size: 10 } } }
+        x: { min: 0, max: 75, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' } },
+        y: { grid: { display: false } }
       }
     }
   });
 }
-
 showElectorates('top20', document.querySelector('#rankTabs .tab-btn'));
 
 // ─── CHART 9: STATE BREAKDOWN ────────────────────────────────────────────────
@@ -515,17 +926,17 @@ showElectorates('top20', document.querySelector('#rankTabs .tab-btn'));
     data: {
       labels: sorted.map(s => s.state),
       datasets: [
-        { label: 'Solar %', data: sorted.map(s => s.solar_pct), backgroundColor: sorted.map(s => solarColor(s.solar_pct)), borderWidth: 0, yAxisID: 'y' },
-        { label: 'Battery %', data: sorted.map(s => s.battery_pct), type: 'line', tension: 0.3, pointRadius: 4, borderColor: '#2980b9', backgroundColor: '#2980b9', yAxisID: 'y2' }
+        { label: 'Solar %', data: sorted.map(s => s.solar_pct), backgroundColor: sorted.map(s => solarColor(s.solar_pct)), borderWidth: 0, borderRadius: 4, yAxisID: 'y' },
+        { label: 'Battery %', data: sorted.map(s => s.battery_pct), type: 'line', tension: 0.35, pointRadius: 5, pointBackgroundColor: G.darkblue, borderColor: G.darkblue, backgroundColor: G.darkblue, yAxisID: 'y2' }
       ]
     },
     options: {
-      responsive: true,
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { family: 'Arial', size: 11 }, padding: 10 } } },
+      responsive: true, animation: { duration: 900 },
+      plugins: { legend: { position: 'bottom', labels: { padding: 14 } } },
       scales: {
-        x: { ticks: { font: { family: 'Arial', size: 12 } } },
-        y: { ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { color: '#f0f0f0' }, title: { display: true, text: 'Solar penetration', font: { family: 'Arial', size: 10 } } },
-        y2: { position: 'right', max: 8, ticks: { callback: v => v + '%', font: { family: 'Arial', size: 10 } }, grid: { display: false }, title: { display: true, text: 'Battery', font: { family: 'Arial', size: 10 } } }
+        x: { grid: { display: false }, ticks: { font: { size: 12 } } },
+        y: { grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Solar penetration' } },
+        y2: { position: 'right', max: 8, grid: { display: false }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Battery' } }
       }
     }
   });
@@ -545,16 +956,16 @@ function styleFeature(f) {
   if (currentMode === 'solar') color = solarColor(p.apvi_pct);
   else if (currentMode === 'income') color = incomeColor(p.median_hhd_income_weekly);
   else color = batteryColor(p.battery_per_house != null ? p.battery_per_house * 100 : null);
-  return { fillColor: color, weight: 0.4, color: '#999', fillOpacity: 0.8 };
+  return { fillColor: color, weight: 0.3, color: '#bbb', fillOpacity: 0.85 };
 }
 
 function onEachFeature(f, layer) {
   const p = f.properties;
   layer.on('click', () => {
     const solar = p.apvi_pct != null ? p.apvi_pct.toFixed(1) + '%' : 'n/a';
-    const batt = p.battery_per_house != null ? (p.battery_per_house * 100).toFixed(2) + '%' : 'n/a';
-    const inc = p.median_hhd_income_weekly != null ? '$' + (p.median_hhd_income_weekly * 52 / 1000).toFixed(0) + 'k/yr' : 'n/a';
-    const dec = p.income_decile != null ? 'D' + p.income_decile : 'n/a';
+    const batt  = p.battery_per_house != null ? (p.battery_per_house * 100).toFixed(2) + '%' : 'n/a';
+    const inc   = p.median_hhd_income_weekly != null ? '$' + (p.median_hhd_income_weekly * 52 / 1000).toFixed(0) + 'k/yr' : 'n/a';
+    const dec   = p.income_decile != null ? 'D' + p.income_decile : 'n/a';
     layer.bindPopup(`<b>Postcode ${p.postcode}</b><br>Solar: ${solar}<br>Battery: ${batt}<br>Income: ${inc} (${dec})`).openPopup();
   });
 }
@@ -568,7 +979,7 @@ function addLegend() {
     if (currentMode === 'solar') {
       d.innerHTML = '<b>Solar penetration</b><br>' + [0,15,30,45,60,70].map(v => `<span class="legend-swatch" style="background:${solarColor(v)}"></span>${v}%`).join('<br>');
     } else if (currentMode === 'income') {
-      d.innerHTML = '<b>Median income (weekly)</b><br>' + [['&lt;$600',500],['$900',900],['$1,200',1200],['$2,000',2000],['$3,000+',3000]].map(([l,v]) => `<span class="legend-swatch" style="background:${incomeColor(v)}"></span>${l}`).join('<br>');
+      d.innerHTML = '<b>Median income (weekly)</b><br>' + [['<$600',500],['$900',900],['$1,200',1200],['$2,000',2000],['$3,000+',3000]].map(([l,v]) => `<span class="legend-swatch" style="background:${incomeColor(v)}"></span>${l}`).join('<br>');
     } else {
       d.innerHTML = '<b>Battery penetration</b><br>' + [0,1,2,3,5].map(v => `<span class="legend-swatch" style="background:${batteryColor(v)}"></span>${v}%`).join('<br>');
     }
@@ -589,33 +1000,31 @@ function setMapMode(mode, btn) {
   if (mapData) { renderMap(); addLegend(); }
 }
 
-let loadingControl = null;
+let loadingCtrl = null;
 function loadMap() {
   if (mapData) return;
-  loadingControl = L.control({ position: 'topright' });
-  loadingControl.onAdd = () => { const d = L.DomUtil.create('div','map-legend'); d.innerHTML = 'Loading postcode data&hellip;'; return d; };
-  loadingControl.addTo(map);
-
+  loadingCtrl = L.control({ position: 'topright' });
+  loadingCtrl.onAdd = () => { const d = L.DomUtil.create('div','map-legend'); d.innerHTML = 'Loading postcode data&hellip;'; return d; };
+  loadingCtrl.addTo(map);
   fetch('postcode_geo.geojson')
     .then(r => r.json())
     .then(data => {
       mapData = data;
-      if (loadingControl) { loadingControl.remove(); loadingControl = null; }
-      renderMap();
-      addLegend();
+      if (loadingCtrl) { loadingCtrl.remove(); loadingCtrl = null; }
+      renderMap(); addLegend();
     })
     .catch(() => {
-      if (loadingControl) loadingControl.remove();
-      const err = L.control({ position: 'topright' });
-      err.onAdd = () => { const d = L.DomUtil.create('div','map-legend'); d.innerHTML = 'Map data unavailable.<br>View on GitHub Pages.'; return d; };
-      err.addTo(map);
+      if (loadingCtrl) loadingCtrl.remove();
+      const e = L.control({ position: 'topright' });
+      e.onAdd = () => { const d = L.DomUtil.create('div','map-legend'); d.innerHTML = 'Map data unavailable.<br>View on GitHub Pages.'; return d; };
+      e.addTo(map);
     });
 }
 
-const observer = new IntersectionObserver(entries => {
-  if (entries[0].isIntersecting) { loadMap(); observer.disconnect(); }
+const mapObserver = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) { loadMap(); mapObserver.disconnect(); }
 }, { threshold: 0.1 });
-observer.observe(document.getElementById('map'));
+mapObserver.observe(document.getElementById('map'));
 </script>
 </body>
 </html>
