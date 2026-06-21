@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Better solutions — AEMC Pricing Review | Grattan Institute</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Georgia', serif; background: #fafaf8; color: #1a1a1a; line-height: 1.6; }
+  header { background: #1a3a2a; color: #fff; padding: 2.5rem 2rem 2rem; }
+  header .back { font-family: 'Arial', sans-serif; font-size: 0.8rem; color: #8db89d; margin-bottom: 0.8rem; letter-spacing: 0.04em; }
+  header .back a { color: #8db89d; text-decoration: none; }
+  header .back a:hover { color: #fff; }
+  h1 { font-size: 1.85rem; font-weight: normal; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 0.6rem; }
+  header .deck { font-family: 'Arial', sans-serif; font-size: 0.95rem; color: #c5ddc9; line-height: 1.55; max-width: 780px; }
+  .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+  h2 { font-size: 1.3rem; font-weight: normal; color: #1a3a2a; margin: 2.5rem 0 0.5rem; border-bottom: 2px solid #1a3a2a; padding-bottom: 0.3rem; }
+  h3 { font-size: 1.05rem; font-weight: bold; color: #1a3a2a; margin: 1.5rem 0 0.4rem; font-family: 'Arial', sans-serif; }
+  p { font-size: 0.92rem; line-height: 1.7; margin: 0.6rem 0; font-family: 'Arial', sans-serif; color: #2a2a2a; }
+  .finding-box { background: #f0f7f2; border-left: 4px solid #1a6b3c; padding: 1rem 1.2rem; margin: 1.2rem 0; border-radius: 0 4px 4px 0; }
+  .finding-box strong { display: block; font-size: 0.95rem; color: #1a3a2a; margin-bottom: 0.4rem; }
+  .finding-box p { margin: 0; font-size: 0.88rem; }
+  .problem-box { background: #fff5e6; border-left: 4px solid #c87010; padding: 1rem 1.2rem; margin: 1.2rem 0; border-radius: 0 4px 4px 0; }
+  .problem-box strong { display: block; font-size: 0.95rem; color: #8b4a00; margin-bottom: 0.4rem; }
+  .chart-wrap { background: #fff; border: 1px solid #dde5dd; border-radius: 6px; padding: 1.2rem 1.2rem 1rem; margin: 1rem 0; }
+  .chart-note { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #666; margin: 0.3rem 0 0.6rem; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+  @media (max-width: 640px) { .two-col { grid-template-columns: 1fr; } }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin: 1.2rem 0; }
+  @media (max-width: 700px) { .three-col { grid-template-columns: 1fr; } }
+  .solution-card { background: #fff; border: 1px solid #c8d8c8; border-radius: 8px; padding: 1.2rem; }
+  .solution-card .num { font-family: 'Arial', sans-serif; font-size: 2rem; font-weight: bold; color: #1a6b3c; line-height: 1; margin-bottom: 0.4rem; }
+  .solution-card h3 { margin: 0 0 0.5rem; font-size: 0.95rem; }
+  .solution-card p { font-size: 0.83rem; color: #555; margin: 0; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.2rem 0; }
+  @media (max-width: 600px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-box { background: #fff; border: 1px solid #c8d8c8; border-radius: 6px; padding: 1rem; text-align: center; }
+  .stat-box .big { font-family: 'Arial', sans-serif; font-size: 1.8rem; font-weight: bold; color: #1a3a2a; }
+  .stat-box .label { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #666; margin-top: 0.2rem; }
+  .scenario-row { display: flex; gap: 0.6rem; margin: 1rem 0; flex-wrap: wrap; }
+  .scenario-btn { font-family: 'Arial', sans-serif; font-size: 0.82rem; padding: 0.35rem 0.9rem; border: 1px solid #1a6b3c; border-radius: 20px; background: #fff; color: #1a6b3c; cursor: pointer; }
+  .scenario-btn.active { background: #1a6b3c; color: #fff; }
+  .scenario-result { background: #f0f7f2; border-radius: 6px; padding: 0.8rem 1.2rem; margin: 0.5rem 0; font-family: 'Arial', sans-serif; font-size: 0.88rem; }
+  .scenario-result .big-num { font-size: 1.5rem; font-weight: bold; color: #1a6b3c; }
+  .divider { border: none; border-top: 1px solid #dde5dd; margin: 2.5rem 0; }
+  .matrix { width: 100%; border-collapse: collapse; font-family: 'Arial', sans-serif; font-size: 0.82rem; margin: 1rem 0; }
+  .matrix th { background: #1a3a2a; color: #fff; padding: 0.5rem 0.8rem; text-align: left; font-weight: normal; }
+  .matrix td { padding: 0.5rem 0.8rem; border-bottom: 1px solid #e8eee8; vertical-align: top; }
+  .matrix tr:nth-child(even) td { background: #f5faf5; }
+  .tick { color: #1a6b3c; font-weight: bold; }
+  .cross { color: #c0392b; font-weight: bold; }
+  .partial { color: #c87010; font-weight: bold; }
+  .footnotes { font-family: 'Arial', sans-serif; font-size: 0.77rem; color: #777; border-top: 1px solid #ddd; margin-top: 3rem; padding-top: 1rem; line-height: 1.6; }
+  .footnotes-list { list-style: none; padding: 0; margin: 0.8rem 0 0; }
+  .footnotes-list li { border-bottom: 1px solid #eee; }
+  .footnotes-list details { padding: 0; }
+  .footnotes-list summary { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.45rem 0.2rem; cursor: pointer; list-style: none; outline: none; }
+  .footnotes-list summary::-webkit-details-marker { display: none; }
+  .footnotes-list summary::before { content: attr(data-n); font-family: 'Arial', sans-serif; font-size: 0.72rem; font-weight: bold; color: #1a6b3c; min-width: 1.2rem; }
+  .footnotes-list summary .fn-title { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #444; font-weight: bold; flex: 1; }
+  .footnotes-list summary .fn-arrow { font-size: 0.65rem; color: #999; transition: transform 0.2s; }
+  .footnotes-list details[open] summary .fn-arrow { transform: rotate(90deg); }
+  .footnotes-list details[open] summary { color: #1a3a2a; }
+  .footnotes-list .fn-body { padding: 0.3rem 0.2rem 0.7rem 1.8rem; font-size: 0.75rem; color: #666; line-height: 1.65; }
+  .nav-link { display: inline-block; margin: 1.5rem 0 0; font-family: 'Arial', sans-serif; font-size: 0.85rem; color: #1a6b3c; text-decoration: none; border: 1px solid #1a6b3c; border-radius: 4px; padding: 0.4rem 0.9rem; }
+  .nav-link:hover { background: #1a6b3c; color: #fff; }
+  .capacity-viz { margin: 1rem 0; }
+  .capacity-bar-label { font-family: 'Arial', sans-serif; font-size: 0.78rem; color: #555; margin-bottom: 0.2rem; }
+  .capacity-bar-row { display: flex; gap: 0.3rem; height: 28px; border-radius: 4px; overflow: hidden; margin-bottom: 0.4rem; }
+  .bar-seg { display: flex; align-items: center; justify-content: center; font-family: 'Arial', sans-serif; font-size: 0.7rem; color: rgba(255,255,255,0.9); font-weight: bold; transition: width 0.4s; }
+  .seg-solar-owner { background: #1a6b3c; }
+  .seg-nonsolar-owner { background: #7abf9a; }
+  .seg-renter { background: #e0885a; }
+  .seg-apt { background: #aaa; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="back"><a href="index.html">← Back to main analysis</a></div>
+  <h1>Three solutions the AEMC didn't fully consider</h1>
+  <p class="deck">The AEMC identifies a real funding problem and three disadvantaged groups. But it proposes one instrument — higher network access charges — for all three. These solutions address each group directly, and produce better distributional outcomes without eroding solar returns.</p>
+</header>
+
+<div class="container">
+
+  <div class="problem-box" style="margin-top:1.5rem;">
+    <strong>Why the AEMC's instrument doesn't match its problem</strong>
+    The AEMC correctly identifies three non-CER groups facing adverse outcomes: <strong>renters</strong> (excluded by tenure), <strong>apartment-dwellers</strong> (excluded by building type), and <strong>low-income owner-occupiers</strong> (allegedly excluded by cost). These are structurally different problems requiring different responses. A higher shared network access charge treats them identically — and our data shows the third group has already largely adopted solar.
+  </div>
+
+  <div class="three-col">
+    <div class="solution-card">
+      <div class="num">①</div>
+      <h3>Fix the renter exclusion directly</h3>
+      <p>Community solar and minimum energy standards address the structural barrier — not the price signal.</p>
+    </div>
+    <div class="solution-card">
+      <div class="num">②</div>
+      <h3>Connection capacity pricing</h3>
+      <p>Charge for the grid capacity you've contracted, not a flat per-connection fee. Costs track benefit received.</p>
+    </div>
+    <div class="solution-card">
+      <div class="num">③</div>
+      <h3>Peak demand charges</h3>
+      <p>Recover network costs based on what actually drives them — coincident peak demand, not average consumption.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION 1: RENTER EXCLUSION
+  ════════════════════════════════════════════ -->
+  <h2>① Fix the renter exclusion directly</h2>
+
+  <p>The AEMC's entire equity argument rests on the premise that renters are excluded from solar. That's true — but the solution is a <em>property rights intervention</em>, not a pricing reform. Renters pay the electricity bill. Landlords own the roof. Neither has an incentive to install solar under the current framework. A higher network access charge doesn't change that calculation at all — renters pay more and still can't get solar.</p>
+
+  <div class="finding-box" style="margin:1.2rem 0 1.5rem;">
+    <strong>Nationally: 11% of renters have rooftop solar, vs 44% of owner-occupiers — a 33 percentage point gap.</strong>
+    <p>ECA Consumer Energy Report Card (December 2025, n=4,535 nationally representative). The survey captures actual solar ownership, not installations — this is the lived experience of the tenure gap at a national scale. Renters in freestanding houses are better positioned than apartment dwellers, but even house renters face a structural barrier that pricing reform cannot address: they don't own the roof.</p>
+  </div>
+
+  <h3>The solar gap: what tenure exclusion actually costs renters</h3>
+  <p class="chart-note">In house-dominated postcodes, solar penetration by income decile split by renter share of the postcode. Low-renter postcodes (&lt;20% renting) approximate owner-occupier behaviour; high-renter (&gt;35%) show what renter exclusion costs. ABS 2021 Census, APVI 2026.</p>
+
+  <div class="chart-wrap">
+    <canvas id="solarGapChart" height="300"></canvas>
+  </div>
+
+  <div class="finding-box">
+    <strong>Tenure exclusion costs renters up to 20 percentage points of solar access — at every income level.</strong>
+    <p>In low-income (D2) house postcodes, high-renter areas have 27% solar penetration vs 46% in low-renter areas — a 19-point gap. The gap persists at high incomes too (D10: 26% vs 46%, 20pp gap). This is not an income effect — it's a tenure effect across the income spectrum. The AEMC's access charge reform does nothing to close this gap.</p>
+  </div>
+
+  <h3>The renter solar gap by state: where the problem is biggest</h3>
+  <p class="chart-note">In house-dominated postcodes (>60% separate houses), weighted average solar penetration for low-renter (&lt;20% renting) vs high-renter (&gt;35% renting) areas. Estimated "missing" solar houses = gap × total estimated renter houses in high-renter postcodes. Source: APVI postcode data 2026, ABS 2021 Census.</p>
+
+  <div style="overflow-x:auto;margin:1rem 0 1.5rem;">
+    <table class="matrix" style="font-size:0.82rem;width:100%;">
+      <tr>
+        <th>State</th>
+        <th>Solar: low-renter postcodes</th>
+        <th>Solar: high-renter postcodes</th>
+        <th>Gap (pp)</th>
+        <th>Relative gap</th>
+        <th>Est. missing solar houses</th>
+      </tr>
+      <tr>
+        <td><strong>QLD</strong></td>
+        <td>64.8%</td>
+        <td>46.6%</td>
+        <td style="color:#c0392b;font-weight:bold;">18.2pp</td>
+        <td>28%</td>
+        <td>~94,000</td>
+      </tr>
+      <tr>
+        <td><strong>SA</strong></td>
+        <td>61.4%</td>
+        <td>47.9%</td>
+        <td style="color:#c0392b;font-weight:bold;">13.6pp</td>
+        <td>22%</td>
+        <td>~13,000</td>
+      </tr>
+      <tr>
+        <td><strong>NSW</strong></td>
+        <td>43.1%</td>
+        <td>35.1%</td>
+        <td style="color:#c0392b;font-weight:bold;">7.9pp</td>
+        <td>18%</td>
+        <td>~18,500</td>
+      </tr>
+      <tr>
+        <td><strong>VIC</strong></td>
+        <td>37.0%</td>
+        <td>29.3%</td>
+        <td style="color:#c0392b;font-weight:bold;">7.7pp</td>
+        <td>21%</td>
+        <td>~11,400</td>
+      </tr>
+    </table>
+  </div>
+  <p style="font-size:0.82rem;color:#666;margin-bottom:1.5rem;">WA (35.4pp gap, ~28,000 houses) excluded from AEMC jurisdiction. NT and ACT have too few house-dominated high-renter postcodes to compute reliably. VIC's smaller absolute gap reflects lower overall solar penetration (37% vs QLD's 65%), not stronger renter inclusion — the relative gap is similar. Despite running a rental solar rebate since 2019, VIC's renter-owner solar gap remains 7.7pp.</p>
+
+  <h3>The income-tenure finding: suburban renters earn similar incomes to owners</h3>
+  <p>The AEMC's equity argument implicitly treats "renter" and "low-income" as synonyms. Our data directly tests this. Comparing house-dominated postcodes at different renter shares, <em>within the same income decile</em>, the income difference between high-renter and low-renter areas is negligible — but the solar gap is large.</p>
+
+  <div class="chart-wrap" style="overflow-x:auto;">
+    <table class="matrix" style="font-size:0.8rem;">
+      <tr>
+        <th>Income decile</th>
+        <th>Low-renter postcodes (&lt;20% renting)<br>income / solar</th>
+        <th>High-renter postcodes (&gt;35% renting)<br>income / solar</th>
+        <th>Income gap</th>
+        <th>Solar gap</th>
+      </tr>
+      <tr>
+        <td><strong>D2</strong> (low income)</td>
+        <td>$57,413/yr &nbsp;|&nbsp; 46.4% solar</td>
+        <td>$57,269/yr &nbsp;|&nbsp; 27.1% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$144/yr</td>
+        <td style="color:#c87010;font-weight:bold;">19.3pp</td>
+      </tr>
+      <tr>
+        <td><strong>D3</strong></td>
+        <td>$63,867/yr &nbsp;|&nbsp; 46.4% solar</td>
+        <td>$63,446/yr &nbsp;|&nbsp; 34.1% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$421/yr</td>
+        <td style="color:#c87010;font-weight:bold;">12.3pp</td>
+      </tr>
+      <tr>
+        <td><strong>D4</strong></td>
+        <td>$69,517/yr &nbsp;|&nbsp; 45.2% solar</td>
+        <td>$69,084/yr &nbsp;|&nbsp; 38.1% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$433/yr</td>
+        <td style="color:#c87010;font-weight:bold;">7.1pp</td>
+      </tr>
+      <tr>
+        <td><strong>D5</strong></td>
+        <td>$75,253/yr &nbsp;|&nbsp; 45.5% solar</td>
+        <td>$74,526/yr &nbsp;|&nbsp; 41.2% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$727/yr</td>
+        <td style="color:#c87010;font-weight:bold;">4.4pp</td>
+      </tr>
+      <tr>
+        <td><strong>D6</strong></td>
+        <td>$82,802/yr &nbsp;|&nbsp; 42.8% solar</td>
+        <td>$83,545/yr &nbsp;|&nbsp; 40.9% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$0 (renters earn <em>more</em>)</td>
+        <td style="color:#555;">1.9pp</td>
+      </tr>
+      <tr>
+        <td><strong>D8</strong></td>
+        <td>$103,131/yr &nbsp;|&nbsp; 47.6% solar</td>
+        <td>$102,394/yr &nbsp;|&nbsp; 43.5% solar</td>
+        <td style="color:#1a6b3c;font-weight:bold;">$737/yr</td>
+        <td style="color:#c87010;font-weight:bold;">4.1pp</td>
+      </tr>
+    </table>
+    <p class="chart-note">ABS 2021 Census, APVI 2026. House-dominated postcodes only (&gt;60% separate houses, &gt;100 estimated houses). Income = postcode median household income (all households). Solar gap computed within each income decile, filtered to postcodes above the decile threshold. n=986 low-renter (&lt;20%), 159 high-renter (&gt;35%) postcodes across all deciles.</p>
+  </div>
+
+  <div class="finding-box">
+    <strong>Renters are excluded from solar by tenure, not by income. Within the same income decile, high-renter and low-renter suburban postcodes earn nearly identical incomes — but the solar gap reaches up to 19 percentage points.</strong>
+    <p>In low-income D2 postcodes, high-renter areas earn $57,269/year vs $57,413 in low-renter areas — a $144 difference — yet have 19 percentage points less solar. In D3: $421/year income gap, 12pp solar gap. In D6: high-renter postcodes earn slightly <em>more</em> on average, yet solar penetration is similar. The solar gap in suburban Australia is a tenure effect, not an income effect. A policy that treats it as an income problem — by adjusting the price signal that all households face — cannot solve it.</p>
+  </div>
+
+  <h3>The opportunity: renter-occupied separate houses nationally</h3>
+  <p>Not all renters are in apartments. The majority of renter-occupied dwellings in Australia are <em>separate houses</em> — and separate houses can physically have rooftop solar installed. The barrier isn't the building. It's the split incentive between tenant and landlord.</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="big">1.42M</div>
+      <div class="label">Renter-occupied separate houses nationally — could have rooftop solar with landlord/tenure reform</div>
+    </div>
+    <div class="stat-box">
+      <div class="big">1.31M</div>
+      <div class="label">Apartments nationally — cannot have rooftop solar regardless of tenure; need community solar</div>
+    </div>
+    <div class="stat-box">
+      <div class="big">4.0M</div>
+      <div class="label">Houses currently with solar — the comparison point for scale</div>
+    </div>
+  </div>
+
+  <h3>State breakdown: where renter houses are</h3>
+  <p class="chart-note">Renter-occupied separate houses by state. These are dwellings that could physically have rooftop solar installed if the landlord-tenant split incentive were addressed. Source: ABS 2021 Census G37.</p>
+  <div class="chart-wrap">
+    <canvas id="stateRenterChart" height="280"></canvas>
+  </div>
+
+  <h3>Community solar scenarios: how many households could gain solar access</h3>
+  <p>Community solar allows households to purchase a share of a nearby solar installation and receive the benefits on their bill — as if they had rooftop solar themselves. This applies to both renter-occupied houses (whose landlords may not install) and apartment-dwellers (where rooftop isn't possible). At realistic uptake rates:</p>
+
+  <div class="scenario-row">
+    <button class="scenario-btn active" onclick="setScenario(20)">20% uptake</button>
+    <button class="scenario-btn" onclick="setScenario(35)">35% uptake</button>
+    <button class="scenario-btn" onclick="setScenario(50)">50% uptake</button>
+  </div>
+  <div class="scenario-result">
+    <div class="big-num" id="scenarioNum">283,306</div>
+    <div id="scenarioLabel">additional renter households gain solar access at 20% community solar uptake — nearly four times Tasmania's entire rooftop solar fleet</div>
+  </div>
+  <p style="font-size:0.82rem;color:#666;margin-top:0.3rem;">Applies to renter-occupied separate houses only. Including apartments would increase this further. The Australian Government's $100 million Community Solar Banks initiative targets 25,000 households nationally — proof of concept at scale, not a new idea.</p>
+
+  <h3>Australian programs already proving these mechanisms work</h3>
+
+  <div class="three-col" style="margin:1rem 0;">
+    <div class="solution-card">
+      <div style="font-family:'Arial',sans-serif;font-size:0.78rem;color:#1a6b3c;font-weight:bold;margin-bottom:0.3rem;">VIRTUAL NET METERING</div>
+      <h3 style="font-size:0.88rem;margin:0 0 0.4rem;">Enova Community Energy, Lismore NSW</h3>
+      <p>Australia's first active solar garden: 35kW array on a social housing building, tenants receive ~$580/year bill credit. VNM credits distributed to subscribers without them owning any panels.</p>
+    </div>
+    <div class="solution-card">
+      <div style="font-family:'Arial',sans-serif;font-size:0.78rem;color:#1a6b3c;font-weight:bold;margin-bottom:0.3rem;">APARTMENT SOLAR</div>
+      <h3 style="font-size:0.88rem;margin:0 0 0.4rem;">VIC Solar for Apartments, Round 3</h3>
+      <p>3,200+ families helped to date. 46% of apartments funded are rental properties. Up to $2,800/apartment, $140,000/building. $32M Round 3: applications closed June 2026, rebates available until June 2027. NSW SoAR (closed March 2026): 3,114 households funded, including 1,135 rented apartments. Average saving over $1,000/year.</p>
+    </div>
+    <div class="solution-card">
+      <div style="font-family:'Arial',sans-serif;font-size:0.78rem;color:#1a6b3c;font-weight:bold;margin-bottom:0.3rem;">LANDLORD SOLAR INCENTIVES</div>
+      <h3 style="font-size:0.88rem;margin:0 0 0.4rem;">VIC + QLD rental solar rebates</h3>
+      <p>VIC: up to $1,400 rebate + $1,400 interest-free loan for landlords installing solar, eligibility tied to renter income (≤$150k combined). QLD: up to $3,500 for landlords via Supercharged Solar for Renters (launched Dec 2025).</p>
+    </div>
+  </div>
+
+  <div class="finding-box" style="background:#fdf3f0;border-left:4px solid #c0392b;margin:1.2rem 0 1.5rem;">
+    <strong>What voluntary programs actually deliver: Solar Victoria's rental solar program reached 1.4% of renter houses over its entire lifetime.</strong>
+    <p>Solar Victoria has offered a landlord solar rebate since 2019 (with the interest-free loan component added in 2020, reaching the current $1,400 rebate + $1,400 loan structure). By December 2025, the program had delivered solar to 4,900 rental properties — out of an estimated 348,134 renter-occupied separate houses in Victoria. That's 1.5% of all Solar Victoria solar installations going to rentals, and 1.4% of renter houses reached in total. Over the same period, 323,090 owner-occupier households received solar through the scheme. Owner-occupier solar penetration in Victoria now exceeds 35%.</p>
+    <p>The split incentive — landlords bear the install cost, tenants get the bill savings — is not fixed by making the rebate bigger. Only mandatory standards or structural credit mechanisms (like virtual net metering) change the underlying incentive. Voluntary rebates are a starting point, not a solution.</p>
+    <p style="font-size:0.78rem;color:#666;margin-top:0.5rem;">Source: Solar Victoria, Installations by LGA, December 2025. ABS 2021 Census (renter-occupied dwellings, VIC). Note: LGA data covers Solar Victoria program grants only; some additional private-market rental solar installations exist outside the scheme.</p>
+  </div>
+
+  <h3>Two structural mechanisms to scale this</h3>
+  <p><strong>Minimum energy standards for rental properties.</strong> VIC is already doing this — phased standards from 1 March 2027 covering insulation, heating and hot water. NSW is in active consultation (submissions closed May 2026). The next step is adding solar-readiness or solar installation to these standards for separate houses, as QLD and VIC rebate programs have begun incentivising. Cost falls on landlords; tenants benefit from lower bills immediately. The ACT has operated mandatory energy rating disclosure for residential properties for over 20 years — the institutional precedent is well established.</p>
+  <p><strong>Virtual net metering / community solar framework.</strong> Allow any renter or apartment dweller to subscribe to a share of a nearby solar installation and receive credits on their electricity bill — as Enova Community Energy already does in NSW on a small scale. The Australian Government's Community Solar Banks program ($100M) is funding this at larger scale. Requires a regulatory change to how solar credits are allocated under the National Electricity Rules, which the AEMC could initiate. This directly addresses both renter-houses and apartments in one mechanism.</p>
+
+  <div class="finding-box">
+    <strong>Fixing the renter exclusion shrinks the AEMC's core problem substantially.</strong>
+    <p>If 35% of Australia's 1.42 million renter-occupied houses gained solar access through community solar or tenancy standards, ~497,000 additional households would be in the solar economy. The pool of "consumers unable to access CER" — the AEMC's stated target for reform — would be dramatically smaller. The network funding problem doesn't disappear, but the equity argument for higher access charges becomes much weaker.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION 2: CAPACITY PRICING
+  ════════════════════════════════════════════ -->
+  <h2>② Connection capacity pricing</h2>
+
+  <p>The AEMC's access charge reform correctly identifies that network costs are mostly fixed — the grid has to be built and maintained regardless of how much electricity flows through it. But it proposes recovering those costs through a <em>flat per-connection fee</em>: every connected household pays the same daily charge, regardless of how much capacity they've actually contracted for or how large their peak draw is.</p>
+  <p>Connection capacity pricing is a more equitable alternative: charge based on the <em>maximum capacity</em> available at a household's connection point — the size of their fuse or meter in kilowatts. This is how many European electricity systems recover network costs. It means:</p>
+
+  <div class="two-col" style="margin:1rem 0;">
+    <div style="background:#f5faf5;border-radius:6px;padding:1rem;">
+      <strong style="font-family:'Arial',sans-serif;font-size:0.88rem;color:#1a3a2a;display:block;margin-bottom:0.5rem;">Flat access charge (AEMC's approach)</strong>
+      <p style="font-size:0.83rem;margin:0;">A single-person apartment with a small meter pays the same daily charge as a 5-bedroom house with EV charging, a 3-phase connection, and a home battery. The link between cost and benefit is severed.</p>
+    </div>
+    <div style="background:#f0f7f2;border-radius:6px;padding:1rem;">
+      <strong style="font-family:'Arial',sans-serif;font-size:0.88rem;color:#1a3a2a;display:block;margin-bottom:0.5rem;">Capacity-based charge (alternative)</strong>
+      <p style="font-size:0.83rem;margin:0;">The same apartment — with a small, single-phase 32A connection — pays a fraction of what the large house pays. The household that installed EV charging and expanded to 3-phase pays proportionally more. Costs track contracted benefit.</p>
+    </div>
+  </div>
+
+  <h3>Who pays what: dwelling composition by income decile</h3>
+  <p class="chart-note">Composition of the dwelling stock by income decile: owner-occupied houses with solar, without solar, renter-occupied houses, and apartments. Under a flat access charge, all pay equally. Under capacity pricing, apartments and smaller dwellings pay less. Source: ABS 2021 Census, APVI 2026.</p>
+
+  <div class="chart-wrap">
+    <canvas id="dwellingCompositionChart" height="320"></canvas>
+  </div>
+
+  <div class="finding-box">
+    <strong>Apartments concentrate in high-income deciles — making flat access charges regressive.</strong>
+    <p>Apartments rise from 2.4% of dwellings in D1 to 14.1% in D10. Under a flat access charge, these small high-income apartments pay the same as large lower-income suburban houses. A capacity-based charge would mean apartments — which typically have smaller connections and lower maximum demand — pay less. The distributional effect runs in the right direction: lower charges for lower-capacity, typically smaller or lower-income households.</p>
+  </div>
+
+  <h3>How capacity pricing compares to the AEMC's approach</h3>
+  <p>The AEMC's own final report acknowledges that the access charge "may need to vary depending on the methodology deployed" and that charges "could vary according to aspects of a customer's historical consumption or a customer's characteristics." Connection capacity is precisely such a characteristic — and it's already metered. The AER and networks could implement capacity-based differentiation within the existing regulatory framework without a flat charge as the starting point.</p>
+  <p>Ausgrid already operates residential demand tariffs (EA111 and EA116) that charge based on maximum half-hourly demand during peak windows (3pm–9pm every day during peak seasons: June–August and November–March). New residential customers in Ausgrid's network are assigned to EA116 by default. The mechanism is not theoretical — it's live, operating under existing rules, and sits alongside the current network access charge. The question is not whether demand-based cost recovery can work in Australian networks. It's why the AEMC's reform doesn't build on it.</p>
+
+  <div class="capacity-viz" id="capacityViz">
+    <p style="font-family:'Arial',sans-serif;font-size:0.82rem;color:#555;margin-bottom:0.8rem;"><strong>Illustrative: how the same $X in network cost recovery is shared differently</strong></p>
+    <div class="capacity-bar-label">Flat access charge (everyone pays equally per connection)</div>
+    <div class="capacity-bar-row" id="flatBar"></div>
+    <div style="font-family:'Arial',sans-serif;font-size:0.72rem;color:#666;margin-bottom:0.8rem;">Low-income renter in small house ← same charge → Wealthy household with EV + battery + 3-phase</div>
+    <div class="capacity-bar-label">Capacity-based charge (proportional to connection size)</div>
+    <div class="capacity-bar-row" id="capBar"></div>
+    <div style="font-family:'Arial',sans-serif;font-size:0.72rem;color:#666;">Low-income renter in small house ← lower charge → Wealthy household with EV + battery + 3-phase → higher charge</div>
+    <div style="display:flex;gap:1.5rem;margin-top:0.8rem;flex-wrap:wrap;">
+      <span style="font-family:'Arial',sans-serif;font-size:0.75rem;"><span style="display:inline-block;width:10px;height:10px;background:#1a6b3c;border-radius:2px;margin-right:4px;"></span>Solar owner-occupier</span>
+      <span style="font-family:'Arial',sans-serif;font-size:0.75rem;"><span style="display:inline-block;width:10px;height:10px;background:#7abf9a;border-radius:2px;margin-right:4px;"></span>Non-solar owner-occupier</span>
+      <span style="font-family:'Arial',sans-serif;font-size:0.75rem;"><span style="display:inline-block;width:10px;height:10px;background:#e0885a;border-radius:2px;margin-right:4px;"></span>Renter (house)</span>
+      <span style="font-family:'Arial',sans-serif;font-size:0.75rem;"><span style="display:inline-block;width:10px;height:10px;background:#aaa;border-radius:2px;margin-right:4px;"></span>Apartment dweller</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       SOLUTION 3: PEAK DEMAND CHARGES
+  ════════════════════════════════════════════ -->
+  <h2>③ Peak demand charges</h2>
+
+  <p>The AEMC is right that per-kWh charges don't track what actually drives network costs. But the alternative isn't necessarily a flat access charge — it's a charge that more directly measures what drives network investment: <em>coincident peak demand</em>.</p>
+  <p>The network is sized to handle the worst-case demand event — a hot February evening when every air conditioner in Queensland is running. That sizing decision drives the capital cost. Whether you draw 5kWh on a Tuesday morning in May is irrelevant to network costs. Whether you draw 3kW at 6pm on that February evening is extremely relevant.</p>
+
+  <h3>What peak demand charging looks like in practice</h3>
+  <p>A demand-based charge bills households for their <em>maximum kilowatt draw</em> in a billing period, or their draw during defined peak windows — not their total kilowatt-hours consumed. This is not a foreign concept: Ausgrid's EA116 residential demand tariff already does exactly this — charging based on the maximum half-hourly demand in the 3pm–9pm window, every day during peak seasons (June–August and November–March). SA Power Networks operates similar demand tariff structures.</p>
+  <p>The technical pre-condition — interval metering — is already largely met. Over 56% of NEM meters are already remotely read; Victoria is at 99%. The AEMC's accelerated smart meter rollout (mandatory by December 2030) started in December 2025. For smart meters installed from December 2025, customers have a two-year consent-protected window before retailers can move them to a new tariff structure. The infrastructure for demand tariffs is not a 2030 problem — it's a now problem for more than half the market.</p>
+
+  <div class="two-col" style="margin:1rem 0;">
+    <div class="chart-wrap">
+      <p style="font-family:'Arial',sans-serif;font-size:0.82rem;color:#555;margin-bottom:0.7rem;"><strong>Who pays under volumetric charges</strong><br>Proportional to total kWh consumed — not linked to peak demand contribution</p>
+      <canvas id="volumetricChart" height="200"></canvas>
+    </div>
+    <div class="chart-wrap">
+      <p style="font-family:'Arial',sans-serif;font-size:0.82rem;color:#555;margin-bottom:0.7rem;"><strong>Who pays under peak demand charges</strong><br>Proportional to peak kW draw — tracks actual network cost drivers</p>
+      <canvas id="peakChart" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="finding-box">
+    <strong>Peak demand charges preserve solar's value while funding the network more efficiently.</strong>
+    <p>A household with rooftop solar still draws from the grid at peak evening times — panels aren't generating then. Under peak demand pricing, they pay for that peak draw, contributing fairly to network costs. But their daytime self-consumption doesn't generate charges, preserving the bill savings that made solar worth installing. The investment case for solar remains intact; the cross-subsidy is addressed at the right point in time.</p>
+  </div>
+
+  <h3>Why the AEMC's dynamic pricing gets there — eventually</h3>
+  <p>The AEMC's long-run vision (dynamic congestion pricing that's zero when the network is unconstrained, priced when constrained) is essentially a real-time version of peak demand pricing. The AEMC's report says this is the "first-best mechanism." The problem is that getting there takes 10+ years, and the intermediate path runs through a period of higher flat access charges. Demand-based tariffs, which networks can already implement under current rules, could compress that transition timeline significantly — without the distributional disruption of a flat charge phase.</p>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       INTERNATIONAL EVIDENCE
+  ════════════════════════════════════════════ -->
+  <h2>The international evidence: what happens when you actually try this</h2>
+
+  <p>There is no jurisdiction that has implemented exactly this reform — a shift from volumetric to fixed network access charges — with high rooftop solar penetration and has accumulated post-implementation distributional data. But two cases provide the closest available evidence, and Australian modelling fills the gap for the local context.</p>
+
+  <h3>California (AB 205, 2024–present): the closest structural comparator — but too new to have outcome data</h3>
+  <p>California has the closest profile to Australia: high rooftop solar penetration (~30%), a large low-income subsidy program (CARE/FERA), and a regulator that explicitly designed income graduation into the fixed charge from the start. Under AB 205 (2022), the CPUC approved an income-graduated fixed charge in July 2024:</p>
+
+  <div class="three-col" style="margin:1rem 0;">
+    <div class="stat-box">
+      <div class="big" style="font-size:1.5rem;">$6/mo</div>
+      <div class="label">CARE households (lowest income). Paired with ~5–7¢/kWh volumetric reduction — revenue neutral, net benefit for high-consumption poor households</div>
+    </div>
+    <div class="stat-box">
+      <div class="big" style="font-size:1.5rem;">$12/mo</div>
+      <div class="label">FERA households (moderate low-income). Same volumetric reduction applies across all tiers</div>
+    </div>
+    <div class="stat-box">
+      <div class="big" style="font-size:1.5rem;">$24.15/mo</div>
+      <div class="label">All other residential customers (general market). Revenue-neutral offset against lower per-kWh rates — but solar owners who self-consume see reduced grid charges that no longer offset the new fixed cost</div>
+    </div>
+  </div>
+
+  <p>SDG&amp;E implemented the charge in October 2025, SCE in November 2025, and PG&amp;E in March 2026. The reform is less than 9 months old at the time of writing. <strong>No post-implementation distributional outcome data exists yet.</strong> A legislative push to reverse the reform (21 coastal Democrats plus Senate Republicans introduced bills) was "put on ice" by legislative leadership, but the political pressure signals that real-world impacts are already being felt.</p>
+
+  <div style="background:#fff5e6;border-left:4px solid #c87010;border-radius:0 6px 6px 0;padding:1.1rem;margin:1rem 0;">
+    <strong style="font-family:'Arial',sans-serif;font-size:0.9rem;color:#8b4a00;display:block;margin-bottom:0.5rem;">What California reveals before outcomes are in: income graduation requires income data</strong>
+    <p style="font-size:0.83rem;margin:0;">The CPUC acknowledged it could not fully income-graduate charges because California legislation "did not include authority to access income data from the state tax authority." Without tax data, income graduation relies on CARE/FERA program enrollment as a proxy — a proxy that misses the working poor above the CARE eligibility threshold. The AEMC faces exactly the same constraint: it has no authority to access ATO income data. Any income-graduated Australian access charge would start from the same implementation gap.</p>
+  </div>
+
+  <h3>UK Targeted Charging Review (2019–2022): the only case with actual outcome data</h3>
+  <p>The UK shifted electricity network costs from unit rates to standing charges via the TCR — the same structural mechanism as the AEMC's proposal. UK rooftop solar penetration is around 5–6%, very different from Australia's 33%, so the UK case is not a direct solar equity analogy. But it provides the only jurisdiction with real post-implementation distributional data for this type of reform.</p>
+
+  <div style="background:#fff5e6;border-left:4px solid #c87010;border-radius:0 6px 6px 0;padding:1.1rem;margin:1rem 0;">
+    <strong style="font-family:'Arial',sans-serif;font-size:0.9rem;color:#8b4a00;display:block;margin-bottom:0.5rem;">UK outcome: standing charges rose 130%, and Ofgem is now consulting on reversal</strong>
+    <p style="font-size:0.83rem;margin:0 0 0.5rem;">UK electricity standing charges rose from 22p/day (October 2019) to 51p/day (July 2025) — 130% in seven years. The average low-income consumer gained only £21.90/year from the volumetric reduction. But 1.2 million low-income consumers with high energy needs — medical equipment, electric heating, or poorly insulated homes (disproportionately private renters) — paid <strong>£44.52 more per year</strong>.</p>
+    <p style="font-size:0.83rem;margin:0;">Ofgem has since opened: an August 2024 options paper on reducing standing charges, a February 2025 consultation on a zero standing charge tariff option, and a September 2025 proposal requiring suppliers to offer at least one lower standing charge alternative. The distributional arithmetic — fixed charges take proportionally more from low-consumption households — does not depend on solar penetration. It holds here too.</p>
+  </div>
+
+  <h3>Australian modelling: what IEEFA found for the AEMC's specific proposal</h3>
+  <p>In the absence of international post-implementation data for a high-solar context, the most directly relevant quantitative evidence is IEEFA Australia's modelling of the AEMC's draft proposal (February 2026). IEEFA modelled the shift to predominantly fixed network tariffs across NEM capitals and found:</p>
+
+  <div class="two-col" style="margin:1rem 0;">
+    <div style="background:#fff5e6;border-left:4px solid #c87010;border-radius:0 6px 6px 0;padding:1.1rem;">
+      <strong style="font-family:'Arial',sans-serif;font-size:0.9rem;color:#8b4a00;display:block;margin-bottom:0.5rem;">Bill impacts (IEEFA, Feb 2026)</strong>
+      <p style="font-size:0.83rem;margin:0 0 0.4rem;">Low- and median-consuming households pay <strong>more</strong>; high-consuming households pay less.</p>
+      <p style="font-size:0.83rem;margin:0 0 0.4rem;">Homes with rooftop solar: bill increases of <strong>$239–$564/year</strong>.</p>
+      <p style="font-size:0.83rem;margin:0;">Battery owners (10kWh): additional costs of <strong>$5,800–$11,500 over battery lifetime</strong> — more than cancelling the ~$3,100–$3,300 federal rebate under the Cheaper Home Batteries Program (as of February 2026 when IEEFA published; rebate has since decreased).</p>
+    </div>
+    <div style="background:#f0f7f2;border-left:4px solid #1a6b3c;border-radius:0 6px 6px 0;padding:1.1rem;">
+      <strong style="font-family:'Arial',sans-serif;font-size:0.9rem;color:#1a3a2a;display:block;margin-bottom:0.5rem;">The AEMC's own modelling</strong>
+      <p style="font-size:0.83rem;margin:0 0 0.4rem;">AEMC scenario modelling (April 2026): low-consumption small business "Nina the Florist" faces up to <strong>$810/year</strong> higher bills by 2040.</p>
+      <p style="font-size:0.83rem;margin:0 0 0.4rem;">Green Energy Markets: low-income consumers face <strong>$127–$217/year</strong> increases across networks — Tristan Edis: "Robin Hood scheme in reverse."</p>
+      <p style="font-size:0.83rem;margin:0;">Consumer protection design outsourced to HoustonKemp — options identified, not specified. Protections to be designed after the charge structure is locked in.</p>
+    </div>
+  </div>
+
+  <div class="finding-box">
+    <strong>No jurisdiction with high solar penetration has implemented this reform and survived the distributional scrutiny. The burden of proof is on the AEMC.</strong>
+    <p>California is the closest structural comparator — same reform type, high solar — but only months old and already under political pressure. The UK has outcome data but a different solar market. Both point in the same direction: moving costs into fixed charges creates new losers among low-consumption and low-income households that are hard to protect after the fact. Australian-specific modelling (IEEFA, AEMC's own scenarios) confirms the same distributional arithmetic applies here. The AEMC has not demonstrated why Australia's outcome would differ — and that gap in the case should be addressed before the Final Report.</p>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ═══════════════════════════════════════════
+       COMPARISON MATRIX
+  ════════════════════════════════════════════ -->
+  <h2>How the solutions compare</h2>
+
+  <table class="matrix">
+    <tr>
+      <th>Approach</th>
+      <th>Solves network funding?</th>
+      <th>Helps renters?</th>
+      <th>Preserves solar value?</th>
+      <th>Tracks actual costs?</th>
+      <th>Implementable now?</th>
+    </tr>
+    <tr>
+      <td><strong>AEMC: flat access charge</strong></td>
+      <td class="tick">✓</td>
+      <td class="cross">✗ (pay more, can't respond)</td>
+      <td class="cross">✗ (erodes returns)</td>
+      <td class="cross">✗ (flat, not peak-linked)</td>
+      <td class="partial">~ (10yr transition)</td>
+    </tr>
+    <tr>
+      <td><strong>① Community solar / tenancy standards</strong></td>
+      <td class="partial">~ (shrinks the problem)</td>
+      <td class="tick">✓ (direct fix)</td>
+      <td class="tick">✓</td>
+      <td class="partial">~ (not a network solution)</td>
+      <td class="tick">✓ (regulatory change)</td>
+    </tr>
+    <tr>
+      <td><strong>② Connection capacity pricing</strong></td>
+      <td class="tick">✓</td>
+      <td class="partial">~ (small connections pay less)</td>
+      <td class="tick">✓</td>
+      <td class="partial">~ (capacity, not peak timing)</td>
+      <td class="tick">✓ (within existing rules)</td>
+    </tr>
+    <tr>
+      <td><strong>③ Peak demand charges</strong></td>
+      <td class="tick">✓</td>
+      <td class="partial">~ (low peak users pay less)</td>
+      <td class="tick">✓ (daytime self-consumption uncharged)</td>
+      <td class="tick">✓ (directly tracks cost driver)</td>
+      <td class="tick">✓ (smart meters by 2030)</td>
+    </tr>
+    <tr>
+      <td><strong>Combined ①+②+③</strong></td>
+      <td class="tick">✓</td>
+      <td class="tick">✓</td>
+      <td class="tick">✓</td>
+      <td class="tick">✓</td>
+      <td class="tick">✓</td>
+    </tr>
+  </table>
+
+  <div class="finding-box" style="margin-top:1.5rem;">
+    <strong>The AEMC's three problems need three separate interventions — not one blunt instrument.</strong>
+    <p>Renters need community solar and tenancy standards — a property and housing policy response. Apartments need virtual net metering and community solar access. The network funding gap needs charges that track what drives costs — connection capacity or peak demand, not flat access — with differentiation that means smaller, lower-impact connections pay less. Applied together, these three solutions address the AEMC's equity goals without eroding the solar investment that lower-income suburban Australia made over the past 15 years.</p>
+  </div>
+
+  <div class="finding-box" style="margin-top:1rem;">
+    <strong>The policy ask: model these alternatives before locking in the access charge approach.</strong>
+    <p>The AEMC commissioned HoustonKemp to model consumer protection options for its preferred approach. An equivalent analysis modelling community solar uptake, connection capacity differentiation, and demand-based tariffs would show whether the equity and efficiency goals can be better achieved without a flat charge transition. The distributional data to run this analysis already exists in the CER, APVI, and ABS datasets.</p>
+  </div>
+
+  <a class="nav-link" href="index.html">← Main analysis: who actually has solar</a>
+
+  <div class="footnotes" style="margin-top:2.5rem;">
+    <strong>Notes and sources</strong>
+    <ol class="footnotes-list">
+
+      <li>
+        <details>
+          <summary data-n="1"><span class="fn-title">Solar gap analysis — methodology</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">APVI postcode solar penetration × ABS 2021 Census dwelling and tenure data (G36, G37). Solar gap computed for house-dominated postcodes (&gt;60% separate houses, &gt;100 estimated houses), grouped by renter share &lt;20% (low-renter) and &gt;35% (high-renter). Renter-occupied house counts: ABS 2021 Census G37. Apartment counts: ABS 2021 Census G36. State allocations by postcode number range (standard ABS/AusPost conventions).</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="2"><span class="fn-title">Income-by-tenure analysis — methodology</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">ABS 2021 Census postcode-level data, APVI 2026 postcode solar penetration. Analysis restricted to house-dominated postcodes (&gt;60% separate houses, &gt;100 estimated houses), n=951 postcodes after filtering for valid data. Renter share computed from Census G37 dwelling tenure counts; median household income from G02. Within-decile comparison: low-renter (&lt;20% renting) vs high-renter (&gt;35% renting) postcodes, weighted by estimated house count. Income figures are postcode median household income for all households combined — ABS does not publish separate renter/owner-occupier income at postcode level in standard GCP tables (household-level cross-tabs require ABS TableBuilder). The within-decile finding that income gaps are under $1,000/year while solar gaps reach up to 20 percentage points (1.9pp at D6 to 20pp at D10) establishes the solar gap as a tenure effect, not an income sorting effect.</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="3"><span class="fn-title">Tenure solar ownership gap — ECA survey</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Energy Consumers Australia, <em>Consumer Energy Report Card</em>, December 2025. Nationally representative survey, n=4,535. Renters: 11.0% already have rooftop solar; owner-occupiers/mortgagors: 43.9%. Freestanding house renters are better positioned than apartment renters but face the same structural landlord-tenant split incentive. Respondents not researching or considering solar: 54.6% of renters.</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="4"><span class="fn-title">Solar Victoria rental program — uptake data</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Solar Victoria, <em>Installations by LGA</em>, December 2025 and March 2026. Cumulative to December 2025: 323,090 owner-occupier solar installs, 4,900 rental solar installs, 3,610 business — rental share 1.5% of all program installs. VIC renter-occupied separate houses: ABS 2021 Census (~348,134), giving program reach of 1.4% of renter houses. Note: LGA data covers Solar Victoria program grants only; some additional private-market rental solar installations exist outside the scheme. Rebate component available since 2019; interest-free loan component added 2020; current structure up to $1,400 rebate + $1,400 interest-free loan for landlords (eligibility: renter household income ≤$150k).</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="5"><span class="fn-title">State renter solar gap — by-state analysis</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Postcode-level analysis of APVI 2026 solar penetration data and ABS 2021 Census tenure data. Restricted to house-dominated postcodes (&gt;60% separate houses, &gt;100 estimated houses, valid APVI and renter share data). Weighted average solar penetration computed for low-renter (&lt;20%) and high-renter (&gt;35%) postcodes within each state, weighted by estimated house count. "Missing solar houses" = gap (pp) × total estimated houses in high-renter postcodes in that state. WA excluded from AEMC jurisdiction (Synergy/Horizon networks). NT and ACT have too few qualifying high-renter house-dominated postcodes for reliable estimates.</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="6"><span class="fn-title">Community solar and apartment programs</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Enova Community Energy VNM solar garden (Lismore NSW): 35kW array on North Coast Community Housing building; tenants receive ~$580/year bill credit. (Renew Magazine, "Solar gardens", 2024; Enova Community Energy, enovaenergy.com.au.) Victorian Solar for Apartments Program Round 3: $32M joint Commonwealth-Victorian program; up to $2,800/apartment, $140,000/building; 46% of funded apartments are rentals; 3,200+ households helped since February 2024. Applications closed June 2026; rebates available until June 2027. (Solar Victoria / DCCEEW, 2026.) NSW Solar for Apartment Residents (SoAR): program closed March 2026; 3,114 households funded including 1,135 rented apartments; average saving over $1,000/year. (NSW Government / DCCEEW, May 2026.) Australian Government Community Solar Banks initiative: $100M targeting 25,000 households nationally in partnership with states and territories. (DCCEEW, 2025.)</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="7"><span class="fn-title">Rental energy and solar standards — by jurisdiction</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Victoria: minimum energy efficiency standards for rental properties phase in from 1 March 2027, covering insulation, draught-proofing, and efficient heating and hot water (replacing gas at end-of-life with heat pumps/reverse-cycle). (Consumer Affairs Victoria, November 2025.) Victorian Solar for Rentals rebate: up to $1,400 + $1,400 interest-free loan for landlords. Queensland Supercharged Solar for Renters: up to $3,500 rebate (tiered by system size) for landlords, launched December 2025. (Queensland Treasury, treasury.qld.gov.au.) NSW: investigation into minimum energy efficiency rental standards (MEERS); submissions closed 31 May 2026. (NSW DCCEEW.) ACT: mandatory residential energy efficiency rating (EER) disclosure at point of sale operating since March 1999 — the longest-running mandatory residential disclosure scheme in Australia. (ACT Planning Directorate.)</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="8"><span class="fn-title">Network demand tariffs and capacity pricing</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Ausgrid EA116 Residential demand tariff: maximum half-hourly demand measured in the 3pm–9pm window, every day during peak seasons (June–August and November–March). New residential customers assigned to EA116 by default. The weekdays-only window applies to small business customers only — not residential. (Ausgrid, ausgrid.com.au/your-energy-use/smarter-energy-use/understanding-network-tariffs/demand-pricing; ES7 Network Price Guide, July 2025.) AEMC final report Appendix D.3.2 acknowledges charges may vary by connection type and historical consumption. Connection capacity pricing (c/kVA/day): France (TURPE tariff), Netherlands, Portugal all use contracted capacity as the basis for network cost recovery. AEMC final report Appendix D.2.2 identifies dynamic congestion pricing as the "first-best mechanism" for network cost recovery but acknowledges 10+ year implementation horizon.</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="9"><span class="fn-title">Smart meter rollout — AEMC rule and timeline</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">AEMC, "Accelerating smart meter deployment" (final rule, November 2024): 100% NEM coverage mandatory by 1 December 2030. Over 56% of NEM meters already remotely read as of 2025; Victoria at 99% (AER, 2025). Accelerated rollout commenced December 2025. For smart meters installed from December 2025, customers have a two-year consent-protected window before retailers can move them to a new tariff structure. (AER, "Consumer rights and smart meters," aer.gov.au.)</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="10"><span class="fn-title">California income-graduated fixed charge (AB 205)</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">California AB 205 (2022) authorised CPUC to adopt an income-graduated fixed charge. CPUC voted 4-0 to approve in July 2024 (proceeding R.22-04-020). Implementation: SDG&amp;E October 2025, SCE November 2025, PG&amp;E March 2026. Rates: CARE (lowest income) $6/month, FERA (moderate low-income) $12/month, general residential $24.15/month — paired with ~5–7¢/kWh volumetric rate reduction (revenue-neutral). CPUC acknowledged it could not fully income-graduate because California legislation did not include authority to access Franchise Tax Board income data; CARE/FERA enrollment used as income proxy. (CPUC fact sheet, May 2024.) As at June 2026 the reform is in effect; legislative reversal attempts (led by coastal Democrats and Senate Republicans) were "put on ice" by legislative leadership. No post-implementation distributional outcome data published as of submission date (reform 3–9 months old). California rooftop solar penetration: ~30% of homes (LBNL Tracking the Sun 2024). Sources: CPUC press releases; Utility Dive; Canary Media; NRG Clean Power, "The New California Fixed Charge" (2026).</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="11"><span class="fn-title">UK Targeted Charging Review — outcome data</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">Ofgem Targeted Charging Review (TCR), implemented 2019–2022: shifted residual network costs from unit rates to standing charges. Electricity standing charges rose from 22p/day (October 2019) to 51p/day (July 2025) — a 130% increase in seven years. Distributional impact: 5.5 million low-income consumers gained average £21.90/year from volumetric reduction; 1.2 million low-income consumers with high energy needs (medical equipment, electric heating, poorly insulated homes) paid £44.52 more per year. (Ofgem, 2024; Citizens Advice response to Ofgem Call for Input on Standing Charges, 2024.) Ofgem subsequently: opened an August 2024 options paper on reducing standing charges; February 2025 consultation on a zero standing charge price cap tariff option; September 2025 proposal requiring suppliers to offer at least one lower standing charge tariff. Note: UK rooftop solar penetration (~5–6%) is significantly lower than Australia (~33%), limiting direct solar-equity comparability. The UK case is cited as mechanism evidence for the distributional consequences of shifting costs into fixed charges.</div>
+        </details>
+      </li>
+
+      <li>
+        <details>
+          <summary data-n="12"><span class="fn-title">Australian distributional modelling — IEEFA, AEMC, Green Energy Markets</span><span class="fn-arrow">▶</span></summary>
+          <div class="fn-body">IEEFA Australia briefing note (Jay Gordon, February 2026): modelled shift to predominantly fixed network tariffs across NEM capitals. Findings: low- and median-consuming households pay more; high-consuming households pay less; homes with rooftop solar face bill increases of $239–$564/year; 10kWh battery owners face $5,800–$11,500 additional costs over battery lifetime, exceeding the Cheaper Home Batteries Program rebate (~$3,100–$3,300 at February 2026 — rebate structure revised downward from May 2026); payback periods for new 8kW solar + 10kWh battery increase by 1.2–4.4 years. IEEFA calls for a first-principles review of electricity network economic regulation before any tariff changes. (ieefa.org, "Network tariff shake-up could create more problems than it solves.") AEMC scenario modelling (April 2026): "Nina the Florist" scenario (low-consumption small business, Sydney) faces up to $810/year higher bills by 2040 under reform. Green Energy Markets analysis (Tristan Edis, RenewEconomy, April 2026): low-income consumers face $127–$217/year increases across NEM networks. HoustonKemp consumer protection options report (AEMC, April 2026): identifies protection options but does not specify final mechanisms. Rewiring Australia (February 2026): argues property-value-scaled fixed charges levied on owners (not renters), combined with dynamic network pricing, would be preferable to flat fixed charges. All population and dwelling data are 2021 Census base.</div>
+        </details>
+      </li>
+
+    </ol>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const SOLAR_GAP = [
+  {decile:1, owner_like:46.0, renter_heavy:38.5, gap:7.5},
+  {decile:2, owner_like:46.4, renter_heavy:27.1, gap:19.3},
+  {decile:3, owner_like:46.4, renter_heavy:34.1, gap:12.3},
+  {decile:4, owner_like:45.2, renter_heavy:38.1, gap:7.1},
+  {decile:5, owner_like:45.5, renter_heavy:41.2, gap:4.4},
+  {decile:6, owner_like:42.8, renter_heavy:40.9, gap:1.9},
+  {decile:7, owner_like:48.8, renter_heavy:45.5, gap:3.3},
+  {decile:8, owner_like:47.6, renter_heavy:43.5, gap:4.1},
+  {decile:9, owner_like:54.5, renter_heavy:41.0, gap:13.5},
+  {decile:10,owner_like:45.8, renter_heavy:25.7, gap:20.0}
+];
+
+const STATE_DATA = [
+  {state:'NSW', renter_houses:391583, solar_houses:1060568, apartments:329455, total_houses:2869493, solar_pct:39.1},
+  {state:'VIC', renter_houses:348134, solar_houses:804214, apartments:384618, total_houses:2582434, solar_pct:31.1},
+  {state:'QLD', renter_houses:329595, solar_houses:1035519, apartments:174673, total_houses:1922706, solar_pct:53.9},
+  {state:'WA',  renter_houses:160553, solar_houses:539006,  apartments:152407, total_houses:1104289, solar_pct:48.8},
+  {state:'SA',  renter_houses:107022, solar_houses:411779,  apartments:67888,  total_houses:763969,  solar_pct:53.9},
+  {state:'TAS', renter_houses:40525,  solar_houses:61141,   apartments:34238,  total_houses:258195,  solar_pct:23.7},
+  {state:'ACT', renter_houses:20796,  solar_houses:61303,   apartments:50001,  total_houses:157090,  solar_pct:39.1},
+  {state:'NT',  renter_houses:18325,  solar_houses:23402,   apartments:18037,  total_houses:81416,   solar_pct:28.7},
+];
+
+const DECILE_DATA = [
+  {decile:1,  income:48000,  solar_pct:44.3, pct_apt:2.4,  renter_houses:35573,   owner_houses:134956, apartments:7299,   total:282000},
+  {decile:2,  income:57000,  solar_pct:42.0, pct_apt:2.6,  renter_houses:78922,   owner_houses:256404, apartments:13889,  total:550000},
+  {decile:3,  income:63000,  solar_pct:42.3, pct_apt:4.0,  renter_houses:120102,  owner_houses:389227, apartments:39893,  total:855000},
+  {decile:4,  income:69000,  solar_pct:41.2, pct_apt:5.2,  renter_houses:134095,  owner_houses:375194, apartments:77143,  total:880000},
+  {decile:5,  income:75000,  solar_pct:42.4, pct_apt:5.9,  renter_houses:185218,  owner_houses:559891, apartments:84263,  total:1170000},
+  {decile:6,  income:83000,  solar_pct:41.6, pct_apt:7.6,  renter_houses:202874,  owner_houses:642753, apartments:119854, total:1250000},
+  {decile:7,  income:92000,  solar_pct:44.5, pct_apt:7.2,  renter_houses:179621,  owner_houses:658426, apartments:151967, total:1230000},
+  {decile:8,  income:102000, solar_pct:41.5, pct_apt:7.8,  renter_houses:210326,  owner_houses:761460, apartments:231141, total:1400000},
+  {decile:9,  income:113000, solar_pct:41.3, pct_apt:13.5, renter_houses:154725,  owner_houses:686064, apartments:330274, total:1250000},
+  {decile:10, income:137000, solar_pct:37.5, pct_apt:14.1, renter_houses:115077,  owner_houses:556309, apartments:251334, total:1080000},
+];
+
+const NATIONAL = {
+  total_renter_houses: 1416533,
+  total_solar_houses: 3996932,
+  total_apartments: 1307057,
+};
+
+// ── CHART DEFAULTS ──────────────────────────────────────────────────────
+Chart.defaults.font.family = 'Arial, sans-serif';
+Chart.defaults.font.size = 11;
+
+// ── CHART 1: Solar gap ───────────────────────────────────────────────────
+new Chart(document.getElementById('solarGapChart'), {
+  type: 'bar',
+  data: {
+    labels: SOLAR_GAP.map(d => `D${d.decile}`),
+    datasets: [
+      {
+        label: 'Owner-like postcodes (<20% renting)',
+        data: SOLAR_GAP.map(d => d.owner_like),
+        backgroundColor: 'rgba(26,107,60,0.85)',
+        borderRadius: 3,
+      },
+      {
+        label: 'Renter-heavy postcodes (>35% renting)',
+        data: SOLAR_GAP.map(d => d.renter_heavy),
+        backgroundColor: 'rgba(224,136,90,0.85)',
+        borderRadius: 3,
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { position: 'top' },
+      tooltip: {
+        callbacks: {
+          afterBody: (items) => {
+            const d = SOLAR_GAP[items[0].dataIndex];
+            return [`Tenure gap: ${d.gap} percentage points`];
+          }
+        }
+      }
+    },
+    scales: {
+      x: { title: { display: true, text: 'Income decile (D1 = lowest)', font: { size: 10 } } },
+      y: {
+        title: { display: true, text: 'Solar penetration (% of houses)', font: { size: 10 } },
+        min: 0, max: 65,
+        ticks: { callback: v => v + '%' }
+      }
+    }
+  }
+});
+
+// ── CHART 2: State renter houses ─────────────────────────────────────────
+new Chart(document.getElementById('stateRenterChart'), {
+  type: 'bar',
+  data: {
+    labels: STATE_DATA.map(d => d.state),
+    datasets: [
+      {
+        label: 'Renter-occupied separate houses (could get solar with tenure reform)',
+        data: STATE_DATA.map(d => d.renter_houses),
+        backgroundColor: 'rgba(224,136,90,0.85)',
+        borderRadius: 3,
+        stack: 'a'
+      },
+      {
+        label: 'Apartments (need community solar, rooftop not possible)',
+        data: STATE_DATA.map(d => d.apartments),
+        backgroundColor: 'rgba(170,170,170,0.8)',
+        borderRadius: 3,
+        stack: 'a'
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { stacked: true },
+      y: {
+        stacked: true,
+        ticks: { callback: v => v >= 1000 ? Math.round(v/1000) + 'k' : v },
+        title: { display: true, text: 'Number of dwellings', font: { size: 10 } }
+      }
+    }
+  }
+});
+
+// ── SCENARIO SELECTOR ──────────────────────────────────────────────────
+function setScenario(pct) {
+  document.querySelectorAll('.scenario-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const n = Math.round(NATIONAL.total_renter_houses * pct / 100);
+  document.getElementById('scenarioNum').textContent = n.toLocaleString();
+  const compare = {
+    20: 'nearly four times Tasmania\'s entire rooftop solar fleet',
+    35: 'exceeding the entire rooftop solar fleet of South Australia (~411,000 homes)',
+    50: 'approaching Victoria\'s entire rooftop solar fleet (~804,000 homes)'
+  };
+  document.getElementById('scenarioLabel').textContent =
+    `additional renter households gain solar access at ${pct}% community solar uptake — ${compare[pct]}`;
+}
+
+// ── CHART 3: Dwelling composition by decile ───────────────────────────
+new Chart(document.getElementById('dwellingCompositionChart'), {
+  type: 'bar',
+  data: {
+    labels: DECILE_DATA.map(d => `D${d.decile}`),
+    datasets: [
+      {
+        label: 'Owner-occupied houses with solar',
+        data: DECILE_DATA.map(d => Math.round(d.owner_houses * d.solar_pct / 100)),
+        backgroundColor: 'rgba(26,107,60,0.85)',
+        stack: 's',
+        borderRadius: 2
+      },
+      {
+        label: 'Owner-occupied houses without solar',
+        data: DECILE_DATA.map(d => Math.round(d.owner_houses * (1 - d.solar_pct/100))),
+        backgroundColor: 'rgba(122,191,154,0.8)',
+        stack: 's',
+        borderRadius: 2
+      },
+      {
+        label: 'Renter-occupied houses',
+        data: DECILE_DATA.map(d => d.renter_houses),
+        backgroundColor: 'rgba(224,136,90,0.85)',
+        stack: 's',
+        borderRadius: 2
+      },
+      {
+        label: 'Apartments',
+        data: DECILE_DATA.map(d => d.apartments),
+        backgroundColor: 'rgba(170,170,170,0.8)',
+        stack: 's',
+        borderRadius: 2
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      x: { stacked: true, title: { display: true, text: 'Income decile', font: { size: 10 } } },
+      y: {
+        stacked: true,
+        ticks: { callback: v => v >= 1000 ? Math.round(v/1000) + 'k' : v },
+        title: { display: true, text: 'Number of dwellings', font: { size: 10 } }
+      }
+    }
+  }
+});
+
+// ── CAPACITY VIZ ─────────────────────────────────────────────────────────
+// Flat bar: equal widths (all pay same)
+// Capacity bar: widths proportional to connection size proxy
+// Groups: small apt (grey), medium house renter (orange), owner no solar (green-lt), owner solar (green-dk)
+const groups = [
+  { label: 'Apt (small)', cls: 'seg-apt',          flat: 15, cap: 8  },
+  { label: 'Renter house',cls: 'seg-renter',        flat: 15, cap: 12 },
+  { label: 'Owner (no solar)', cls: 'seg-nonsolar-owner', flat: 35, cap: 35 },
+  { label: 'Owner (solar+EV+battery)', cls: 'seg-solar-owner', flat: 35, cap: 45 },
+];
+const flatBar = document.getElementById('flatBar');
+const capBar = document.getElementById('capBar');
+groups.forEach(g => {
+  [['flat', flatBar], ['cap', capBar]].forEach(([k, el]) => {
+    const seg = document.createElement('div');
+    seg.className = `bar-seg ${g.cls}`;
+    seg.style.width = g[k] + '%';
+    if (g[k] >= 12) seg.textContent = g.label;
+    el.appendChild(seg);
+  });
+});
+
+// ── CHART 4 & 5: Volumetric vs peak (illustrative) ───────────────────
+const consumerTypes = ['Low-income\nrenter apt', 'Mid-income\nrenter house', 'Mid-income\nowner+solar', 'High-income\nowner+EV+battery'];
+const volumetricShare = [8, 18, 28, 46];   // rough proxy for kWh consumed
+const peakShare = [5, 14, 22, 59];          // peak demand proxy
+
+new Chart(document.getElementById('volumetricChart'), {
+  type: 'pie',
+  data: {
+    labels: consumerTypes,
+    datasets: [{ data: volumetricShare,
+      backgroundColor: ['#aaa','#e0885a','#7abf9a','#1a6b3c'] }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 9 } } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}% of cost` } }
+    }
+  }
+});
+
+new Chart(document.getElementById('peakChart'), {
+  type: 'pie',
+  data: {
+    labels: consumerTypes,
+    datasets: [{ data: peakShare,
+      backgroundColor: ['#aaa','#e0885a','#7abf9a','#1a6b3c'] }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 9 } } },
+      tooltip: { callbacks: { label: ctx => ` ${ctx.label}: ${ctx.parsed}% of cost` } }
+    }
+  }
+});
+</script>
+</body>
+</html>

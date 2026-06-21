@@ -1,0 +1,1352 @@
+[
+  {
+    "electorate": "Fisher",
+    "total_houses": 62475.0,
+    "solar_pct": 67.3,
+    "battery_pct": 2.67,
+    "income_annual": 83413,
+    "avg_decile": 5.6801600640256105,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Hinkler",
+    "total_houses": 40367.0,
+    "solar_pct": 67.1,
+    "battery_pct": 2.76,
+    "income_annual": 55707,
+    "avg_decile": 1.8090767210840537,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Brand",
+    "total_houses": 53642.0,
+    "solar_pct": 66.1,
+    "battery_pct": 3.31,
+    "income_annual": 92764,
+    "avg_decile": 7.048338988106335,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Bowman",
+    "total_houses": 66505.0,
+    "solar_pct": 65.5,
+    "battery_pct": 5.26,
+    "income_annual": 92602,
+    "avg_decile": 6.865543944064356,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Pearce",
+    "total_houses": 80227.0,
+    "solar_pct": 63.8,
+    "battery_pct": 3.52,
+    "income_annual": 105852,
+    "avg_decile": 8.287895596245653,
+    "n_postcodes": 14.0
+  },
+  {
+    "electorate": "Richmond",
+    "total_houses": 70196.0,
+    "solar_pct": 63.5,
+    "battery_pct": 5.84,
+    "income_annual": 73903,
+    "avg_decile": 4.543677702433187,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Fairfax",
+    "total_houses": 76665.0,
+    "solar_pct": 62.7,
+    "battery_pct": 4.59,
+    "income_annual": 84445,
+    "avg_decile": 5.925741863953564,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Makin",
+    "total_houses": 67801.0,
+    "solar_pct": 62.1,
+    "battery_pct": 6.04,
+    "income_annual": 79926,
+    "avg_decile": 5.383578413297739,
+    "n_postcodes": 14.0
+  },
+  {
+    "electorate": "Canning",
+    "total_houses": 77598.0,
+    "solar_pct": 61.6,
+    "battery_pct": 2.92,
+    "income_annual": 79509,
+    "avg_decile": 5.046972860125261,
+    "n_postcodes": 19.0
+  },
+  {
+    "electorate": "Moore",
+    "total_houses": 52404.0,
+    "solar_pct": 60.5,
+    "battery_pct": 4.67,
+    "income_annual": 112326,
+    "avg_decile": 8.966529272574613,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "Kingston",
+    "total_houses": 71177.0,
+    "solar_pct": 60.3,
+    "battery_pct": 5.68,
+    "income_annual": 76782,
+    "avg_decile": 4.958104443851244,
+    "n_postcodes": 13.0
+  },
+  {
+    "electorate": "Mayo",
+    "total_houses": 98004.0,
+    "solar_pct": 59.1,
+    "battery_pct": 7.02,
+    "income_annual": 80863,
+    "avg_decile": 5.200246928696788,
+    "n_postcodes": 54.0
+  },
+  {
+    "electorate": "Burt",
+    "total_houses": 57468.0,
+    "solar_pct": 58.8,
+    "battery_pct": 2.26,
+    "income_annual": 90790,
+    "avg_decile": 6.590363332637294,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Tangney",
+    "total_houses": 62435.0,
+    "solar_pct": 58.7,
+    "battery_pct": 4.11,
+    "income_annual": 110746,
+    "avg_decile": 8.739745335148555,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Ryan",
+    "total_houses": 37101.0,
+    "solar_pct": 58.5,
+    "battery_pct": 4.29,
+    "income_annual": 136458,
+    "avg_decile": 9.535834613622274,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Bullwinkel",
+    "total_houses": 57769.0,
+    "solar_pct": 57.9,
+    "battery_pct": 3.89,
+    "income_annual": 87017,
+    "avg_decile": 6.187089961744188,
+    "n_postcodes": 24.0
+  },
+  {
+    "electorate": "Forde",
+    "total_houses": 73439.0,
+    "solar_pct": 57.0,
+    "battery_pct": 3.05,
+    "income_annual": 86040,
+    "avg_decile": 5.941761189558681,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Hasluck",
+    "total_houses": 81093.0,
+    "solar_pct": 56.6,
+    "battery_pct": 2.14,
+    "income_annual": 92459,
+    "avg_decile": 6.77279173294859,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Rankin",
+    "total_houses": 62769.0,
+    "solar_pct": 56.4,
+    "battery_pct": 4.21,
+    "income_annual": 84833,
+    "avg_decile": 5.969985183769058,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Bonner",
+    "total_houses": 65517.0,
+    "solar_pct": 55.7,
+    "battery_pct": 5.36,
+    "income_annual": 111500,
+    "avg_decile": 8.648900285422105,
+    "n_postcodes": 13.0
+  },
+  {
+    "electorate": "Herbert",
+    "total_houses": 41944.0,
+    "solar_pct": 55.6,
+    "battery_pct": 4.04,
+    "income_annual": 89603,
+    "avg_decile": 6.431885370970818,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Parkes",
+    "total_houses": 85619.0,
+    "solar_pct": 55.4,
+    "battery_pct": 2.98,
+    "income_annual": 73314,
+    "avg_decile": 4.442904028311473,
+    "n_postcodes": 60.0
+  },
+  {
+    "electorate": "Wide Bay",
+    "total_houses": 68729.0,
+    "solar_pct": 55.3,
+    "battery_pct": 3.81,
+    "income_annual": 63274,
+    "avg_decile": 3.2913908248337673,
+    "n_postcodes": 15.0
+  },
+  {
+    "electorate": "Page",
+    "total_houses": 93912.0,
+    "solar_pct": 55.3,
+    "battery_pct": 3.57,
+    "income_annual": 65036,
+    "avg_decile": 3.3657253599114063,
+    "n_postcodes": 17.0
+  },
+  {
+    "electorate": "Oxley",
+    "total_houses": 88811.0,
+    "solar_pct": 54.6,
+    "battery_pct": 3.11,
+    "income_annual": 95539,
+    "avg_decile": 7.023837137291552,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Moreton",
+    "total_houses": 53338.0,
+    "solar_pct": 53.7,
+    "battery_pct": 5.33,
+    "income_annual": 98994,
+    "avg_decile": 7.435243166222955,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Fadden",
+    "total_houses": 83963.0,
+    "solar_pct": 53.3,
+    "battery_pct": 3.24,
+    "income_annual": 94953,
+    "avg_decile": 7.249240736991294,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "McPherson",
+    "total_houses": 51406.0,
+    "solar_pct": 53.0,
+    "battery_pct": 4.81,
+    "income_annual": 91767,
+    "avg_decile": 7.101136054157102,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Sturt",
+    "total_houses": 67725.0,
+    "solar_pct": 52.9,
+    "battery_pct": 7.68,
+    "income_annual": 88762,
+    "avg_decile": 6.459623477297896,
+    "n_postcodes": 15.0
+  },
+  {
+    "electorate": "Spence",
+    "total_houses": 75437.0,
+    "solar_pct": 52.6,
+    "battery_pct": 6.01,
+    "income_annual": 68168,
+    "avg_decile": 3.7088166284449278,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Flynn",
+    "total_houses": 107519.0,
+    "solar_pct": 52.3,
+    "battery_pct": 2.28,
+    "income_annual": 76384,
+    "avg_decile": 4.80063988690371,
+    "n_postcodes": 36.0
+  },
+  {
+    "electorate": "Dickson",
+    "total_houses": 80759.0,
+    "solar_pct": 52.0,
+    "battery_pct": 4.76,
+    "income_annual": 107391,
+    "avg_decile": 8.235577458859074,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Hindmarsh",
+    "total_houses": 71433.0,
+    "solar_pct": 51.7,
+    "battery_pct": 5.95,
+    "income_annual": 79646,
+    "avg_decile": 5.311886663026892,
+    "n_postcodes": 18.0
+  },
+  {
+    "electorate": "Petrie",
+    "total_houses": 56994.0,
+    "solar_pct": 51.6,
+    "battery_pct": 3.36,
+    "income_annual": 82300,
+    "avg_decile": 5.621468926553672,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Fremantle",
+    "total_houses": 67596.0,
+    "solar_pct": 51.6,
+    "battery_pct": 2.22,
+    "income_annual": 101974,
+    "avg_decile": 7.691298301674656,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Cowper",
+    "total_houses": 56650.0,
+    "solar_pct": 51.6,
+    "battery_pct": 3.59,
+    "income_annual": 61853,
+    "avg_decile": 2.8442718446601942,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Wright",
+    "total_houses": 88156.0,
+    "solar_pct": 51.1,
+    "battery_pct": 4.82,
+    "income_annual": 89874,
+    "avg_decile": 6.5917124188937795,
+    "n_postcodes": 17.0
+  },
+  {
+    "electorate": "Boothby",
+    "total_houses": 70509.0,
+    "solar_pct": 51.1,
+    "battery_pct": 6.48,
+    "income_annual": 85864,
+    "avg_decile": 6.192514430781886,
+    "n_postcodes": 15.0
+  },
+  {
+    "electorate": "Greenway",
+    "total_houses": 71682.0,
+    "solar_pct": 50.8,
+    "battery_pct": 3.64,
+    "income_annual": 132306,
+    "avg_decile": 9.619569766468569,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Dawson",
+    "total_houses": 29966.0,
+    "solar_pct": 50.0,
+    "battery_pct": 4.61,
+    "income_annual": 79621,
+    "avg_decile": 5.230160848962157,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Lyne",
+    "total_houses": 85382.0,
+    "solar_pct": 50.0,
+    "battery_pct": 3.96,
+    "income_annual": 64241,
+    "avg_decile": 2.9734955845494366,
+    "n_postcodes": 20.0
+  },
+  {
+    "electorate": "Barker",
+    "total_houses": 88029.0,
+    "solar_pct": 49.1,
+    "battery_pct": 4.7,
+    "income_annual": 65738,
+    "avg_decile": 3.389394404116825,
+    "n_postcodes": 65.0
+  },
+  {
+    "electorate": "Lilley",
+    "total_houses": 73647.0,
+    "solar_pct": 48.7,
+    "battery_pct": 3.62,
+    "income_annual": 103166,
+    "avg_decile": 8.057544774396785,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Longman",
+    "total_houses": 76726.0,
+    "solar_pct": 47.4,
+    "battery_pct": 4.57,
+    "income_annual": 76468,
+    "avg_decile": 4.831360946745562,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Grey",
+    "total_houses": 85580.0,
+    "solar_pct": 47.3,
+    "battery_pct": 3.72,
+    "income_annual": 62382,
+    "avg_decile": 2.877144192568357,
+    "n_postcodes": 114.0
+  },
+  {
+    "electorate": "Forrest",
+    "total_houses": 74447.0,
+    "solar_pct": 47.2,
+    "battery_pct": 2.83,
+    "income_annual": 82175,
+    "avg_decile": 5.649670235200881,
+    "n_postcodes": 23.0
+  },
+  {
+    "electorate": "Mitchell",
+    "total_houses": 65477.0,
+    "solar_pct": 46.9,
+    "battery_pct": 1.4,
+    "income_annual": 142206,
+    "avg_decile": 9.900025963315363,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "Adelaide",
+    "total_houses": 71367.0,
+    "solar_pct": 46.3,
+    "battery_pct": 6.41,
+    "income_annual": 88843,
+    "avg_decile": 6.269340171227598,
+    "n_postcodes": 17.0
+  },
+  {
+    "electorate": "Capricornia",
+    "total_houses": 100291.0,
+    "solar_pct": 46.1,
+    "battery_pct": 1.43,
+    "income_annual": 92055,
+    "avg_decile": 6.472534923372985,
+    "n_postcodes": 26.0
+  },
+  {
+    "electorate": "Kennedy",
+    "total_houses": 113004.0,
+    "solar_pct": 45.9,
+    "battery_pct": 2.77,
+    "income_annual": 77747,
+    "avg_decile": 4.8525096456762595,
+    "n_postcodes": 37.0
+  },
+  {
+    "electorate": "Griffith",
+    "total_houses": 47146.0,
+    "solar_pct": 45.8,
+    "battery_pct": 4.48,
+    "income_annual": 119701,
+    "avg_decile": 9.073919314469945,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Leichhardt",
+    "total_houses": 67345.0,
+    "solar_pct": 44.7,
+    "battery_pct": 3.18,
+    "income_annual": 79102,
+    "avg_decile": 5.600460316281833,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Macarthur",
+    "total_houses": 32059.0,
+    "solar_pct": 44.7,
+    "battery_pct": 6.76,
+    "income_annual": 102549,
+    "avg_decile": 7.791509404535388,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Moncrieff",
+    "total_houses": 32549.0,
+    "solar_pct": 44.1,
+    "battery_pct": 3.75,
+    "income_annual": 75489,
+    "avg_decile": 4.7187624811822175,
+    "n_postcodes": 3.0
+  },
+  {
+    "electorate": "Paterson",
+    "total_houses": 54880.0,
+    "solar_pct": 44.1,
+    "battery_pct": 4.98,
+    "income_annual": 83467,
+    "avg_decile": 5.703115889212828,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Holt",
+    "total_houses": 77486.0,
+    "solar_pct": 44.0,
+    "battery_pct": 0.46,
+    "income_annual": 100349,
+    "avg_decile": 8.044278966522985,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Hunter",
+    "total_houses": 89598.0,
+    "solar_pct": 43.7,
+    "battery_pct": 4.72,
+    "income_annual": 83395,
+    "avg_decile": 5.728610013616375,
+    "n_postcodes": 15.0
+  },
+  {
+    "electorate": "Brisbane",
+    "total_houses": 36012.0,
+    "solar_pct": 43.6,
+    "battery_pct": 4.23,
+    "income_annual": 117393,
+    "avg_decile": 8.977646340108853,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Farrer",
+    "total_houses": 83819.0,
+    "solar_pct": 43.6,
+    "battery_pct": 4.14,
+    "income_annual": 72635,
+    "avg_decile": 4.45229601880242,
+    "n_postcodes": 37.0
+  },
+  {
+    "electorate": "Hume",
+    "total_houses": 112867.0,
+    "solar_pct": 43.5,
+    "battery_pct": 3.77,
+    "income_annual": 110718,
+    "avg_decile": 8.473087793597774,
+    "n_postcodes": 14.0
+  },
+  {
+    "electorate": "Indi",
+    "total_houses": 79235.0,
+    "solar_pct": 43.5,
+    "battery_pct": 3.76,
+    "income_annual": 71358,
+    "avg_decile": 4.172095664794599,
+    "n_postcodes": 53.0
+  },
+  {
+    "electorate": "Riverina",
+    "total_houses": 88154.0,
+    "solar_pct": 43.3,
+    "battery_pct": 4.45,
+    "income_annual": 84273,
+    "avg_decile": 5.50930190348708,
+    "n_postcodes": 39.0
+  },
+  {
+    "electorate": "Maranoa",
+    "total_houses": 73233.0,
+    "solar_pct": 43.0,
+    "battery_pct": 1.84,
+    "income_annual": 66040,
+    "avg_decile": 3.4411399232586404,
+    "n_postcodes": 87.0
+  },
+  {
+    "electorate": "Lalor",
+    "total_houses": 113793.0,
+    "solar_pct": 43.0,
+    "battery_pct": 0.69,
+    "income_annual": 104301,
+    "avg_decile": 8.0,
+    "n_postcodes": 3.0
+  },
+  {
+    "electorate": "Cowan",
+    "total_houses": 65112.0,
+    "solar_pct": 42.8,
+    "battery_pct": 3.06,
+    "income_annual": 82575,
+    "avg_decile": 5.671212679690379,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Groom",
+    "total_houses": 72781.0,
+    "solar_pct": 42.5,
+    "battery_pct": 2.42,
+    "income_annual": 79499,
+    "avg_decile": 5.501394594743133,
+    "n_postcodes": 13.0
+  },
+  {
+    "electorate": "Nicholls",
+    "total_houses": 74721.0,
+    "solar_pct": 41.9,
+    "battery_pct": 2.41,
+    "income_annual": 70933,
+    "avg_decile": 4.111374312442285,
+    "n_postcodes": 45.0
+  },
+  {
+    "electorate": "Bean",
+    "total_houses": 61455.0,
+    "solar_pct": 41.8,
+    "battery_pct": 3.14,
+    "income_annual": 117785,
+    "avg_decile": 9.121324546416076,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Bruce",
+    "total_houses": 59072.0,
+    "solar_pct": 41.4,
+    "battery_pct": 2.84,
+    "income_annual": 99523,
+    "avg_decile": 7.645906690140845,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Whitlam",
+    "total_houses": 73191.0,
+    "solar_pct": 41.4,
+    "battery_pct": 4.9,
+    "income_annual": 86946,
+    "avg_decile": 6.170676722547854,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Chifley",
+    "total_houses": 31244.0,
+    "solar_pct": 41.2,
+    "battery_pct": 5.09,
+    "income_annual": 86004,
+    "avg_decile": 5.827870951222635,
+    "n_postcodes": 2.0
+  },
+  {
+    "electorate": "Werriwa",
+    "total_houses": 35857.0,
+    "solar_pct": 40.9,
+    "battery_pct": 6.16,
+    "income_annual": 99825,
+    "avg_decile": 7.551273112641883,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Eden-monaro",
+    "total_houses": 60281.0,
+    "solar_pct": 40.1,
+    "battery_pct": 4.07,
+    "income_annual": 80270,
+    "avg_decile": 4.644697334151723,
+    "n_postcodes": 21.0
+  },
+  {
+    "electorate": "Fenner",
+    "total_houses": 61847.0,
+    "solar_pct": 39.7,
+    "battery_pct": 4.92,
+    "income_annual": 125441,
+    "avg_decile": 9.461542192830695,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Dobell",
+    "total_houses": 62819.0,
+    "solar_pct": 39.5,
+    "battery_pct": 2.03,
+    "income_annual": 75669,
+    "avg_decile": 5.0359763765739665,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Solomon",
+    "total_houses": 28403.0,
+    "solar_pct": 39.5,
+    "battery_pct": 1.86,
+    "income_annual": 115491,
+    "avg_decile": 9.019223321480125,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "Bendigo",
+    "total_houses": 75366.0,
+    "solar_pct": 39.4,
+    "battery_pct": 2.71,
+    "income_annual": 76065,
+    "avg_decile": 4.557028368229706,
+    "n_postcodes": 21.0
+  },
+  {
+    "electorate": "New England",
+    "total_houses": 83707.0,
+    "solar_pct": 39.4,
+    "battery_pct": 3.08,
+    "income_annual": 69092,
+    "avg_decile": 3.9317022471238965,
+    "n_postcodes": 40.0
+  },
+  {
+    "electorate": "Blair",
+    "total_houses": 66795.0,
+    "solar_pct": 39.4,
+    "battery_pct": 2.45,
+    "income_annual": 81020,
+    "avg_decile": 5.677760311400554,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Curtin",
+    "total_houses": 65999.0,
+    "solar_pct": 39.2,
+    "battery_pct": 4.16,
+    "income_annual": 123586,
+    "avg_decile": 9.212866861619116,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Gilmore",
+    "total_houses": 88990.0,
+    "solar_pct": 39.1,
+    "battery_pct": 2.87,
+    "income_annual": 67854,
+    "avg_decile": 3.4088774019552757,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Calare",
+    "total_houses": 76422.0,
+    "solar_pct": 38.8,
+    "battery_pct": 4.22,
+    "income_annual": 79059,
+    "avg_decile": 5.371110413231792,
+    "n_postcodes": 24.0
+  },
+  {
+    "electorate": "Mcewen",
+    "total_houses": 60925.0,
+    "solar_pct": 38.4,
+    "battery_pct": 3.86,
+    "income_annual": 111084,
+    "avg_decile": 8.795043085761181,
+    "n_postcodes": 25.0
+  },
+  {
+    "electorate": "Shortland",
+    "total_houses": 48690.0,
+    "solar_pct": 38.3,
+    "battery_pct": 4.32,
+    "income_annual": 82085,
+    "avg_decile": 5.753583898131033,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Swan",
+    "total_houses": 78984.0,
+    "solar_pct": 38.0,
+    "battery_pct": 3.63,
+    "income_annual": 91268,
+    "avg_decile": 6.990668996252405,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Hughes",
+    "total_houses": 42862.0,
+    "solar_pct": 37.8,
+    "battery_pct": 6.23,
+    "income_annual": 119904,
+    "avg_decile": 8.88507302505716,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Macquarie",
+    "total_houses": 78939.0,
+    "solar_pct": 37.1,
+    "battery_pct": 5.58,
+    "income_annual": 94278,
+    "avg_decile": 6.801226263317245,
+    "n_postcodes": 19.0
+  },
+  {
+    "electorate": "Berowra",
+    "total_houses": 50328.0,
+    "solar_pct": 37.0,
+    "battery_pct": 8.94,
+    "income_annual": 132441,
+    "avg_decile": 9.667938324590684,
+    "n_postcodes": 14.0
+  },
+  {
+    "electorate": "Fowler",
+    "total_houses": 59514.0,
+    "solar_pct": 36.8,
+    "battery_pct": 2.77,
+    "income_annual": 79844,
+    "avg_decile": 5.534697718183956,
+    "n_postcodes": 3.0
+  },
+  {
+    "electorate": "Calwell",
+    "total_houses": 72407.0,
+    "solar_pct": 36.5,
+    "battery_pct": 0.91,
+    "income_annual": 91198,
+    "avg_decile": 6.406093333517478,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Mallee",
+    "total_houses": 80512.0,
+    "solar_pct": 36.3,
+    "battery_pct": 1.59,
+    "income_annual": 64106,
+    "avg_decile": 3.2846283783783785,
+    "n_postcodes": 95.0
+  },
+  {
+    "electorate": "Hawke",
+    "total_houses": 69972.0,
+    "solar_pct": 36.2,
+    "battery_pct": 3.22,
+    "income_annual": 89442,
+    "avg_decile": 6.5614388612587895,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Gippsland",
+    "total_houses": 76288.0,
+    "solar_pct": 36.2,
+    "battery_pct": 2.55,
+    "income_annual": 64353,
+    "avg_decile": 3.276806312919463,
+    "n_postcodes": 43.0
+  },
+  {
+    "electorate": "Mcmahon",
+    "total_houses": 88778.0,
+    "solar_pct": 36.2,
+    "battery_pct": 2.61,
+    "income_annual": 95726,
+    "avg_decile": 7.233717812971682,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "La Trobe",
+    "total_houses": 49208.0,
+    "solar_pct": 35.5,
+    "battery_pct": 3.6,
+    "income_annual": 98853,
+    "avg_decile": 7.379308242562185,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Lindsay",
+    "total_houses": 41858.0,
+    "solar_pct": 35.2,
+    "battery_pct": 1.99,
+    "income_annual": 95825,
+    "avg_decile": 7.50038224473219,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Monash",
+    "total_houses": 85574.0,
+    "solar_pct": 34.6,
+    "battery_pct": 2.83,
+    "income_annual": 67184,
+    "avg_decile": 3.7134293126416904,
+    "n_postcodes": 39.0
+  },
+  {
+    "electorate": "Gorton",
+    "total_houses": 50767.0,
+    "solar_pct": 34.4,
+    "battery_pct": 3.63,
+    "income_annual": 101631,
+    "avg_decile": 7.950775109815432,
+    "n_postcodes": 4.0
+  },
+  {
+    "electorate": "Cunningham",
+    "total_houses": 58031.0,
+    "solar_pct": 34.0,
+    "battery_pct": 4.84,
+    "income_annual": 91553,
+    "avg_decile": 6.46051248470645,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Robertson",
+    "total_houses": 71051.0,
+    "solar_pct": 34.0,
+    "battery_pct": 2.81,
+    "income_annual": 84867,
+    "avg_decile": 6.17122911711306,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "Perth",
+    "total_houses": 44359.0,
+    "solar_pct": 33.0,
+    "battery_pct": 3.37,
+    "income_annual": 100776,
+    "avg_decile": 7.70632791541739,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Aston",
+    "total_houses": 72949.0,
+    "solar_pct": 32.9,
+    "battery_pct": 4.05,
+    "income_annual": 97621,
+    "avg_decile": 7.520939286350738,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Canberra",
+    "total_houses": 37219.0,
+    "solar_pct": 32.7,
+    "battery_pct": 4.15,
+    "income_annual": 128318,
+    "avg_decile": 9.653134151911658,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Newcastle",
+    "total_houses": 63502.0,
+    "solar_pct": 32.2,
+    "battery_pct": 4.17,
+    "income_annual": 94081,
+    "avg_decile": 7.086942143554534,
+    "n_postcodes": 16.0
+  },
+  {
+    "electorate": "Casey",
+    "total_houses": 60646.0,
+    "solar_pct": 31.7,
+    "battery_pct": 2.92,
+    "income_annual": 99355,
+    "avg_decile": 7.601935824291791,
+    "n_postcodes": 29.0
+  },
+  {
+    "electorate": "Mackellar",
+    "total_houses": 48847.0,
+    "solar_pct": 31.5,
+    "battery_pct": 5.95,
+    "income_annual": 132029,
+    "avg_decile": 9.599770712633324,
+    "n_postcodes": 14.0
+  },
+  {
+    "electorate": "Bradfield",
+    "total_houses": 49808.0,
+    "solar_pct": 31.2,
+    "battery_pct": 8.24,
+    "income_annual": 155727,
+    "avg_decile": 9.921418246064889,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Scullin",
+    "total_houses": 73382.0,
+    "solar_pct": 31.1,
+    "battery_pct": 2.94,
+    "income_annual": 87107,
+    "avg_decile": 6.185672235698128,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Isaacs",
+    "total_houses": 81161.0,
+    "solar_pct": 30.9,
+    "battery_pct": 3.3,
+    "income_annual": 95497,
+    "avg_decile": 7.1954140535478865,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Corangamite",
+    "total_houses": 66180.0,
+    "solar_pct": 30.7,
+    "battery_pct": 2.62,
+    "income_annual": 94069,
+    "avg_decile": 6.724644907827138,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "O'connor",
+    "total_houses": 85061.0,
+    "solar_pct": 29.7,
+    "battery_pct": 1.15,
+    "income_annual": 77874,
+    "avg_decile": 4.894099528573612,
+    "n_postcodes": 100.0
+  },
+  {
+    "electorate": "Ballarat",
+    "total_houses": 67386.0,
+    "solar_pct": 29.7,
+    "battery_pct": 2.4,
+    "income_annual": 75625,
+    "avg_decile": 4.596874721752293,
+    "n_postcodes": 19.0
+  },
+  {
+    "electorate": "Parramatta",
+    "total_houses": 34264.0,
+    "solar_pct": 28.9,
+    "battery_pct": 6.63,
+    "income_annual": 103671,
+    "avg_decile": 8.082272939528368,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Banks",
+    "total_houses": 50284.0,
+    "solar_pct": 28.9,
+    "battery_pct": 5.67,
+    "income_annual": 101992,
+    "avg_decile": 7.888672341102538,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Warringah",
+    "total_houses": 33518.0,
+    "solar_pct": 28.5,
+    "battery_pct": 5.6,
+    "income_annual": 151978,
+    "avg_decile": 10.0,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Corio",
+    "total_houses": 82763.0,
+    "solar_pct": 28.4,
+    "battery_pct": 2.03,
+    "income_annual": 83520,
+    "avg_decile": 5.886205188308785,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Chisholm",
+    "total_houses": 66961.0,
+    "solar_pct": 28.2,
+    "battery_pct": 2.66,
+    "income_annual": 106170,
+    "avg_decile": 8.265393288630696,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Flinders",
+    "total_houses": 97338.0,
+    "solar_pct": 28.1,
+    "battery_pct": 2.52,
+    "income_annual": 83909,
+    "avg_decile": 5.644876615504736,
+    "n_postcodes": 25.0
+  },
+  {
+    "electorate": "Dunkley",
+    "total_houses": 58229.0,
+    "solar_pct": 27.9,
+    "battery_pct": 2.08,
+    "income_annual": 83910,
+    "avg_decile": 6.078483230005667,
+    "n_postcodes": 6.0
+  },
+  {
+    "electorate": "Bennelong",
+    "total_houses": 46134.0,
+    "solar_pct": 27.6,
+    "battery_pct": 6.75,
+    "income_annual": 121211,
+    "avg_decile": 9.10931200416179,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Wannon",
+    "total_houses": 87002.0,
+    "solar_pct": 27.3,
+    "battery_pct": 1.73,
+    "income_annual": 72735,
+    "avg_decile": 4.408048090848486,
+    "n_postcodes": 74.0
+  },
+  {
+    "electorate": "Deakin",
+    "total_houses": 71388.0,
+    "solar_pct": 26.8,
+    "battery_pct": 3.51,
+    "income_annual": 100783,
+    "avg_decile": 7.701238303356306,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Franklin",
+    "total_houses": 38460.0,
+    "solar_pct": 26.4,
+    "battery_pct": 2.27,
+    "income_annual": 80955,
+    "avg_decile": 5.60390015600624,
+    "n_postcodes": 19.0
+  },
+  {
+    "electorate": "Cook",
+    "total_houses": 39120.0,
+    "solar_pct": 26.4,
+    "battery_pct": 4.53,
+    "income_annual": 113853,
+    "avg_decile": 8.804473415132925,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Blaxland",
+    "total_houses": 51857.0,
+    "solar_pct": 26.0,
+    "battery_pct": 4.1,
+    "income_annual": 76802,
+    "avg_decile": 5.177738781649536,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Kingsford Smith",
+    "total_houses": 35326.0,
+    "solar_pct": 25.8,
+    "battery_pct": 4.77,
+    "income_annual": 114743,
+    "avg_decile": 8.836918983185189,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Jagajaga",
+    "total_houses": 57997.0,
+    "solar_pct": 25.0,
+    "battery_pct": 2.9,
+    "income_annual": 110822,
+    "avg_decile": 8.499853440695208,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Bass",
+    "total_houses": 53117.0,
+    "solar_pct": 24.8,
+    "battery_pct": 1.26,
+    "income_annual": 67637,
+    "avg_decile": 3.873072650940377,
+    "n_postcodes": 22.0
+  },
+  {
+    "electorate": "Reid",
+    "total_houses": 30974.0,
+    "solar_pct": 24.6,
+    "battery_pct": 5.79,
+    "income_annual": 118343,
+    "avg_decile": 9.203170400981469,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Gellibrand",
+    "total_houses": 45106.0,
+    "solar_pct": 24.5,
+    "battery_pct": 2.33,
+    "income_annual": 107564,
+    "avg_decile": 7.987429610251408,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Menzies",
+    "total_houses": 71327.0,
+    "solar_pct": 24.2,
+    "battery_pct": 3.68,
+    "income_annual": 100303,
+    "avg_decile": 7.636238731476159,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Watson",
+    "total_houses": 48065.0,
+    "solar_pct": 24.1,
+    "battery_pct": 3.93,
+    "income_annual": 77419,
+    "avg_decile": 5.227067512743161,
+    "n_postcodes": 10.0
+  },
+  {
+    "electorate": "Barton",
+    "total_houses": 40725.0,
+    "solar_pct": 23.9,
+    "battery_pct": 4.69,
+    "income_annual": 100688,
+    "avg_decile": 7.911577655003069,
+    "n_postcodes": 8.0
+  },
+  {
+    "electorate": "Lyons",
+    "total_houses": 72214.0,
+    "solar_pct": 23.6,
+    "battery_pct": 1.5,
+    "income_annual": 63069,
+    "avg_decile": 3.133395186528928,
+    "n_postcodes": 44.0
+  },
+  {
+    "electorate": "Hotham",
+    "total_houses": 75408.0,
+    "solar_pct": 23.3,
+    "battery_pct": 2.81,
+    "income_annual": 91284,
+    "avg_decile": 6.928548695098663,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Lingiari",
+    "total_houses": 53455.0,
+    "solar_pct": 23.1,
+    "battery_pct": 0.95,
+    "income_annual": 94884,
+    "avg_decile": 6.661434851744458,
+    "n_postcodes": 30.0
+  },
+  {
+    "electorate": "Durack",
+    "total_houses": 76953.0,
+    "solar_pct": 23.0,
+    "battery_pct": 1.2,
+    "income_annual": 102027,
+    "avg_decile": 6.536587267552922,
+    "n_postcodes": 112.0
+  },
+  {
+    "electorate": "Clark",
+    "total_houses": 50829.0,
+    "solar_pct": 22.8,
+    "battery_pct": 1.91,
+    "income_annual": 83744,
+    "avg_decile": 5.990222117295245,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Fraser",
+    "total_houses": 64851.0,
+    "solar_pct": 22.3,
+    "battery_pct": 1.8,
+    "income_annual": 83641,
+    "avg_decile": 5.643336263126243,
+    "n_postcodes": 7.0
+  },
+  {
+    "electorate": "Goldstein",
+    "total_houses": 56985.0,
+    "solar_pct": 21.8,
+    "battery_pct": 2.79,
+    "income_annual": 124491,
+    "avg_decile": 9.469878038080196,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Grayndler",
+    "total_houses": 46411.0,
+    "solar_pct": 21.7,
+    "battery_pct": 3.7,
+    "income_annual": 120649,
+    "avg_decile": 9.194221197560923,
+    "n_postcodes": 13.0
+  },
+  {
+    "electorate": "Cooper",
+    "total_houses": 56332.0,
+    "solar_pct": 21.5,
+    "battery_pct": 1.62,
+    "income_annual": 95111,
+    "avg_decile": 7.177785273024214,
+    "n_postcodes": 5.0
+  },
+  {
+    "electorate": "Braddon",
+    "total_houses": 41373.0,
+    "solar_pct": 20.8,
+    "battery_pct": 1.16,
+    "income_annual": 62337,
+    "avg_decile": 2.8163778309525536,
+    "n_postcodes": 15.0
+  },
+  {
+    "electorate": "Maribyrnong",
+    "total_houses": 59126.0,
+    "solar_pct": 19.5,
+    "battery_pct": 1.69,
+    "income_annual": 100232,
+    "avg_decile": 7.609748672326895,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Kooyong",
+    "total_houses": 52750.0,
+    "solar_pct": 19.3,
+    "battery_pct": 2.82,
+    "income_annual": 123668,
+    "avg_decile": 9.54739336492891,
+    "n_postcodes": 12.0
+  },
+  {
+    "electorate": "Wills",
+    "total_houses": 73809.0,
+    "solar_pct": 18.6,
+    "battery_pct": 1.5,
+    "income_annual": 102670,
+    "avg_decile": 8.080396699589482,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Wentworth",
+    "total_houses": 24990.0,
+    "solar_pct": 17.8,
+    "battery_pct": 2.96,
+    "income_annual": 151853,
+    "avg_decile": 9.88251300520208,
+    "n_postcodes": 11.0
+  },
+  {
+    "electorate": "Macnamara",
+    "total_houses": 28865.0,
+    "solar_pct": 15.5,
+    "battery_pct": 1.66,
+    "income_annual": 114395,
+    "avg_decile": 8.9601593625498,
+    "n_postcodes": 9.0
+  },
+  {
+    "electorate": "Melbourne",
+    "total_houses": 28805.0,
+    "solar_pct": 12.1,
+    "battery_pct": 0.95,
+    "income_annual": 106676,
+    "avg_decile": 8.27286929352543,
+    "n_postcodes": 13.0
+  },
+  {
+    "electorate": "Sydney",
+    "total_houses": 28623.0,
+    "solar_pct": 11.4,
+    "battery_pct": 1.63,
+    "income_annual": 130168,
+    "avg_decile": 9.176606225762498,
+    "n_postcodes": 14.0
+  }
+]

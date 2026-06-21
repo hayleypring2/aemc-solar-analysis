@@ -1,0 +1,276 @@
+{
+  "solar_gap": [
+    {
+      "decile": 1,
+      "owner_like": 46.5,
+      "renter_heavy": 38.5,
+      "gap": 8.0
+    },
+    {
+      "decile": 2,
+      "owner_like": 46.4,
+      "renter_heavy": 27.1,
+      "gap": 19.3
+    },
+    {
+      "decile": 3,
+      "owner_like": 46.4,
+      "renter_heavy": 34.1,
+      "gap": 12.3
+    },
+    {
+      "decile": 4,
+      "owner_like": 45.2,
+      "renter_heavy": 38.1,
+      "gap": 7.1
+    },
+    {
+      "decile": 5,
+      "owner_like": 45.5,
+      "renter_heavy": 41.2,
+      "gap": 4.4
+    },
+    {
+      "decile": 6,
+      "owner_like": 42.8,
+      "renter_heavy": 40.9,
+      "gap": 1.9
+    },
+    {
+      "decile": 7,
+      "owner_like": 49.1,
+      "renter_heavy": 45.5,
+      "gap": 3.6
+    },
+    {
+      "decile": 8,
+      "owner_like": 47.6,
+      "renter_heavy": 43.5,
+      "gap": 4.1
+    },
+    {
+      "decile": 9,
+      "owner_like": 53.9,
+      "renter_heavy": 41.0,
+      "gap": 13.0
+    },
+    {
+      "decile": 10,
+      "owner_like": 46.2,
+      "renter_heavy": 25.7,
+      "gap": 20.5
+    }
+  ],
+  "state_data": [
+    {
+      "state": "NSW",
+      "renter_houses": 391583,
+      "owner_houses": 1456288,
+      "solar_houses": 1060568,
+      "total_houses": 2712777,
+      "apartments": 629347,
+      "total_renters": 944149,
+      "solar_pct": 39.1
+    },
+    {
+      "state": "VIC",
+      "renter_houses": 348134,
+      "owner_houses": 1348239,
+      "solar_houses": 804214,
+      "total_houses": 2582434,
+      "apartments": 283387,
+      "total_renters": 676291,
+      "solar_pct": 31.1
+    },
+    {
+      "state": "QLD",
+      "renter_houses": 329595,
+      "owner_houses": 970702,
+      "solar_houses": 1035519,
+      "total_houses": 1922706,
+      "apartments": 232883,
+      "total_renters": 607072,
+      "solar_pct": 53.9
+    },
+    {
+      "state": "SA",
+      "renter_houses": 107022,
+      "owner_houses": 407767,
+      "solar_houses": 411779,
+      "total_houses": 763969,
+      "apartments": 46967,
+      "total_renters": 188985,
+      "solar_pct": 53.9
+    },
+    {
+      "state": "WA",
+      "renter_houses": 160553,
+      "owner_houses": 582141,
+      "solar_houses": 539006,
+      "total_houses": 1104289,
+      "apartments": 62394,
+      "total_renters": 262919,
+      "solar_pct": 48.8
+    },
+    {
+      "state": "TAS",
+      "renter_houses": 40525,
+      "owner_houses": 145309,
+      "solar_houses": 61141,
+      "total_houses": 258195,
+      "apartments": 11555,
+      "total_renters": 57728,
+      "solar_pct": 23.7
+    },
+    {
+      "state": "ACT",
+      "renter_houses": 20796,
+      "owner_houses": 83944,
+      "solar_houses": 61303,
+      "total_houses": 156716,
+      "apartments": 30812,
+      "total_renters": 50545,
+      "solar_pct": 39.1
+    },
+    {
+      "state": "NT",
+      "renter_houses": 18325,
+      "owner_houses": 26294,
+      "solar_houses": 23402,
+      "total_houses": 81416,
+      "apartments": 9712,
+      "total_renters": 31878,
+      "solar_pct": 28.7
+    }
+  ],
+  "decile_data": [
+    {
+      "decile": 1,
+      "income_annual": 48503,
+      "solar_pct": 44.3,
+      "pct_apartment": 2.4,
+      "pct_house": 65.4,
+      "pct_renter": 23.7,
+      "renter_houses": 35573,
+      "owner_houses": 134956,
+      "apartments": 7299,
+      "total_dwellings": 274336
+    },
+    {
+      "decile": 2,
+      "income_annual": 57620,
+      "solar_pct": 42.0,
+      "pct_apartment": 2.6,
+      "pct_house": 73.4,
+      "pct_renter": 26.8,
+      "renter_houses": 78922,
+      "owner_houses": 256404,
+      "apartments": 13889,
+      "total_dwellings": 477633
+    },
+    {
+      "decile": 3,
+      "income_annual": 63619,
+      "solar_pct": 42.3,
+      "pct_apartment": 4.0,
+      "pct_house": 73.2,
+      "pct_renter": 27.9,
+      "renter_houses": 120102,
+      "owner_houses": 389227,
+      "apartments": 39893,
+      "total_dwellings": 737878
+    },
+    {
+      "decile": 4,
+      "income_annual": 69329,
+      "solar_pct": 41.2,
+      "pct_apartment": 5.2,
+      "pct_house": 70.7,
+      "pct_renter": 31.2,
+      "renter_houses": 134095,
+      "owner_houses": 375194,
+      "apartments": 77143,
+      "total_dwellings": 806761
+    },
+    {
+      "decile": 5,
+      "income_annual": 75152,
+      "solar_pct": 42.4,
+      "pct_apartment": 5.9,
+      "pct_house": 72.2,
+      "pct_renter": 30.5,
+      "renter_houses": 185218,
+      "owner_houses": 559891,
+      "apartments": 84263,
+      "total_dwellings": 1096864
+    },
+    {
+      "decile": 6,
+      "income_annual": 83422,
+      "solar_pct": 41.6,
+      "pct_apartment": 7.6,
+      "pct_house": 70.9,
+      "pct_renter": 30.5,
+      "renter_houses": 202874,
+      "owner_houses": 642753,
+      "apartments": 119854,
+      "total_dwellings": 1267393
+    },
+    {
+      "decile": 7,
+      "income_annual": 92896,
+      "solar_pct": 44.5,
+      "pct_apartment": 7.2,
+      "pct_house": 71.3,
+      "pct_renter": 28.0,
+      "renter_houses": 179621,
+      "owner_houses": 658426,
+      "apartments": 151967,
+      "total_dwellings": 1300792
+    },
+    {
+      "decile": 8,
+      "income_annual": 102494,
+      "solar_pct": 41.5,
+      "pct_apartment": 7.8,
+      "pct_house": 73.3,
+      "pct_renter": 28.0,
+      "renter_houses": 210326,
+      "owner_houses": 761460,
+      "apartments": 231141,
+      "total_dwellings": 1534121
+    },
+    {
+      "decile": 9,
+      "income_annual": 113333,
+      "solar_pct": 41.3,
+      "pct_apartment": 13.5,
+      "pct_house": 66.8,
+      "pct_renter": 28.0,
+      "renter_houses": 154725,
+      "owner_houses": 686064,
+      "apartments": 330274,
+      "total_dwellings": 1507551
+    },
+    {
+      "decile": 10,
+      "income_annual": 137432,
+      "solar_pct": 37.5,
+      "pct_apartment": 14.1,
+      "pct_house": 65.4,
+      "pct_renter": 26.7,
+      "renter_houses": 115077,
+      "owner_houses": 556309,
+      "apartments": 251334,
+      "total_dwellings": 1201671
+    }
+  ],
+  "national": {
+    "total_renter_houses": 1416533,
+    "total_solar_houses": 3996932,
+    "total_estimated_houses": 9582502,
+    "total_apartments": 1307057,
+    "community_solar_30pct": 424959,
+    "community_solar_50pct": 708266
+  }
+}

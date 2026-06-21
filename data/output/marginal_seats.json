@@ -1,0 +1,432 @@
+[
+  {
+    "electorate": "Bennelong",
+    "margin": 0.04,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 27.6,
+    "income_annual": 121211,
+    "avg_decile": 9.1
+  },
+  {
+    "electorate": "Gilmore",
+    "margin": 0.17,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 39.1,
+    "income_annual": 67854,
+    "avg_decile": 3.4
+  },
+  {
+    "electorate": "Lyons",
+    "margin": 0.92,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "TAS",
+    "solar_pct": 23.6,
+    "income_annual": 63069,
+    "avg_decile": 3.1
+  },
+  {
+    "electorate": "Lingiari",
+    "margin": 1.6,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NT",
+    "solar_pct": 23.1,
+    "income_annual": 94884,
+    "avg_decile": 6.7
+  },
+  {
+    "electorate": "Robertson",
+    "margin": 2.23,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 34.0,
+    "income_annual": 84867,
+    "avg_decile": 6.2
+  },
+  {
+    "electorate": "Paterson",
+    "margin": 2.6,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 44.1,
+    "income_annual": 83467,
+    "avg_decile": 5.7
+  },
+  {
+    "electorate": "Tangney",
+    "margin": 2.85,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "WA",
+    "solar_pct": 58.7,
+    "income_annual": 110746,
+    "avg_decile": 8.7
+  },
+  {
+    "electorate": "Boothby",
+    "margin": 3.28,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "SA",
+    "solar_pct": 51.1,
+    "income_annual": 85864,
+    "avg_decile": 6.2
+  },
+  {
+    "electorate": "Chisholm",
+    "margin": 3.33,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 28.2,
+    "income_annual": 106170,
+    "avg_decile": 8.3
+  },
+  {
+    "electorate": "Bullwinkel",
+    "margin": 3.35,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "WA",
+    "solar_pct": 57.9,
+    "income_annual": 87017,
+    "avg_decile": 6.2
+  },
+  {
+    "electorate": "Parramatta",
+    "margin": 3.72,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 28.9,
+    "income_annual": 103671,
+    "avg_decile": 8.1
+  },
+  {
+    "electorate": "McEwen",
+    "margin": 3.82,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 38.4,
+    "income_annual": 111084,
+    "avg_decile": 8.8
+  },
+  {
+    "electorate": "Hunter",
+    "margin": 4.78,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 43.7,
+    "income_annual": 83395,
+    "avg_decile": 5.7
+  },
+  {
+    "electorate": "Reid",
+    "margin": 5.19,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 24.6,
+    "income_annual": 118343,
+    "avg_decile": 9.2
+  },
+  {
+    "electorate": "Blair",
+    "margin": 5.23,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "QLD",
+    "solar_pct": 39.4,
+    "income_annual": 81020,
+    "avg_decile": 5.7
+  },
+  {
+    "electorate": "Bruce",
+    "margin": 5.31,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 41.4,
+    "income_annual": 99523,
+    "avg_decile": 7.6
+  },
+  {
+    "electorate": "Werriwa",
+    "margin": 5.34,
+    "held_by": "ALP",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 40.9,
+    "income_annual": 99825,
+    "avg_decile": 7.6
+  },
+  {
+    "electorate": "Menzies",
+    "margin": 0.42,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "VIC",
+    "solar_pct": 24.2,
+    "income_annual": 100303,
+    "avg_decile": 7.6
+  },
+  {
+    "electorate": "Deakin",
+    "margin": 0.02,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "VIC",
+    "solar_pct": 26.8,
+    "income_annual": 100783,
+    "avg_decile": 7.7
+  },
+  {
+    "electorate": "Sturt",
+    "margin": 0.45,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "SA",
+    "solar_pct": 52.9,
+    "income_annual": 88762,
+    "avg_decile": 6.5
+  },
+  {
+    "electorate": "Moore",
+    "margin": 0.91,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "WA",
+    "solar_pct": 60.5,
+    "income_annual": 112326,
+    "avg_decile": 9.0
+  },
+  {
+    "electorate": "Canning",
+    "margin": 1.2,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "WA",
+    "solar_pct": 61.6,
+    "income_annual": 79509,
+    "avg_decile": 5.0
+  },
+  {
+    "electorate": "Casey",
+    "margin": 1.43,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 31.7,
+    "income_annual": 99355,
+    "avg_decile": 7.6
+  },
+  {
+    "electorate": "Bass",
+    "margin": 1.43,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "TAS",
+    "solar_pct": 24.8,
+    "income_annual": 67637,
+    "avg_decile": 3.9
+  },
+  {
+    "electorate": "Aston",
+    "margin": 2.61,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "VIC",
+    "solar_pct": 32.9,
+    "income_annual": 97621,
+    "avg_decile": 7.5
+  },
+  {
+    "electorate": "Banks",
+    "margin": 2.64,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "NSW",
+    "solar_pct": 28.9,
+    "income_annual": 101992,
+    "avg_decile": 7.9
+  },
+  {
+    "electorate": "Monash",
+    "margin": 2.9,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 34.6,
+    "income_annual": 67184,
+    "avg_decile": 3.7
+  },
+  {
+    "electorate": "Bradfield",
+    "margin": 3.4,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "NSW",
+    "solar_pct": 31.2,
+    "income_annual": 155727,
+    "avg_decile": 9.9
+  },
+  {
+    "electorate": "Hughes",
+    "margin": 3.46,
+    "held_by": "LIB",
+    "likely_change": true,
+    "state": "NSW",
+    "solar_pct": 37.8,
+    "income_annual": 119904,
+    "avg_decile": 8.9
+  },
+  {
+    "electorate": "Wannon",
+    "margin": 3.5,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "VIC",
+    "solar_pct": 27.3,
+    "income_annual": 72735,
+    "avg_decile": 4.4
+  },
+  {
+    "electorate": "Forrest",
+    "margin": 4.19,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "WA",
+    "solar_pct": 47.2,
+    "income_annual": 82175,
+    "avg_decile": 5.6
+  },
+  {
+    "electorate": "Durack",
+    "margin": 4.66,
+    "held_by": "LIB",
+    "likely_change": false,
+    "state": "WA",
+    "solar_pct": 23.0,
+    "income_annual": 102027,
+    "avg_decile": 6.5
+  },
+  {
+    "electorate": "Dickson",
+    "margin": 1.7,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 52.0,
+    "income_annual": 107391,
+    "avg_decile": 8.2
+  },
+  {
+    "electorate": "Longman",
+    "margin": 3.08,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 47.4,
+    "income_annual": 76468,
+    "avg_decile": 4.8
+  },
+  {
+    "electorate": "Bonner",
+    "margin": 3.41,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 55.7,
+    "income_annual": 111500,
+    "avg_decile": 8.6
+  },
+  {
+    "electorate": "Leichhardt",
+    "margin": 3.44,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 44.7,
+    "income_annual": 79102,
+    "avg_decile": 5.6
+  },
+  {
+    "electorate": "Flynn",
+    "margin": 3.82,
+    "held_by": "LNP",
+    "likely_change": false,
+    "state": "QLD",
+    "solar_pct": 52.3,
+    "income_annual": 76384,
+    "avg_decile": 4.8
+  },
+  {
+    "electorate": "Forde",
+    "margin": 4.23,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 57.0,
+    "income_annual": 86040,
+    "avg_decile": 5.9
+  },
+  {
+    "electorate": "Petrie",
+    "margin": 4.44,
+    "held_by": "LNP",
+    "likely_change": true,
+    "state": "QLD",
+    "solar_pct": 51.6,
+    "income_annual": 82300,
+    "avg_decile": 5.6
+  },
+  {
+    "electorate": "Bowman",
+    "margin": 5.51,
+    "held_by": "LNP",
+    "likely_change": false,
+    "state": "QLD",
+    "solar_pct": 65.5,
+    "income_annual": 92602,
+    "avg_decile": 6.9
+  },
+  {
+    "electorate": "Cowper",
+    "margin": 2.4,
+    "held_by": "NAT",
+    "likely_change": false,
+    "state": "NSW",
+    "solar_pct": 51.6,
+    "income_annual": 61853,
+    "avg_decile": 2.8
+  },
+  {
+    "electorate": "Ryan",
+    "margin": 2.65,
+    "held_by": "GRN",
+    "likely_change": false,
+    "state": "QLD",
+    "solar_pct": 58.5,
+    "income_annual": 136458,
+    "avg_decile": 9.5
+  },
+  {
+    "electorate": "Melbourne",
+    "margin": 5.58,
+    "held_by": "GRN",
+    "likely_change": true,
+    "state": "VIC",
+    "solar_pct": 12.1,
+    "income_annual": 106676,
+    "avg_decile": 8.3
+  }
+]

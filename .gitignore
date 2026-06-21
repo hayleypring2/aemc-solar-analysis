@@ -1,0 +1,23 @@
+# ABS Census data — too large for GitHub (116MB)
+# Download from https://www.abs.gov.au/census/find-census-data/datapacks
+# Select: 2021 Census GCP, Geography: POA (Postal Area), all tables
+data/raw/abs_census_poa/
+
+# Large shapefiles — use Git LFS or download separately
+# ABS postcode boundaries: https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files
+data/raw/abs_poa_shp/
+# AEC electorate boundaries: https://www.aec.gov.au/Electorates/gis/gis_datadownload.htm
+AUS_ELB_region.shp
+AUS_ELB_region.dbf
+AUS_ELB_region.shx
+AUS_ELB_region.prj
+
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/

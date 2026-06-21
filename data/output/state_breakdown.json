@@ -1,0 +1,66 @@
+[
+  {
+    "state": "SA",
+    "solar_pct": 53.144503977249315,
+    "battery_pct": 5.89430496272261,
+    "median_income": 71500.0,
+    "total_houses": 776077.0,
+    "n_postcodes": 339.0
+  },
+  {
+    "state": "QLD",
+    "solar_pct": 51.862096382298205,
+    "battery_pct": 3.568151234696098,
+    "median_income": 76830.0,
+    "total_houses": 1997715.0,
+    "n_postcodes": 432.0
+  },
+  {
+    "state": "WA",
+    "solar_pct": 48.54774963339779,
+    "battery_pct": 2.9068886719817013,
+    "median_income": 82056.0,
+    "total_houses": 1111863.0,
+    "n_postcodes": 378.0
+  },
+  {
+    "state": "ACT",
+    "solar_pct": 39.117365701161155,
+    "battery_pct": 4.693805087929778,
+    "median_income": 124306.0,
+    "total_houses": 156716.0,
+    "n_postcodes": 24.0
+  },
+  {
+    "state": "NSW",
+    "solar_pct": 39.08703744087701,
+    "battery_pct": 4.251351685490357,
+    "median_income": 81900.0,
+    "total_houses": 2714071.0,
+    "n_postcodes": 609.0
+  },
+  {
+    "state": "VIC",
+    "solar_pct": 31.113383098664457,
+    "battery_pct": 2.4663953787024893,
+    "median_income": 79976.0,
+    "total_houses": 2587992.0,
+    "n_postcodes": 691.0
+  },
+  {
+    "state": "NT",
+    "solar_pct": 28.728574233610683,
+    "battery_pct": 1.27185059461065,
+    "median_income": 105534.0,
+    "total_houses": 81452.0,
+    "n_postcodes": 34.0
+  },
+  {
+    "state": "TAS",
+    "solar_pct": 23.67572827918915,
+    "battery_pct": 1.6054619825653835,
+    "median_income": 66950.0,
+    "total_houses": 258578.0,
+    "n_postcodes": 114.0
+  }
+]
