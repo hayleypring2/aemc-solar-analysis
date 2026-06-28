@@ -23,7 +23,7 @@
   header {
     background: #1c1c2b;
     color: #fff;
-    padding: 3rem 2rem 2.5rem;
+    padding: 3rem 0 2.5rem;
     border-bottom: 4px solid #EF7900;
   }
   header .kicker {
@@ -40,59 +40,55 @@
     letter-spacing: -0.02em;
     line-height: 1.15;
     margin-bottom: 0.9rem;
-    max-width: 800px;
   }
   header .deck {
     font-family: 'Arial', sans-serif;
     font-size: 1rem;
     color: #c8c8d8;
     line-height: 1.65;
-    max-width: 720px;
   }
 
   /* ── Layout ──────────────────────────────────────── */
   .outer {
-    max-width: 1080px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0 3rem;
   }
   @media (max-width: 700px) { .outer { padding: 0 1.25rem; } }
 
   .container {
-    padding: 3rem 0 6rem;
+    padding: 3rem 0 7rem;
   }
 
   /* ── Typography ──────────────────────────────────── */
   h2 {
-    font-size: 1.35rem;
+    font-size: 1.45rem;
     font-weight: normal;
     color: #1c1c2b;
-    margin: 3.5rem 0 0.5rem;
-    padding-bottom: 0.4rem;
+    margin: 4rem 0 0.6rem;
+    padding-bottom: 0.5rem;
     border-bottom: 3px solid #EF7900;
   }
   h3 {
     font-family: 'Arial', sans-serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #1c1c2b;
-    margin: 1.6rem 0 0.3rem;
+    margin: 1.8rem 0 0.3rem;
   }
   p {
     font-family: 'Arial', sans-serif;
-    font-size: 0.93rem;
-    line-height: 1.78;
-    margin: 0.7rem 0;
+    font-size: 0.95rem;
+    line-height: 1.82;
+    margin: 0.75rem 0;
     color: #2d2d2d;
-    max-width: 72ch;
   }
   .caption {
     font-family: 'Arial', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.76rem;
     color: #888;
-    margin: 0.15rem 0 0.9rem;
+    margin: 0.2rem 0 1rem;
     line-height: 1.5;
-    max-width: 72ch;
   }
   em { font-style: italic; }
   strong { font-weight: bold; }
@@ -100,24 +96,33 @@
   /* ── Finding boxes ───────────────────────────────── */
   .finding {
     background: #fff8f2;
-    border-left: 4px solid #EF7900;
-    padding: 1rem 1.4rem;
-    margin: 1.5rem 0;
-    border-radius: 0 6px 6px 0;
-    max-width: 780px;
+    border-left: 5px solid #EF7900;
+    padding: 1.2rem 1.8rem;
+    margin: 1.8rem 0;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(239,121,0,0.07);
   }
-  .finding p { margin: 0; max-width: 100%; color: #1c1c2b; }
+  .finding p { margin: 0; max-width: 100%; color: #1c1c2b; font-size: 0.95rem; }
 
   /* ── Charts ──────────────────────────────────────── */
   .chart-wrap {
     background: #fff;
-    border: 1px solid #e4e0d8;
-    border-radius: 8px;
-    padding: 1.4rem 1.4rem 1.1rem;
-    margin: 0.8rem 0 1.2rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    border: 1px solid #e8e4da;
+    border-radius: 10px;
+    padding: 1.8rem 2rem 1.4rem;
+    margin: 0.8rem 0 1.4rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   }
   .chart-wrap canvas { display: block; }
+  .chart-title {
+    font-family: 'Arial', sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #555;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
 
   /* ── Two-column grid ─────────────────────────────── */
   .two-col {
@@ -132,9 +137,8 @@
   .cameo-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    margin: 1.3rem 0;
-    max-width: 780px;
+    gap: 1.2rem;
+    margin: 1.4rem 0;
   }
   @media (max-width: 560px) { .cameo-grid { grid-template-columns: 1fr; } }
   .cameo {
@@ -224,7 +228,6 @@
     padding: 1.8rem 2rem;
     border-radius: 8px;
     margin: 3rem 0 1.5rem;
-    max-width: 780px;
     border-left: 4px solid #EF7900;
   }
   .policy-ask .label {
@@ -269,7 +272,6 @@
     font-size: 0.75rem;
     color: #888;
     line-height: 1.65;
-    max-width: 72ch;
   }
   .footnotes strong { color: #666; }
 
@@ -277,31 +279,33 @@
   .stat-strip {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin: 1.8rem 0;
-    max-width: 780px;
+    gap: 1.2rem;
+    margin: 2rem 0;
   }
   @media (max-width: 560px) { .stat-strip { grid-template-columns: 1fr; } }
   .stat-box {
     background: #fff;
     border: 1px solid #e4e0d8;
-    border-radius: 8px;
-    padding: 1.1rem 1.2rem;
+    border-radius: 10px;
+    padding: 1.5rem 1.4rem;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: transform 0.15s, box-shadow 0.15s;
   }
+  .stat-box:hover { transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,0,0,0.08); }
   .stat-box .big-num {
     font-family: 'Arial', sans-serif;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #EF7900;
-    line-height: 1.1;
+    line-height: 1.05;
   }
   .stat-box .stat-label {
     font-family: 'Arial', sans-serif;
-    font-size: 0.78rem;
+    font-size: 0.8rem;
     color: #666;
-    margin-top: 0.3rem;
-    line-height: 1.4;
+    margin-top: 0.4rem;
+    line-height: 1.45;
   }
 </style>
 </head>
@@ -318,7 +322,7 @@
     <h1>Who actually has solar? The income story the AEMC&rsquo;s pricing review missed</h1>
 
     <!-- EDIT: Standfirst / deck paragraph -->
-    <p class="deck">Australia&rsquo;s rooftop solar revolution is concentrated in lower-income postcodes, not wealthier ones. New postcode-level analysis of 15 years of installation data challenges the distributional premise behind the AEMC&rsquo;s June 2026 Pricing Review.</p>
+    <p class="deck">The communities most exposed to the AEMC&rsquo;s June 2026 network pricing reform are not the wealthy solar adopters the model implies &mdash; they&rsquo;re regional and suburban Australia. New postcode-level analysis of solar installation data since 2010 shows the lowest-income decile has consistently had more solar than the highest-income decile, and the highest One Nation vote-share electorates are also the highest solar electorates.</p>
   </div>
 </header>
 
@@ -339,14 +343,14 @@
     <div class="stat-label">Solar penetration in the highest-income decile, 2025</div>
   </div>
   <div class="stat-box">
-    <div class="big-num">15 yrs</div>
-    <div class="stat-label">Lower-income postcodes have led on solar adoption</div>
+    <div class="big-num">since 2010</div>
+    <div class="stat-label">Lowest-income decile has outpaced the wealthiest on solar every year</div>
   </div>
 </div>
 
 <!-- EDIT: Lead finding box -->
 <div class="finding" style="margin-top:0.5rem;">
-  <p><strong>The bottom income decile (median ~$48k/year) has higher solar penetration than the top decile (~$133k/year) &mdash; and that pattern has held for 15 years.</strong></p>
+  <p><strong>The lowest-income decile (median ~$48k/year) has had higher overall solar penetration than the highest-income decile (~$133k/year) every year since 2010.</strong></p>
 </div>
 
 <!-- EDIT: Body text paragraphs — change wording freely below -->
@@ -364,13 +368,14 @@
 <p class="caption">Weighted average share of houses with rooftop solar, by postcode income decile (1 = lowest income, 10 = highest). CER installation data, ABS Census 2021 income, APVI estimated dwelling counts.</p>
 
 <div class="chart-wrap">
-  <canvas id="chartTimeSeries" height="300"></canvas>
+  <div class="chart-title">Solar penetration (% of houses) &mdash; by income decile, 2010&ndash;2026</div>
+  <canvas id="chartTimeSeries" height="340"></canvas>
 </div>
 
 <!-- EDIT: Finding box below chart 1 -->
 <div class="finding">
-  <p><strong>Lower-income postcodes adopted solar earlier, faster, and at higher rates. This pattern has held for 15 years.</strong><br>
-  By 2025, the lowest-income decile had nearly 47% of houses with solar, compared to 40% for the highest-income decile. The gap is slowly closing as wealthier urban postcodes catch up &mdash; but we are mid-convergence, not post-convergence.</p>
+  <p><strong>The lowest-income decile has had higher overall solar penetration than the highest-income decile every year since 2010 &mdash; but the relationship is not simply &ldquo;poorer = more solar.&rdquo;</strong><br>
+  By 2025, the lowest-income decile had 47% solar penetration vs 40% for the highest-income decile. Decile 7 (upper-middle income) now leads at 47.3%. The gap between D1 and D10 peaked at 9.5 percentage points in 2019 and has been narrowing &mdash; but is far from closed.</p>
 </div>
 
 
@@ -379,14 +384,14 @@
      ═══════════════════════════════════════════════════════════ -->
 
 <!-- EDIT: Section heading -->
-<h2>Controlling for dwelling type: income barely predicts solar adoption at all</h2>
+<h2>Controlling for dwelling type: the income gradient reverses</h2>
 
 <!-- EDIT: Caption -->
 <p class="caption">% of postcodes classified as detached house, flat/apartment, and renter-occupied, by income decile. ABS Census 2021, Table G36 (dwelling structure) and G37 (tenure type).</p>
 
 <!-- EDIT: Body text -->
 <p>A genuine question about the main finding here: is the inverse income-solar gradient simply an artefact of <em>dwelling type</em>? Wealthy inner-city postcodes have far more apartments than lower-income suburban and regional postcodes, and apartments cannot practically install rooftop solar. If that&rsquo;s driving the pattern, then the story isn&rsquo;t really about income at all.</p>
-<p>The data confirms this as a partial explanation, however it <strong>strengthens, not weakens, the argument against the AEMC&rsquo;s premise</strong>.</p>
+<p>The data confirms dwelling type as the primary explanation for the overall gradient &mdash; and this actually <strong>clarifies, rather than weakens, the argument against the AEMC&rsquo;s premise</strong>.</p>
 
 <div class="two-col">
   <div>
@@ -403,8 +408,8 @@
 
 <!-- EDIT: Finding boxes for section 2 -->
 <div class="finding">
-  <p><strong>Among detached houses &mdash; the only dwelling type where solar is practically installable &mdash; income barely predicts solar adoption.</strong><br>
-  In postcodes where more than 70% of dwellings are detached houses, solar penetration ranges from 43% (D3) to 51% (D9): a gap of less than 8 percentage points across the entire income spectrum. The inverse gradient in the full dataset reflects apartment concentration in wealthy inner-city areas, not a wealth barrier to solar.</p>
+  <p><strong>Among detached houses, the income gradient actually reverses: higher-income house-owning postcodes have <em>more</em> solar, not less.</strong><br>
+  Among postcodes dominated by detached houses, solar penetration rises from around 44% in the lowest-income decile to 50% in decile 9 and 48% in decile 10. The overall inverse gradient &mdash; lower income, more solar &mdash; largely reflects the concentration of apartments (which cannot install rooftop solar) in high-income inner-city postcodes. Remove the apartments, and the income-solar relationship flips. The AEMC&rsquo;s premise that solar owners are wealthy is not wrong among house-owners; it is wrong when applied to the full population.</p>
 </div>
 
 <div class="finding">
@@ -525,26 +530,32 @@
 </div>
 
 <div class="finding">
-  <p><strong>The communities most exposed to reform are also the ones where energy cost anxiety is most politically salient.</strong><br>
-  The top One Nation electorates by vote share &mdash; Hinkler (13.3%), Flynn (14.2%), Wright (16.3%), Capricornia (15.6%) &mdash; average 50%+ solar penetration. The lowest One Nation electorates (Bradfield, Wentworth, Warringah) are the lowest-solar, highest-income seats. The reform the AEMC frames as helping &ldquo;low-income non-solar households&rdquo; would fall hardest on communities already expressing discontent with energy costs through their vote.</p>
+  <p><strong>One Nation vote share is the strongest single predictor of solar penetration across all 150 electorates (r&nbsp;=&nbsp;0.43, p&nbsp;&lt;&nbsp;0.001).</strong><br>
+  The top One Nation electorates &mdash; Wright (13.8%), Capricornia (13.7%), Kennedy (12.1%), Flynn (11.8%) &mdash; average over 50% solar penetration. The lowest One Nation electorates (Wentworth 1.0%, Goldstein 1.2%, Curtin 1.2%) are the lowest-solar, highest-income seats. By contrast, ALP vote share has no significant correlation with solar (r&nbsp;=&nbsp;&minus;0.08, not significant). The reform the AEMC frames as protecting &ldquo;low-income non-solar households&rdquo; would fall hardest on communities already expressing the highest political discontent over energy costs. Source: AEC 2022 federal election first preferences.</p>
 </div>
 
 <h3>Scatter: solar penetration vs median household income, by electorate</h3>
 <div class="tab-row" id="scatterTabs">
-  <button class="tab-btn" id="btnMarginals" onclick="toggleMarginals(this)">&#9675; Highlight marginal seats</button>
+  <button class="tab-btn" id="btnMarginals" onclick="toggleMarginals(this)">&#9675; Marginal seats</button>
+  <button class="tab-btn" id="btnON"   onclick="setPartyMode('on',this)">&#9675; One Nation</button>
+  <button class="tab-btn" id="btnALP"  onclick="setPartyMode('alp',this)">&#9675; ALP</button>
+  <button class="tab-btn" id="btnCoal" onclick="setPartyMode('coal',this)">&#9675; Coalition</button>
+  <button class="tab-btn" id="btnGrn"  onclick="setPartyMode('grn',this)">&#9675; Greens</button>
 </div>
+<p class="caption" style="margin-top:-0.3rem;">Party overlay: bubble size = 2022 primary vote %. Darker fill = higher vote share. Hover any seat for details. Source: AEC.</p>
 <div class="chart-wrap">
-  <canvas id="chartScatter" height="360"></canvas>
+  <canvas id="chartScatter" height="420"></canvas>
 </div>
 
 <h3>Electorates ranked by solar penetration</h3>
 <div class="tab-row" id="rankTabs">
-  <button class="tab-btn active" onclick="showElectorates('top20', this)">Top 20</button>
-  <button class="tab-btn" onclick="showElectorates('bottom20', this)">Bottom 20</button>
+  <button class="tab-btn active" onclick="showElectorates('top20', this)">Top 20 solar</button>
+  <button class="tab-btn" onclick="showElectorates('bottom20', this)">Bottom 20 solar</button>
   <button class="tab-btn" onclick="showElectorates('marginals', this)">Marginal seats</button>
+  <button class="tab-btn" onclick="showElectorates('onenation', this)">High One Nation</button>
 </div>
 <div class="chart-wrap">
-  <canvas id="chartElectorates" height="380"></canvas>
+  <canvas id="chartElectorates" height="480"></canvas>
 </div>
 
 
@@ -599,7 +610,7 @@
 
 <!-- EDIT: Conclusion paragraphs -->
 <p>The AEMC&rsquo;s June 2026 final report proposes a 10-year transition to tariff structures with up to 80% of network costs recovered through shared network access charges. The AEMC is right that the status quo has a distributional problem: as solar uptake grows, network costs are spread across a smaller volumetric base, and the households least able to reduce consumption &mdash; renters, apartment dwellers, low-income owner-occupiers &mdash; pay an increasing share. Inaction is not cost-free. But the instrument chosen to fix it matters.</p>
-<p>This analysis challenges the income geography that underlies the reform&rsquo;s logic. The data shows lower-income postcodes have <em>more</em> solar, not less &mdash; they adopted it earlier, faster, and at higher rates across 15 years. The reform&rsquo;s instrument &mdash; raising the unavoidable access charge &mdash; does not distinguish between lower-income solar owners (who face eroded returns), wealthy non-solar apartment dwellers (who may benefit), and renters of all incomes (who face higher access charges with no ability to respond by getting solar either way).</p>
+<p>This analysis challenges the income geography that underlies the reform&rsquo;s logic. At the aggregate postcode level, the lowest-income decile has had more solar than the highest-income decile every year since 2010. The key reason is structural: high-income postcodes contain far more apartments, which cannot install rooftop solar. Among detached houses, higher-income households actually have more solar. The non-solar population is not a homogeneous low-income group &mdash; it includes wealthy inner-city apartment dwellers, lower-income renters, and house-owners who haven&rsquo;t yet installed. The reform&rsquo;s instrument &mdash; raising the unavoidable access charge &mdash; does not distinguish between these groups: it erodes returns for solar owners across all incomes while raising fixed costs for renters who cannot respond.</p>
 <p>The AEMC&rsquo;s own distributional modelling acknowledges that the reform helps high-consumption non-CER households while potentially harming low-consumption non-CER households and that consumer protections are a &ldquo;critical design feature&rdquo; and &ldquo;necessary precursor&rdquo; to any rule change. Those protections have not yet been specified. Before any rule change proceeds, the distributional modelling should be disaggregated by both CER ownership <em>and</em> household income &mdash; not just consumption. The two are not the same thing.</p>
 
 <!-- EDIT: Policy ask box -->
@@ -616,7 +627,7 @@
 <div class="footnotes">
   <p><strong>Notes and sources</strong></p>
   <p style="margin-top:0.5rem;">Solar installation data: Clean Energy Regulator, <em>Small-scale installation postcode data</em>, accessed June 2026. Battery data covers July 2025&ndash;May 2026 only (batteries became SRES-eligible 1 July 2025). Penetration rates = cumulative installs &divide; estimated dwellings (APVI methodology using ABS 2021 Census dwelling counts). Income data: ABS 2021 Census, Table G02, Postal Area geography. Income deciles calculated on postcodes with &gt;100 estimated houses and valid income data. All dollar figures are 2021 Census dollars. AEMC cameo bill impact figures: AEMC, <em>Smarter, cleaner, cheaper energy: What network tariff reform means for consumers</em>, 23 April 2026, pp. 22&ndash;26. The AEMC final report (18 June 2026) clarifies that access charges may vary by connection type and historical consumption. The AEMC estimates network tariff reform delivers $6 billion in cumulative savings over 15 years (present value).</p>
-  <p style="margin-top:0.6rem;"><strong>Caveats:</strong> CER data excludes systems without registered STCs and does not deduct decommissioned systems. ABS income data is from 2021. Battery data covers only 11 months. Rural/remote postcodes (decile 1) include very high solar penetration areas that may not represent urban lower-income households &mdash; the finding is strongest for deciles 2&ndash;6. This analysis does not control for dwelling type; apartments concentrate in higher-income postcodes (deciles 8&ndash;10), which partly explains the inverse income gradient. Controlling for dwelling type strengthens, not weakens, the finding.</p>
+  <p style="margin-top:0.6rem;"><strong>Caveats:</strong> CER data excludes systems without registered STCs and does not deduct decommissioned systems. ABS income data is from 2021. Battery data covers only 11 months. Rural/remote postcodes (decile 1) include very high solar penetration areas that may not represent urban lower-income households &mdash; the finding is strongest for deciles 2&ndash;6. This analysis does not control for dwelling type; apartments concentrate in higher-income postcodes (deciles 8&ndash;10), which partly explains the inverse income gradient. Controlling for dwelling type: among detached houses, higher-income postcodes have slightly more solar. The overall inverse gradient reflects apartment concentration in higher-income postcodes, not a barrier to solar for lower-income households specifically.</p>
 </div>
 
 </div><!-- /container -->
@@ -626,6 +637,10 @@
      DATA & CHARTS — do not edit below this line
      ═══════════════════════════════════════════════════════════ -->
 <script>
+/* ─────────────────────────────────────────────────────────────────────────────
+   DATA & CHARTS  —  do not edit below this line
+   ───────────────────────────────────────────────────────────────────────────── */
+
 // ─── GRATTAN COLOUR PALETTE ───────────────────────────────────────────────────
 const G = {
   orange:    '#EF7900',
@@ -669,9 +684,180 @@ const SOLAR_BATTERY = {"1":{"solar_pct":44.3,"battery_pct":2.92},"2":{"solar_pct
 
 const STATES = [{"state":"SA","solar_pct":53.1,"battery_pct":5.9,"median_income":71500},{"state":"QLD","solar_pct":51.9,"battery_pct":3.6,"median_income":76830},{"state":"WA","solar_pct":48.5,"battery_pct":2.9,"median_income":82056},{"state":"ACT","solar_pct":39.1,"battery_pct":4.7,"median_income":124306},{"state":"NSW","solar_pct":39.1,"battery_pct":4.3,"median_income":81900},{"state":"VIC","solar_pct":31.1,"battery_pct":2.5,"median_income":79976},{"state":"NT","solar_pct":28.7,"battery_pct":1.3,"median_income":105534},{"state":"TAS","solar_pct":23.7,"battery_pct":1.6,"median_income":66950}];
 
-const ELECTORATES = [{"electorate":"Fisher","solar_pct":67.3,"income_annual":83413,"avg_decile":5.7},{"electorate":"Hinkler","solar_pct":67.1,"income_annual":55707,"avg_decile":1.8},{"electorate":"Brand","solar_pct":66.1,"income_annual":92764,"avg_decile":7.0},{"electorate":"Bowman","solar_pct":65.5,"income_annual":92602,"avg_decile":6.9},{"electorate":"Pearce","solar_pct":63.8,"income_annual":105852,"avg_decile":8.3},{"electorate":"Richmond","solar_pct":63.5,"income_annual":73903,"avg_decile":4.5},{"electorate":"Fairfax","solar_pct":62.7,"income_annual":84445,"avg_decile":5.9},{"electorate":"Makin","solar_pct":62.1,"income_annual":79926,"avg_decile":5.4},{"electorate":"Canning","solar_pct":61.6,"income_annual":79509,"avg_decile":5.0},{"electorate":"Moore","solar_pct":60.5,"income_annual":112326,"avg_decile":9.0},{"electorate":"Tangney","solar_pct":58.7,"income_annual":110746,"avg_decile":8.7},{"electorate":"Ryan","solar_pct":58.5,"income_annual":136458,"avg_decile":9.5},{"electorate":"Bullwinkel","solar_pct":57.9,"income_annual":87017,"avg_decile":6.2},{"electorate":"Forde","solar_pct":57.0,"income_annual":86040,"avg_decile":5.9},{"electorate":"Capricornia","solar_pct":56.2,"income_annual":68945,"avg_decile":3.2},{"electorate":"Bonner","solar_pct":55.7,"income_annual":111500,"avg_decile":8.6},{"electorate":"Wright","solar_pct":55.1,"income_annual":72184,"avg_decile":4.1},{"electorate":"Sturt","solar_pct":52.9,"income_annual":88762,"avg_decile":6.5},{"electorate":"Flynn","solar_pct":52.3,"income_annual":76384,"avg_decile":4.8},{"electorate":"Dickson","solar_pct":52.0,"income_annual":107391,"avg_decile":8.2},{"electorate":"Boothby","solar_pct":51.1,"income_annual":85864,"avg_decile":6.2},{"electorate":"Petrie","solar_pct":51.6,"income_annual":82300,"avg_decile":5.6},{"electorate":"Cowper","solar_pct":51.6,"income_annual":61853,"avg_decile":2.8},{"electorate":"Forrest","solar_pct":47.2,"income_annual":82175,"avg_decile":5.6},{"electorate":"Longman","solar_pct":47.4,"income_annual":76468,"avg_decile":4.8},{"electorate":"Leichhardt","solar_pct":44.7,"income_annual":79102,"avg_decile":5.6},{"electorate":"Paterson","solar_pct":44.1,"income_annual":83467,"avg_decile":5.7},{"electorate":"Hunter","solar_pct":43.7,"income_annual":83395,"avg_decile":5.7},{"electorate":"Bruce","solar_pct":41.4,"income_annual":99523,"avg_decile":7.6},{"electorate":"Werriwa","solar_pct":40.9,"income_annual":99825,"avg_decile":7.6},{"electorate":"Blair","solar_pct":39.4,"income_annual":81020,"avg_decile":5.7},{"electorate":"Gilmore","solar_pct":39.1,"income_annual":67854,"avg_decile":3.4},{"electorate":"McEwen","solar_pct":38.4,"income_annual":111084,"avg_decile":8.8},{"electorate":"Hughes","solar_pct":37.8,"income_annual":119904,"avg_decile":8.9},{"electorate":"Aston","solar_pct":32.9,"income_annual":97621,"avg_decile":7.5},{"electorate":"Monash","solar_pct":34.6,"income_annual":67184,"avg_decile":3.7},{"electorate":"Robertson","solar_pct":34.0,"income_annual":84867,"avg_decile":6.2},{"electorate":"Casey","solar_pct":31.7,"income_annual":99355,"avg_decile":7.6},{"electorate":"Bradfield","solar_pct":31.2,"income_annual":155727,"avg_decile":9.9},{"electorate":"Wannon","solar_pct":27.3,"income_annual":72735,"avg_decile":4.4},{"electorate":"Chisholm","solar_pct":28.2,"income_annual":106170,"avg_decile":8.3},{"electorate":"Parramatta","solar_pct":28.9,"income_annual":103671,"avg_decile":8.1},{"electorate":"Banks","solar_pct":28.9,"income_annual":101992,"avg_decile":7.9},{"electorate":"Bennelong","solar_pct":27.6,"income_annual":121211,"avg_decile":9.1},{"electorate":"Deakin","solar_pct":26.8,"income_annual":100783,"avg_decile":7.7},{"electorate":"Reid","solar_pct":24.6,"income_annual":118343,"avg_decile":9.2},{"electorate":"Bass","solar_pct":24.8,"income_annual":67637,"avg_decile":3.9},{"electorate":"Menzies","solar_pct":24.2,"income_annual":100303,"avg_decile":7.6},{"electorate":"Durack","solar_pct":23.0,"income_annual":102027,"avg_decile":6.5},{"electorate":"Lyons","solar_pct":23.6,"income_annual":63069,"avg_decile":3.1},{"electorate":"Lingiari","solar_pct":23.1,"income_annual":94884,"avg_decile":6.7},{"electorate":"Melbourne","solar_pct":12.1,"income_annual":106676,"avg_decile":8.3},{"electorate":"Wentworth","solar_pct":18.0,"income_annual":152000,"avg_decile":9.8},{"electorate":"Sydney","solar_pct":11.4,"income_annual":130168,"avg_decile":9.2}];
+// All 150 federal electorates (solar penetration, income, avg income decile)
+const ELECTORATES = [
+  {electorate:"Fisher",solar_pct:67.3,income_annual:83413,avg_decile:5.7},
+  {electorate:"Hinkler",solar_pct:67.1,income_annual:55707,avg_decile:1.8},
+  {electorate:"Brand",solar_pct:66.1,income_annual:92764,avg_decile:7.0},
+  {electorate:"Bowman",solar_pct:65.5,income_annual:92602,avg_decile:6.9},
+  {electorate:"Pearce",solar_pct:63.8,income_annual:105852,avg_decile:8.3},
+  {electorate:"Richmond",solar_pct:63.5,income_annual:73903,avg_decile:4.5},
+  {electorate:"Fairfax",solar_pct:62.7,income_annual:84445,avg_decile:5.9},
+  {electorate:"Makin",solar_pct:62.1,income_annual:79926,avg_decile:5.4},
+  {electorate:"Canning",solar_pct:61.6,income_annual:79509,avg_decile:5.0},
+  {electorate:"Moore",solar_pct:60.5,income_annual:112326,avg_decile:9.0},
+  {electorate:"Kingston",solar_pct:60.3,income_annual:76782,avg_decile:5.0},
+  {electorate:"Mayo",solar_pct:59.1,income_annual:80863,avg_decile:5.2},
+  {electorate:"Burt",solar_pct:58.8,income_annual:90790,avg_decile:6.6},
+  {electorate:"Tangney",solar_pct:58.7,income_annual:110746,avg_decile:8.7},
+  {electorate:"Ryan",solar_pct:58.5,income_annual:136458,avg_decile:9.5},
+  {electorate:"Bullwinkel",solar_pct:57.9,income_annual:87017,avg_decile:6.2},
+  {electorate:"Forde",solar_pct:57.0,income_annual:86040,avg_decile:5.9},
+  {electorate:"Hasluck",solar_pct:56.6,income_annual:92459,avg_decile:6.8},
+  {electorate:"Rankin",solar_pct:56.4,income_annual:84833,avg_decile:6.0},
+  {electorate:"Bonner",solar_pct:55.7,income_annual:111500,avg_decile:8.6},
+  {electorate:"Herbert",solar_pct:55.6,income_annual:89603,avg_decile:6.4},
+  {electorate:"Parkes",solar_pct:55.4,income_annual:73314,avg_decile:4.4},
+  {electorate:"Wide Bay",solar_pct:55.3,income_annual:63274,avg_decile:3.3},
+  {electorate:"Page",solar_pct:55.3,income_annual:65036,avg_decile:3.4},
+  {electorate:"Oxley",solar_pct:54.6,income_annual:95539,avg_decile:7.0},
+  {electorate:"Moreton",solar_pct:53.7,income_annual:98994,avg_decile:7.4},
+  {electorate:"Fadden",solar_pct:53.3,income_annual:94953,avg_decile:7.2},
+  {electorate:"McPherson",solar_pct:53.0,income_annual:91767,avg_decile:7.1},
+  {electorate:"Sturt",solar_pct:52.9,income_annual:88762,avg_decile:6.5},
+  {electorate:"Spence",solar_pct:52.6,income_annual:68168,avg_decile:3.7},
+  {electorate:"Flynn",solar_pct:52.3,income_annual:76384,avg_decile:4.8},
+  {electorate:"Dickson",solar_pct:52.0,income_annual:107391,avg_decile:8.2},
+  {electorate:"Hindmarsh",solar_pct:51.7,income_annual:79646,avg_decile:5.3},
+  {electorate:"Petrie",solar_pct:51.6,income_annual:82300,avg_decile:5.6},
+  {electorate:"Fremantle",solar_pct:51.6,income_annual:101974,avg_decile:7.7},
+  {electorate:"Cowper",solar_pct:51.6,income_annual:61853,avg_decile:2.8},
+  {electorate:"Wright",solar_pct:51.1,income_annual:89874,avg_decile:6.6},
+  {electorate:"Boothby",solar_pct:51.1,income_annual:85864,avg_decile:6.2},
+  {electorate:"Greenway",solar_pct:50.8,income_annual:132306,avg_decile:9.6},
+  {electorate:"Dawson",solar_pct:50.0,income_annual:79621,avg_decile:5.2},
+  {electorate:"Lyne",solar_pct:50.0,income_annual:64241,avg_decile:3.0},
+  {electorate:"Barker",solar_pct:49.1,income_annual:65738,avg_decile:3.4},
+  {electorate:"Lilley",solar_pct:48.7,income_annual:103166,avg_decile:8.1},
+  {electorate:"Longman",solar_pct:47.4,income_annual:76468,avg_decile:4.8},
+  {electorate:"Grey",solar_pct:47.3,income_annual:62382,avg_decile:2.9},
+  {electorate:"Forrest",solar_pct:47.2,income_annual:82175,avg_decile:5.6},
+  {electorate:"Mitchell",solar_pct:46.9,income_annual:142206,avg_decile:9.9},
+  {electorate:"Adelaide",solar_pct:46.3,income_annual:88843,avg_decile:6.3},
+  {electorate:"Capricornia",solar_pct:46.1,income_annual:92055,avg_decile:6.5},
+  {electorate:"Kennedy",solar_pct:45.9,income_annual:77747,avg_decile:4.9},
+  {electorate:"Griffith",solar_pct:45.8,income_annual:119701,avg_decile:9.1},
+  {electorate:"Leichhardt",solar_pct:44.7,income_annual:79102,avg_decile:5.6},
+  {electorate:"Macarthur",solar_pct:44.7,income_annual:102549,avg_decile:7.8},
+  {electorate:"Moncrieff",solar_pct:44.1,income_annual:75489,avg_decile:4.7},
+  {electorate:"Paterson",solar_pct:44.1,income_annual:83467,avg_decile:5.7},
+  {electorate:"Holt",solar_pct:44.0,income_annual:100349,avg_decile:8.0},
+  {electorate:"Hunter",solar_pct:43.7,income_annual:83395,avg_decile:5.7},
+  {electorate:"Brisbane",solar_pct:43.6,income_annual:117393,avg_decile:9.0},
+  {electorate:"Farrer",solar_pct:43.6,income_annual:72635,avg_decile:4.5},
+  {electorate:"Hume",solar_pct:43.5,income_annual:110718,avg_decile:8.5},
+  {electorate:"Indi",solar_pct:43.5,income_annual:71358,avg_decile:4.2},
+  {electorate:"Riverina",solar_pct:43.3,income_annual:84273,avg_decile:5.5},
+  {electorate:"Maranoa",solar_pct:43.0,income_annual:66040,avg_decile:3.4},
+  {electorate:"Lalor",solar_pct:43.0,income_annual:104301,avg_decile:8.0},
+  {electorate:"Cowan",solar_pct:42.8,income_annual:82575,avg_decile:5.7},
+  {electorate:"Groom",solar_pct:42.5,income_annual:79499,avg_decile:5.5},
+  {electorate:"Nicholls",solar_pct:41.9,income_annual:70933,avg_decile:4.1},
+  {electorate:"Bean",solar_pct:41.8,income_annual:117785,avg_decile:9.1},
+  {electorate:"Bruce",solar_pct:41.4,income_annual:99523,avg_decile:7.6},
+  {electorate:"Whitlam",solar_pct:41.4,income_annual:86946,avg_decile:6.2},
+  {electorate:"Chifley",solar_pct:41.2,income_annual:86004,avg_decile:5.8},
+  {electorate:"Werriwa",solar_pct:40.9,income_annual:99825,avg_decile:7.6},
+  {electorate:"Eden-Monaro",solar_pct:40.1,income_annual:80270,avg_decile:4.6},
+  {electorate:"Fenner",solar_pct:39.7,income_annual:125441,avg_decile:9.5},
+  {electorate:"Dobell",solar_pct:39.5,income_annual:75669,avg_decile:5.0},
+  {electorate:"Solomon",solar_pct:39.5,income_annual:115491,avg_decile:9.0},
+  {electorate:"Bendigo",solar_pct:39.4,income_annual:76065,avg_decile:4.6},
+  {electorate:"New England",solar_pct:39.4,income_annual:69092,avg_decile:3.9},
+  {electorate:"Blair",solar_pct:39.4,income_annual:81020,avg_decile:5.7},
+  {electorate:"Curtin",solar_pct:39.2,income_annual:123586,avg_decile:9.2},
+  {electorate:"Gilmore",solar_pct:39.1,income_annual:67854,avg_decile:3.4},
+  {electorate:"Calare",solar_pct:38.8,income_annual:79059,avg_decile:5.4},
+  {electorate:"McEwen",solar_pct:38.4,income_annual:111084,avg_decile:8.8},
+  {electorate:"Shortland",solar_pct:38.3,income_annual:82085,avg_decile:5.8},
+  {electorate:"Swan",solar_pct:38.0,income_annual:91268,avg_decile:7.0},
+  {electorate:"Hughes",solar_pct:37.8,income_annual:119904,avg_decile:8.9},
+  {electorate:"Macquarie",solar_pct:37.1,income_annual:94278,avg_decile:6.8},
+  {electorate:"Berowra",solar_pct:37.0,income_annual:132441,avg_decile:9.7},
+  {electorate:"Fowler",solar_pct:36.8,income_annual:79844,avg_decile:5.5},
+  {electorate:"Calwell",solar_pct:36.5,income_annual:91198,avg_decile:6.4},
+  {electorate:"Mallee",solar_pct:36.3,income_annual:64106,avg_decile:3.3},
+  {electorate:"Hawke",solar_pct:36.2,income_annual:89442,avg_decile:6.6},
+  {electorate:"Gippsland",solar_pct:36.2,income_annual:64353,avg_decile:3.3},
+  {electorate:"McMahon",solar_pct:36.2,income_annual:95726,avg_decile:7.2},
+  {electorate:"La Trobe",solar_pct:35.5,income_annual:98853,avg_decile:7.4},
+  {electorate:"Lindsay",solar_pct:35.2,income_annual:95825,avg_decile:7.5},
+  {electorate:"Monash",solar_pct:34.6,income_annual:67184,avg_decile:3.7},
+  {electorate:"Gorton",solar_pct:34.4,income_annual:101631,avg_decile:8.0},
+  {electorate:"Cunningham",solar_pct:34.0,income_annual:91553,avg_decile:6.5},
+  {electorate:"Robertson",solar_pct:34.0,income_annual:84867,avg_decile:6.2},
+  {electorate:"Perth",solar_pct:33.0,income_annual:100776,avg_decile:7.7},
+  {electorate:"Aston",solar_pct:32.9,income_annual:97621,avg_decile:7.5},
+  {electorate:"Canberra",solar_pct:32.7,income_annual:128318,avg_decile:9.7},
+  {electorate:"Newcastle",solar_pct:32.2,income_annual:94081,avg_decile:7.1},
+  {electorate:"Casey",solar_pct:31.7,income_annual:99355,avg_decile:7.6},
+  {electorate:"Mackellar",solar_pct:31.5,income_annual:132029,avg_decile:9.6},
+  {electorate:"Bradfield",solar_pct:31.2,income_annual:155727,avg_decile:9.9},
+  {electorate:"Scullin",solar_pct:31.1,income_annual:87107,avg_decile:6.2},
+  {electorate:"Isaacs",solar_pct:30.9,income_annual:95497,avg_decile:7.2},
+  {electorate:"Corangamite",solar_pct:30.7,income_annual:94069,avg_decile:6.7},
+  {electorate:"O'Connor",solar_pct:29.7,income_annual:77874,avg_decile:4.9},
+  {electorate:"Ballarat",solar_pct:29.7,income_annual:75625,avg_decile:4.6},
+  {electorate:"Parramatta",solar_pct:28.9,income_annual:103671,avg_decile:8.1},
+  {electorate:"Banks",solar_pct:28.9,income_annual:101992,avg_decile:7.9},
+  {electorate:"Warringah",solar_pct:28.5,income_annual:151978,avg_decile:10.0},
+  {electorate:"Corio",solar_pct:28.4,income_annual:83520,avg_decile:5.9},
+  {electorate:"Chisholm",solar_pct:28.2,income_annual:106170,avg_decile:8.3},
+  {electorate:"Flinders",solar_pct:28.1,income_annual:83909,avg_decile:5.6},
+  {electorate:"Dunkley",solar_pct:27.9,income_annual:83910,avg_decile:6.1},
+  {electorate:"Bennelong",solar_pct:27.6,income_annual:121211,avg_decile:9.1},
+  {electorate:"Wannon",solar_pct:27.3,income_annual:72735,avg_decile:4.4},
+  {electorate:"Deakin",solar_pct:26.8,income_annual:100783,avg_decile:7.7},
+  {electorate:"Franklin",solar_pct:26.4,income_annual:80955,avg_decile:5.6},
+  {electorate:"Cook",solar_pct:26.4,income_annual:113853,avg_decile:8.8},
+  {electorate:"Blaxland",solar_pct:26.0,income_annual:76802,avg_decile:5.2},
+  {electorate:"Kingsford Smith",solar_pct:25.8,income_annual:114743,avg_decile:8.8},
+  {electorate:"Jagajaga",solar_pct:25.0,income_annual:110822,avg_decile:8.5},
+  {electorate:"Bass",solar_pct:24.8,income_annual:67637,avg_decile:3.9},
+  {electorate:"Reid",solar_pct:24.6,income_annual:118343,avg_decile:9.2},
+  {electorate:"Gellibrand",solar_pct:24.5,income_annual:107564,avg_decile:8.0},
+  {electorate:"Menzies",solar_pct:24.2,income_annual:100303,avg_decile:7.6},
+  {electorate:"Watson",solar_pct:24.1,income_annual:77419,avg_decile:5.2},
+  {electorate:"Barton",solar_pct:23.9,income_annual:100688,avg_decile:7.9},
+  {electorate:"Lyons",solar_pct:23.6,income_annual:63069,avg_decile:3.1},
+  {electorate:"Hotham",solar_pct:23.3,income_annual:91284,avg_decile:6.9},
+  {electorate:"Lingiari",solar_pct:23.1,income_annual:94884,avg_decile:6.7},
+  {electorate:"Durack",solar_pct:23.0,income_annual:102027,avg_decile:6.5},
+  {electorate:"Clark",solar_pct:22.8,income_annual:83744,avg_decile:6.0},
+  {electorate:"Fraser",solar_pct:22.3,income_annual:83641,avg_decile:5.6},
+  {electorate:"Goldstein",solar_pct:21.8,income_annual:124491,avg_decile:9.5},
+  {electorate:"Grayndler",solar_pct:21.7,income_annual:120649,avg_decile:9.2},
+  {electorate:"Cooper",solar_pct:21.5,income_annual:95111,avg_decile:7.2},
+  {electorate:"Braddon",solar_pct:20.8,income_annual:62337,avg_decile:2.8},
+  {electorate:"Maribyrnong",solar_pct:19.5,income_annual:100232,avg_decile:7.6},
+  {electorate:"Kooyong",solar_pct:19.3,income_annual:123668,avg_decile:9.5},
+  {electorate:"Wills",solar_pct:18.6,income_annual:102670,avg_decile:8.1},
+  {electorate:"Wentworth",solar_pct:17.8,income_annual:151853,avg_decile:9.9},
+  {electorate:"Macnamara",solar_pct:15.5,income_annual:114395,avg_decile:9.0},
+  {electorate:"Melbourne",solar_pct:12.1,income_annual:106676,avg_decile:8.3},
+  {electorate:"Sydney",solar_pct:11.4,income_annual:130168,avg_decile:9.2}
+];
 
-const MARGINALS = new Set(["Menzies","Deakin","Sturt","Moore","Bass","Aston","Banks","Bradfield","Hughes","Dickson","Longman","Bonner","Leichhardt","Forde","Petrie","Melbourne","Ryan","Cowper","Bennelong","Gilmore","Robertson","Paterson","Tangney","Bullwinkel","Blair","Bruce","Werriwa","Parramatta","Chisholm","McEwen","Reid","Lingiari","Lyons","Bowman"]);
+// ─── MARGINAL SEATS (margin <6%) ─────────────────────────────────────────────
+const MARGINALS = new Set([
+  // ALP-held marginals
+  "Bennelong","Gilmore","Lyons","Lingiari","Robertson","Paterson","Tangney",
+  "Boothby","Chisholm","Bullwinkel","Parramatta","McEwen","Hunter","Reid",
+  "Blair","Bruce","Werriwa",
+  // LIB/LNP/NAT-held marginals
+  "Menzies","Deakin","Sturt","Moore","Bass","Aston","Banks","Bradfield",
+  "Hughes","Dickson","Longman","Bonner","Leichhardt","Forde","Petrie",
+  "Wannon","Forrest","Durack","Canning","Casey",
+  // Others
+  "Ryan","Melbourne","Cowper","Bowman"
+]);
+
+// ─── ONE NATION PRIMARY VOTE (2022 federal election, % of total votes) ────────
+// Source: AEC 2022 federal election first preferences by division
+const ON_VOTE = {"Adelaide":2.9,"Aston":3.0,"Ballarat":3.4,"Banks":2.7,"Barker":6.1,"Barton":4.4,"Bass":4.4,"Bean":2.6,"Bendigo":5.3,"Bennelong":1.6,"Berowra":3.0,"Blair":9.5,"Blaxland":4.8,"Bonner":5.4,"Boothby":1.9,"Bowman":7.5,"Braddon":4.0,"Bradfield":1.6,"Brand":5.0,"Brisbane":2.2,"Bruce":4.6,"Burt":4.6,"Calare":8.1,"Calwell":6.6,"Canberra":1.6,"Canning":4.2,"Capricornia":13.7,"Casey":3.1,"Chifley":5.7,"Chisholm":1.4,"Clark":2.5,"Cook":4.9,"Cooper":2.9,"Corangamite":2.4,"Corio":3.7,"Cowan":2.6,"Cowper":7.7,"Cunningham":4.9,"Curtin":1.2,"Dawson":12.7,"Deakin":2.2,"Dickson":5.2,"Dobell":7.1,"Dunkley":2.7,"Durack":6.4,"Eden-Monaro":4.0,"Fadden":8.3,"Fairfax":6.2,"Farrer":5.8,"Fenner":2.6,"Fisher":9.0,"Flinders":3.2,"Flynn":11.8,"Forde":7.5,"Forrest":5.0,"Fowler":3.2,"Franklin":2.7,"Fraser":2.8,"Fremantle":2.9,"Gellibrand":2.9,"Gilmore":3.8,"Gippsland":9.1,"Goldstein":1.2,"Gorton":6.8,"Grayndler":1.5,"Greenway":2.5,"Grey":5.8,"Griffith":3.2,"Groom":9.1,"Hasluck":3.6,"Hawke":5.1,"Herbert":5.0,"Hindmarsh":3.7,"Hinkler":8.4,"Holt":4.5,"Hotham":2.8,"Hughes":2.6,"Hume":6.8,"Hunter":9.2,"Indi":5.0,"Isaacs":3.1,"Jagajaga":2.2,"Kennedy":12.1,"Kingsford Smith":3.0,"Kingston":4.7,"Kooyong":0.7,"La Trobe":4.7,"Lalor":3.7,"Leichhardt":6.9,"Lilley":4.0,"Lindsay":5.5,"Lingiari":5.0,"Longman":7.8,"Lyne":7.4,"Lyons":5.0,"Macarthur":7.4,"Mackellar":2.6,"Macnamara":1.4,"Macquarie":4.9,"Makin":4.5,"Mallee":6.4,"Maranoa":11.5,"Maribyrnong":2.3,"Mayo":3.9,"McEwen":5.4,"McMahon":4.9,"McPherson":6.8,"Melbourne":0.9,"Menzies":2.2,"Mitchell":2.9,"Monash":7.2,"Moncrieff":6.7,"Moore":3.2,"Moreton":3.5,"New England":4.4,"Newcastle":4.3,"Nicholls":6.0,"O'Connor":6.7,"Oxley":5.6,"Page":5.0,"Parkes":6.9,"Parramatta":2.2,"Paterson":7.7,"Pearce":4.2,"Perth":2.5,"Petrie":5.1,"Rankin":7.7,"Reid":1.9,"Richmond":3.8,"Riverina":7.6,"Robertson":3.6,"Ryan":2.2,"Scullin":6.1,"Shortland":6.0,"Solomon":5.2,"Spence":10.3,"Sturt":2.4,"Swan":2.4,"Sydney":1.8,"Tangney":2.0,"Wannon":3.1,"Warringah":2.1,"Watson":4.4,"Wentworth":1.0,"Werriwa":4.6,"Whitlam":6.6,"Wide Bay":9.5,"Wills":2.7,"Wright":13.8};
+const ALP_VOTE = {"Adelaide":38.5,"Aston":31.5,"Ballarat":42.5,"Banks":32.9,"Barker":19.4,"Barton":46.7,"Bass":26.9,"Bean":40.5,"Bendigo":41.4,"Bennelong":35.5,"Berowra":20.9,"Blair":33.2,"Blaxland":49.0,"Bonner":28.8,"Boothby":30.9,"Bowman":28.4,"Braddon":20.8,"Bradfield":16.8,"Brand":47.0,"Brisbane":26.7,"Bruce":39.7,"Burt":48.6,"Calare":14.5,"Calwell":42.0,"Canberra":44.1,"Canning":30.6,"Capricornia":26.3,"Casey":23.3,"Chifley":48.0,"Chisholm":38.2,"Clark":18.0,"Cook":23.9,"Cooper":39.6,"Corangamite":36.7,"Corio":39.9,"Cowan":43.4,"Cowper":13.3,"Cunningham":38.0,"Curtin":13.5,"Dawson":23.5,"Deakin":31.4,"Dickson":30.5,"Dobell":40.9,"Dunkley":38.3,"Durack":27.3,"Eden-Monaro":39.8,"Fadden":21.4,"Fairfax":20.7,"Farrer":17.5,"Fenner":47.0,"Fisher":22.6,"Flinders":20.5,"Flynn":32.2,"Forde":26.1,"Forrest":26.0,"Fowler":32.3,"Franklin":34.9,"Fraser":40.2,"Fremantle":41.4,"Gellibrand":40.6,"Gilmore":34.4,"Gippsland":18.7,"Goldstein":10.6,"Gorton":38.4,"Grayndler":51.2,"Greenway":44.3,"Grey":19.9,"Griffith":28.4,"Groom":17.8,"Hasluck":37.5,"Hawke":33.7,"Herbert":20.4,"Hindmarsh":39.8,"Hinkler":22.5,"Holt":38.2,"Hotham":45.4,"Hughes":21.5,"Hume":18.5,"Hunter":35.6,"Indi":8.1,"Isaacs":38.6,"Jagajaga":39.3,"Kennedy":15.5,"Kingsford Smith":45.8,"Kingston":47.3,"Kooyong":6.7,"La Trobe":24.9,"Lalor":41.4,"Leichhardt":25.7,"Lilley":40.7,"Lindsay":29.5,"Lingiari":33.9,"Longman":29.9,"Lyne":20.1,"Lyons":27.2,"Macarthur":42.6,"Mackellar":7.9,"Macnamara":30.7,"Macquarie":40.8,"Makin":44.4,"Mallee":15.8,"Maranoa":14.8,"Maribyrnong":40.2,"Mayo":17.2,"McEwen":35.4,"McMahon":42.9,"McPherson":20.8,"Melbourne":24.3,"Menzies":32.2,"Mitchell":24.4,"Monash":24.4,"Moncrieff":19.6,"Moore":31.4,"Moreton":36.4,"New England":17.4,"Newcastle":41.7,"Nicholls":10.6,"O'Connor":25.1,"Oxley":44.2,"Page":17.4,"Parkes":18.7,"Parramatta":37.0,"Paterson":38.6,"Pearce":40.1,"Perth":37.1,"Petrie":29.0,"Rankin":42.2,"Reid":38.9,"Richmond":26.8,"Riverina":19.0,"Robertson":35.4,"Ryan":21.6,"Scullin":43.6,"Shortland":37.6,"Solomon":38.1,"Spence":41.7,"Sturt":29.0,"Swan":37.0,"Sydney":49.2,"Tangney":36.6,"Wannon":18.1,"Warringah":8.1,"Watson":46.8,"Wentworth":10.6,"Werriwa":35.9,"Whitlam":42.8,"Wide Bay":19.9,"Wills":36.9,"Wright":20.6};
+const COAL_VOTE = {"Adelaide":30.8,"Aston":41.6,"Ballarat":25.7,"Banks":42.2,"Barker":51.8,"Barton":24.2,"Bass":37.4,"Bean":28.9,"Bendigo":25.7,"Bennelong":39.0,"Berowra":46.1,"Blair":27.4,"Blaxland":24.1,"Bonner":43.7,"Boothby":36.3,"Bowman":41.1,"Braddon":40.7,"Bradfield":43.4,"Brand":20.6,"Brisbane":36.9,"Bruce":28.9,"Burt":21.6,"Calare":45.8,"Calwell":22.2,"Canberra":21.4,"Canning":41.0,"Capricornia":37.0,"Casey":34.2,"Chifley":22.5,"Chisholm":34.6,"Clark":15.2,"Cook":53.1,"Cooper":15.7,"Corangamite":32.8,"Corio":23.3,"Cowan":28.2,"Cowper":37.5,"Cunningham":23.7,"Curtin":40.0,"Dawson":41.5,"Deakin":39.8,"Dickson":40.4,"Dobell":32.1,"Dunkley":31.0,"Durack":41.7,"Eden-Monaro":30.9,"Fadden":42.7,"Fairfax":42.4,"Farrer":48.3,"Fenner":27.1,"Fisher":42.9,"Flinders":41.1,"Flynn":35.5,"Forde":34.4,"Forrest":40.9,"Fowler":15.4,"Franklin":25.4,"Fraser":23.6,"Fremantle":22.8,"Gellibrand":25.7,"Gilmore":40.2,"Gippsland":52.5,"Goldstein":39.0,"Gorton":25.5,"Grayndler":15.3,"Greenway":27.3,"Grey":42.2,"Griffith":30.1,"Groom":41.7,"Hasluck":31.5,"Hawke":24.2,"Herbert":44.3,"Hindmarsh":30.8,"Hinkler":40.7,"Holt":27.6,"Hotham":24.3,"Hughes":41.6,"Hume":40.0,"Hunter":25.3,"Indi":32.4,"Isaacs":30.8,"Jagajaga":28.1,"Kennedy":27.3,"Kingsford Smith":27.4,"Kingston":24.9,"Kooyong":41.4,"La Trobe":43.5,"Lalor":23.4,"Leichhardt":34.2,"Lilley":29.0,"Lindsay":43.5,"Lingiari":32.1,"Longman":36.3,"Lyne":40.6,"Lyons":34.9,"Macarthur":28.3,"Mackellar":39.8,"Macnamara":28.0,"Macquarie":32.8,"Makin":30.1,"Mallee":46.3,"Maranoa":54.4,"Maribyrnong":25.8,"Mayo":25.7,"McEwen":31.9,"McMahon":25.3,"McPherson":41.2,"Melbourne":14.7,"Menzies":40.7,"Mitchell":50.4,"Monash":36.0,"Moncrieff":43.3,"Moore":40.1,"Moreton":32.3,"New England":49.2,"Newcastle":23.1,"Nicholls":40.7,"O'Connor":42.2,"Oxley":27.7,"Page":42.4,"Parkes":45.5,"Parramatta":31.9,"Paterson":34.8,"Pearce":28.0,"Perth":25.2,"Petrie":42.0,"Rankin":27.9,"Reid":35.4,"Richmond":21.7,"Riverina":43.2,"Robertson":37.5,"Ryan":37.3,"Scullin":20.5,"Shortland":30.2,"Solomon":24.1,"Spence":24.3,"Sturt":40.8,"Swan":30.4,"Sydney":19.0,"Tangney":38.5,"Wannon":42.1,"Warringah":32.4,"Watson":24.0,"Wentworth":39.5,"Werriwa":27.7,"Whitlam":26.8,"Wide Bay":40.7,"Wills":16.4,"Wright":41.7};
+const GRN_VOTE = {"Adelaide":19.3,"Aston":11.7,"Ballarat":13.9,"Banks":8.2,"Barker":6.9,"Barton":11.6,"Bass":10.4,"Bean":14.4,"Bendigo":13.5,"Bennelong":10.8,"Berowra":14.6,"Blair":11.9,"Blaxland":5.7,"Bonner":16.3,"Boothby":14.5,"Bowman":12.6,"Braddon":6.2,"Bradfield":8.9,"Brand":10.7,"Brisbane":26.7,"Bruce":9.3,"Burt":9.3,"Calare":4.4,"Calwell":9.1,"Canberra":24.3,"Canning":7.6,"Capricornia":5.5,"Casey":12.1,"Chifley":5.3,"Chisholm":12.0,"Clark":12.9,"Cook":9.5,"Cooper":26.2,"Corangamite":14.6,"Corio":14.1,"Cowan":9.1,"Cowper":5.6,"Cunningham":20.5,"Curtin":10.0,"Dawson":6.9,"Deakin":13.3,"Dickson":12.5,"Dobell":8.2,"Dunkley":9.9,"Durack":8.8,"Eden-Monaro":8.6,"Fadden":10.3,"Fairfax":12.6,"Farrer":8.4,"Fenner":16.3,"Fisher":13.4,"Flinders":8.9,"Flynn":4.2,"Forde":9.2,"Forrest":12.7,"Fowler":4.4,"Franklin":16.5,"Fraser":17.7,"Fremantle":17.1,"Gellibrand":15.7,"Gilmore":9.8,"Gippsland":8.2,"Goldstein":7.6,"Gorton":8.4,"Grayndler":21.0,"Greenway":6.5,"Grey":6.3,"Griffith":33.9,"Groom":5.6,"Hasluck":10.4,"Hawke":8.2,"Herbert":7.7,"Hindmarsh":13.1,"Hinkler":5.3,"Holt":8.0,"Hotham":11.9,"Hughes":6.0,"Hume":4.6,"Hunter":8.2,"Indi":3.4,"Isaacs":12.4,"Jagajaga":16.0,"Kennedy":6.2,"Kingsford Smith":16.1,"Kingston":12.0,"Kooyong":6.1,"La Trobe":10.4,"Lalor":9.8,"Leichhardt":9.3,"Lilley":16.6,"Lindsay":7.5,"Lingiari":10.1,"Longman":6.9,"Lyne":7.3,"Lyons":10.7,"Macarthur":7.2,"Mackellar":5.9,"Macnamara":28.6,"Macquarie":9.1,"Makin":11.0,"Mallee":5.0,"Maranoa":4.7,"Maribyrnong":15.5,"Mayo":11.2,"McEwen":13.6,"McMahon":5.2,"McPherson":14.6,"Melbourne":48.1,"Menzies":13.7,"Mitchell":11.3,"Monash":9.4,"Moncrieff":11.4,"Moore":13.7,"Moreton":20.2,"New England":7.3,"Newcastle":19.0,"Nicholls":3.0,"O'Connor":10.0,"Oxley":13.7,"Page":7.9,"Parkes":4.4,"Parramatta":8.2,"Paterson":7.2,"Pearce":10.3,"Perth":20.9,"Petrie":11.0,"Rankin":10.3,"Reid":8.8,"Richmond":23.5,"Riverina":6.0,"Robertson":9.4,"Ryan":29.3,"Scullin":10.3,"Shortland":9.3,"Solomon":14.3,"Spence":10.8,"Sturt":15.5,"Swan":14.1,"Sydney":22.3,"Tangney":11.5,"Wannon":6.0,"Warringah":7.2,"Watson":8.6,"Wentworth":8.1,"Werriwa":6.1,"Whitlam":10.2,"Wide Bay":8.9,"Wills":26.9,"Wright":11.0};
 
 // ─── COLOUR HELPERS ───────────────────────────────────────────────────────────
 function solarColor(pct) {
@@ -839,34 +1025,89 @@ const GRID_COLOR = '#f0ece4';
 })();
 
 // ─── CHART 7: ELECTORATE SCATTER ─────────────────────────────────────────────
-let scatterChart, showMarginals = false;
+let scatterChart, showMarginals = false, partyMode = null;
+const PARTY_VOTES = { on: ON_VOTE, alp: ALP_VOTE, coal: COAL_VOTE, grn: GRN_VOTE };
+const PARTY_COLORS = { on: G.red, alp: '#CC2121', coal: '#1A4F9C', grn: '#2E8B2E' };
+const PARTY_LABELS = { on: 'One Nation', alp: 'ALP', coal: 'Coalition', grn: 'Greens' };
+// Thresholds for "high vote" highlight (top ~20% of typical range)
+const PARTY_THRESH = { on: 8, alp: 42, coal: 42, grn: 18 };
 
 function buildScatter() {
+  const pVotes = partyMode ? PARTY_VOTES[partyMode] : null;
+  const maxPV   = pVotes ? Math.max(...Object.values(pVotes)) : 1;
+  const pColor  = partyMode ? PARTY_COLORS[partyMode] : null;
+  const pThresh = partyMode ? PARTY_THRESH[partyMode] : 0;
+
   const datasets = Array.from({length: 10}, (_, i) => {
     const d = i + 1;
     const pts = ELECTORATES.filter(e => Math.round(e.avg_decile) === d);
     return {
       label: `D${d}`,
-      data: pts.map(e => ({ x: e.income_annual / 1000, y: e.solar_pct, label: e.electorate, isMarginal: MARGINALS.has(e.electorate) })),
-      backgroundColor: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? G.orange : DECILE_COLORS[i] + 'cc'),
-      pointRadius: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? 8 : 5),
-      pointBorderColor: pts.map(e => (showMarginals && MARGINALS.has(e.electorate)) ? '#fff' : 'transparent'),
+      data: pts.map(e => ({
+        x: e.income_annual / 1000,
+        y: e.solar_pct,
+        label: e.electorate,
+        isMarginal: MARGINALS.has(e.electorate),
+        partyVote: pVotes ? (pVotes[e.electorate] || 0) : 0,
+        partyLabel: partyMode ? PARTY_LABELS[partyMode] : ''
+      })),
+      backgroundColor: pts.map(e => {
+        if (showMarginals && MARGINALS.has(e.electorate)) return G.orange + 'dd';
+        if (pVotes) {
+          const pv = pVotes[e.electorate] || 0;
+          const t = Math.min(pv / maxPV, 1);
+          // blend from transparent base to full party color
+          const alpha = Math.round(80 + t * 155).toString(16).padStart(2,'0');
+          return pColor + alpha;
+        }
+        return DECILE_COLORS[i] + 'bb';
+      }),
+      pointRadius: pts.map(e => {
+        if (pVotes) return Math.max(4, ((pVotes[e.electorate] || 0) / maxPV) * 22);
+        if (showMarginals && MARGINALS.has(e.electorate)) return 8;
+        return 5;
+      }),
+      pointBorderColor: pts.map(e => {
+        if (showMarginals && MARGINALS.has(e.electorate)) return '#fff';
+        if (pVotes && (pVotes[e.electorate] || 0) >= pThresh) return '#fff';
+        return 'transparent';
+      }),
       pointBorderWidth: 2,
+      pointHoverRadius: 10,
     };
   });
-  if (scatterChart) { scatterChart.data.datasets = datasets; scatterChart.update(); return; }
+  if (scatterChart) { scatterChart.data.datasets = datasets; scatterChart.update('none'); return; }
   scatterChart = new Chart(document.getElementById('chartScatter'), {
     type: 'scatter',
     data: { datasets },
     options: {
-      responsive: true, animation: { duration: 700 },
+      responsive: true,
+      animation: { duration: 500 },
       plugins: {
-        legend: { display: true, position: 'right' },
-        tooltip: { callbacks: { label: ctx => ` ${ctx.raw.label}: ${ctx.raw.y}% solar, $${Math.round(ctx.raw.x)}k${ctx.raw.isMarginal ? ' ◎ marginal' : ''}` } }
+        legend: { display: true, position: 'right', labels: { font: { size: 11 }, padding: 10 } },
+        tooltip: {
+          callbacks: {
+            label: ctx => {
+              const r = ctx.raw;
+              let s = ` ${r.label}: ${r.y}% solar, $${Math.round(r.x)}k`;
+              if (r.isMarginal) s += ' ◎ marginal';
+              if (r.partyVote > 0) s += ` | ${r.partyLabel} ${r.partyVote}%`;
+              return s;
+            }
+          }
+        }
       },
       scales: {
-        x: { grid: { color: GRID_COLOR }, ticks: { callback: v => `$${v}k` }, title: { display: true, text: 'Median household income ($000s/yr)' } },
-        y: { grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: 'Solar penetration (%)' } }
+        x: {
+          grid: { color: GRID_COLOR },
+          ticks: { callback: v => `$${v}k` },
+          title: { display: true, text: 'Median household income ($000s / yr)' }
+        },
+        y: {
+          grid: { color: GRID_COLOR },
+          ticks: { callback: v => v + '%' },
+          title: { display: true, text: 'Solar penetration (%)' }
+        }
       }
     }
   });
@@ -875,9 +1116,29 @@ function buildScatter() {
 function toggleMarginals(btn) {
   showMarginals = !showMarginals;
   btn.classList.toggle('active', showMarginals);
-  btn.textContent = showMarginals ? '◎ Showing marginals' : '◎ Highlight marginal seats';
+  btn.textContent = showMarginals ? '◎ Marginals ON' : '◎ Marginal seats';
   buildScatter();
 }
+
+function setPartyMode(mode, btn) {
+  const wasActive = partyMode === mode;
+  partyMode = wasActive ? null : mode;
+  // reset all party buttons
+  ['btnON','btnALP','btnCoal','btnGrn'].forEach(id => {
+    const b = document.getElementById(id);
+    if (b) { b.classList.remove('active'); b.textContent = '◎ ' + PARTY_LABELS[b.id.replace('btn','').toLowerCase()] || b.textContent.replace('◉','◎'); }
+  });
+  document.getElementById('btnON').textContent   = '◎ One Nation';
+  document.getElementById('btnALP').textContent  = '◎ ALP';
+  document.getElementById('btnCoal').textContent = '◎ Coalition';
+  document.getElementById('btnGrn').textContent  = '◎ Greens';
+  if (partyMode) {
+    btn.classList.add('active');
+    btn.textContent = '◉ ' + PARTY_LABELS[mode];
+  }
+  buildScatter();
+}
+
 buildScatter();
 
 // ─── CHART 8: ELECTORATES BAR ────────────────────────────────────────────────
@@ -887,31 +1148,60 @@ const sortedAll = [...ELECTORATES].sort((a, b) => b.solar_pct - a.solar_pct);
 function showElectorates(mode, btn) {
   document.getElementById('rankTabs').querySelectorAll('button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  let items;
-  if (mode === 'top20') items = sortedAll.slice(0, 20);
-  else if (mode === 'bottom20') items = [...sortedAll].reverse().slice(0, 20);
-  else items = ELECTORATES.filter(e => MARGINALS.has(e.electorate)).sort((a,b) => b.solar_pct - a.solar_pct);
+
+  let items, useOnColor = false;
+  if (mode === 'top20') {
+    items = sortedAll.slice(0, 20);
+  } else if (mode === 'bottom20') {
+    items = [...sortedAll].reverse().slice(0, 20);
+  } else if (mode === 'marginals') {
+    items = ELECTORATES.filter(e => MARGINALS.has(e.electorate)).sort((a,b) => b.solar_pct - a.solar_pct);
+  } else if (mode === 'onenation') {
+    // Sort by One Nation vote, show top 25
+    items = ELECTORATES
+      .filter(e => ON_VOTE[e.electorate])
+      .sort((a,b) => (ON_VOTE[b.electorate]||0) - (ON_VOTE[a.electorate]||0))
+      .slice(0, 25);
+    useOnColor = true;
+  }
 
   const labels = items.map(e => e.electorate);
-  const vals = items.map(e => e.solar_pct);
-  const colors = items.map(e => solarColor(e.solar_pct));
+  const vals = useOnColor ? items.map(e => ON_VOTE[e.electorate]||0) : items.map(e => e.solar_pct);
+  const colors = useOnColor
+    ? items.map(e => {
+        const t = Math.min((ON_VOTE[e.electorate]||0) / 17, 1);
+        return `rgba(${Math.round(239+(97-239)*t)},${Math.round(121+(37-121)*t)},${Math.round(0+(42-0)*t)},0.85)`;
+      })
+    : items.map(e => solarColor(e.solar_pct));
+
+  const xMax = useOnColor ? 20 : 75;
+  const xLabel = useOnColor ? 'One Nation primary vote (%)' : 'Solar penetration (%)';
+  const ttLabel = useOnColor
+    ? ctx => ` ${ctx.label}: ${ctx.parsed.x}% ON vote | ${ELECTORATES.find(e=>e.electorate===ctx.label)?.solar_pct||'?'}% solar`
+    : ctx => ` ${ctx.parsed.x}% solar | $${Math.round((ELECTORATES.find(e=>e.electorate===ctx.label)?.income_annual||0)/1000)}k income`;
 
   if (electorateChart) {
     electorateChart.data.labels = labels;
     electorateChart.data.datasets[0].data = vals;
     electorateChart.data.datasets[0].backgroundColor = colors;
+    electorateChart.options.scales.x.max = xMax;
+    electorateChart.options.scales.x.title.text = xLabel;
+    electorateChart.options.plugins.tooltip.callbacks.label = ttLabel;
     electorateChart.update();
     return;
   }
   electorateChart = new Chart(document.getElementById('chartElectorates'), {
     type: 'bar',
-    data: { labels, datasets: [{ label: 'Solar %', data: vals, backgroundColor: colors, borderWidth: 0, borderRadius: 3 }] },
+    data: { labels, datasets: [{ label: 'Value', data: vals, backgroundColor: colors, borderWidth: 0, borderRadius: 4 }] },
     options: {
-      indexAxis: 'y', responsive: true, animation: { duration: 700 },
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.x}% solar` } } },
+      indexAxis: 'y', responsive: true, animation: { duration: 600 },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ttLabel } }
+      },
       scales: {
-        x: { min: 0, max: 75, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' } },
-        y: { grid: { display: false } }
+        x: { min: 0, max: xMax, grid: { color: GRID_COLOR }, ticks: { callback: v => v + '%' }, title: { display: true, text: xLabel } },
+        y: { grid: { display: false }, ticks: { font: { size: 11 } } }
       }
     }
   });
